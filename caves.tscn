@@ -27,4 +27,4 @@ polygon = PackedVector2Array(371.689, 56.2004, 420.688, 58.4276, 450.533, 83.372
 [node name="Back" type="Area2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Back"]
-polygon = PackedVector2Array(46.1872, 261.127, 100.364, 239.708, 373.767, 239.078, 432.983, 275.616, 36.1078, 280.656)
+polygon = PackedVector2Array(46.1872, 261.127, 100.364, 239.708, 373.767, 239.078, 432.983, 275.616, 44, 280)
