@@ -3,6 +3,8 @@ class_name TransitionManagerClass extends CanvasLayer
 signal screen_is_black
 signal screen_is_normal
 
+func ready():
+	show()
 
 func fade_in():
 	_fade_from_black()
@@ -23,11 +25,11 @@ func _fade_from_black():
 	$TransitionPlayer.play("fade_from_black")
 
 func _fade_to_black():
-	$TransitionPlayer.play("fade_to_black")
+	$TransitionPlayer.play_backwards("fade_from_black")
 
 
-func transition_to_quit():
-	show()
-	_fade_to_black()
-	await get_tree().create_timer(1).timeout
-	get_tree().quit()
+#func transition_to_quit():
+#	show()
+#	_fade_to_black()
+#	await get_tree().create_timer(1).timeout
+#	get_tree().quit()

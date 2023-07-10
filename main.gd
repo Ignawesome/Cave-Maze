@@ -18,10 +18,17 @@ func _ready():
 func _process(_delta):
 	if Input.is_action_just_pressed("ui_accept"):
 		print("Current room:", current_room)
+	if Input.is_action_just_pressed("transition"):
+		print("Start Transition")
+		transition_manager.fade_out()
+		await get_tree().create_timer(1).timeout
+		transition_manager.fade_in()
+		print("End Transition")
 	
 func check_door(door : int):
-	$TransitionManager.show()
-	$TransitionManager.fade_out()
+	transition_manager.fade_out()
+	await get_tree().create_timer(1).timeout
+	transition_manager.fade_in()	
 	match door :
 		1:
 			print("Entered door 1")
@@ -68,14 +75,12 @@ func go_back():
 
 func go_to_next_room() -> void:
 	$CaveScene.queue_free()
-	await get_tree().create_timer(1.0).timeout
 	self.add_child(cave_scene.instantiate())
 	$CaveScene.check_door_signal.connect(self.check_door)
 	$CaveScene.going_back.connect(self.go_back)
 	
 func end_game() -> void:
 	$CaveScene.queue_free()
-	await get_tree().create_timer(1.0).timeout
 	self.add_child(end_scene.instantiate())
 
 
