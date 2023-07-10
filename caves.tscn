@@ -1,12 +1,20 @@
-[gd_scene load_steps=2 format=3 uid="uid://c5s25uvu1jej6"]
+[gd_scene load_steps=3 format=3 uid="uid://c5s25uvu1jej6"]
 
 [ext_resource type="Texture2D" uid="uid://odl8acnv4sda" path="res://cave.png" id="1_0wsns"]
+[ext_resource type="Script" path="res://caves.gd" id="1_2pie6"]
 
 [node name="CaveScene" type="Node2D"]
+script = ExtResource("1_2pie6")
 
-[node name="CaveBackground" type="TextureRect" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -10
+
+[node name="CaveBackground" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("1_0wsns")
 
 [node name="LeftDoor" type="Area2D" parent="."]
@@ -28,3 +36,8 @@ polygon = PackedVector2Array(371.689, 56.2004, 420.688, 58.4276, 450.533, 83.372
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Back"]
 polygon = PackedVector2Array(46.1872, 261.127, 100.364, 239.708, 373.767, 239.078, 432.983, 275.616, 44, 280)
+
+[connection signal="input_event" from="LeftDoor" to="." method="_on_left_door_input_event" binds= [1]]
+[connection signal="input_event" from="MiddleDoor" to="." method="_on_middle_door_input_event" binds= [2]]
+[connection signal="input_event" from="RightDoor" to="." method="_on_right_door_input_event" binds= [3]]
+[connection signal="input_event" from="Back" to="." method="_on_back_input_event" binds= [0]]

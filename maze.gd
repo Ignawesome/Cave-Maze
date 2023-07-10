@@ -9,14 +9,14 @@ const room = preload("res://caves.tscn")
 
 @export var solution : Dictionary = {
 	room_number[0] : 1,
-	room_number[1] : 1,
-	room_number[2] : 1,
+	room_number[1] : 2,
+	room_number[2] : 3,
 	room_number[3] : 1,
-	room_number[4] : 1,
-	room_number[5] : 1,
+	room_number[4] : 2,
+	room_number[5] : 3,
 	room_number[6] : 1,
-	room_number[7] : 1,
-	room_number[8] : 1,
+	room_number[7] : 2,
+	room_number[8] : 3,
 	room_number[9] : 1
 	}
 	
