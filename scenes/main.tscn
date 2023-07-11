@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_fwelu"]
 [ext_resource type="PackedScene" uid="uid://b4l6fvdx3ybql" path="res://global/transition_manager.tscn" id="2_t7s1y"]
-[ext_resource type="PackedScene" uid="uid://c5s25uvu1jej6" path="res://scenes/game/caves.tscn" id="3_micon"]
+[ext_resource type="PackedScene" uid="uid://bd6v36ui8wl8r" path="res://scenes/menu/main_menu.tscn" id="3_okobd"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_fwelu")
 
 [node name="TransitionManager" parent="." instance=ExtResource("2_t7s1y")]
 
-[node name="CaveScene" parent="." instance=ExtResource("3_micon")]
+[node name="MainMenu" parent="." instance=ExtResource("3_okobd")]

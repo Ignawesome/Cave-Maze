@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://c5s25uvu1jej6"]
 
 [ext_resource type="Script" path="res://scenes/game/caves.gd" id="1_67k3o"]
-[ext_resource type="Texture2D" uid="uid://odl8acnv4sda" path="res://assets/sprites/cave.png" id="2_p2pea"]
+[ext_resource type="Texture2D" uid="uid://odl8acnv4sda" path="res://assets/sprites/cave.png" id="2_6mwlx"]
 
 [node name="CaveScene" type="Node2D"]
 script = ExtResource("1_67k3o")
@@ -15,7 +15,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_p2pea")
+texture = ExtResource("2_6mwlx")
 
 [node name="LeftDoor" type="Area2D" parent="."]
 

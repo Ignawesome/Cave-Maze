@@ -7,10 +7,12 @@ var current_room : int = room_number[0]
 const cave_scene : PackedScene = preload("res://scenes/game/caves.tscn")
 const end_scene : PackedScene = preload("res://scenes/game/end.tscn")
 @onready var transition_manager = $TransitionManager
+@onready var caves = $CaveScene
 
 func _ready():
-	$CaveScene.check_door_signal.connect(self.check_door)
-
+#	$CaveScene.check_door_signal.connect(self.check_door)
+	print("ready")
+	
 func _process(_delta):
 	if Input.is_action_just_pressed("ui_accept"):
 		print("Current room:", current_room)
@@ -21,7 +23,7 @@ func check_door(door : int):
 		1:
 			if 1 == maze.solution.get(room_number[current_room]) :
 				print("Correct")
-				if room_number[current_room] < 9:
+				if room_number[current_room] < 3:
 					current_room += 1
 					go_to_next_room()
 				else:
@@ -32,7 +34,7 @@ func check_door(door : int):
 		2:
 			if 2 == maze.solution.get(room_number[current_room]) :
 				print("Correct")
-				if room_number[current_room] < 9:
+				if room_number[current_room] < 3:
 					current_room += 1
 					go_to_next_room()
 				else:
@@ -43,7 +45,7 @@ func check_door(door : int):
 		3:
 			if 3 == maze.solution.get(room_number[current_room]) :
 				print("Correct")
-				if room_number[current_room] < 9:
+				if room_number[current_room] < 3:
 					current_room += 1
 					go_to_next_room()
 				else:
@@ -55,8 +57,10 @@ func check_door(door : int):
 	
 func go_to_next_room() -> void:
 	$CaveScene.queue_free()
+	await get_tree().create_timer(1.0).timeout
 	self.add_child(cave_scene.instantiate())
-	get_child(1).check_door_signal.connect(self.check_door)
+	$CaveScene.check_door_signal.connect(self.check_door)
+	
 	
 func end_game(win : bool) -> void:
 	$CaveScene.queue_free()
