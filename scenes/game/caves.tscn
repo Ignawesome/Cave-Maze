@@ -33,8 +33,10 @@ polygon = PackedVector2Array(144.51, 86.491, 159.655, 78.9183, 187.273, 72.2366,
 polygon = PackedVector2Array(371.689, 56.2004, 420.688, 58.4276, 450.533, 83.3728, 449.642, 105.2, 446.079, 120.345, 446.079, 153.308, 426.479, 195.181, 359.216, 201.417, 343.18, 168.899, 340.953, 131.481, 348.971, 82.4819, 357.434, 65.1094)
 
 [node name="Back" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Back"]
+visible = false
 polygon = PackedVector2Array(46.1872, 261.127, 100.364, 239.708, 373.767, 239.078, 432.983, 275.616, 44, 280)
 
 [connection signal="input_event" from="LeftDoor" to="." method="_on_left_door_input_event" binds= [1]]

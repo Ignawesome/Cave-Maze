@@ -1,22 +1,36 @@
-class_name TransitionManagerClass extends CanvasLayer
+extends CanvasLayer
 
+@onready var main_menu = SceneDb.menu_node
+@onready var caves = SceneDb.caves_node
 
+func _ready():
+#	main_menu.quit_signal.connect(quit_transition)
+	print("menu: ", main_menu)
 
+func _process(delta):
+	pass
+#	if Input.is_action_just_pressed("fade_in"):
+#		$TransitionPlayer.play("fade_in")
+#	if Input.is_action_just_pressed("fade_out"):
+#		$TransitionPlayer.play("fade_out")
 
+func transition():
+	$TransitionPlayer.play_backwards("fade_in")
+	if not $TransitionPlayer.is_playing():
+		$TransitionPlayer.play_backwards("fade_in")
 
+func fade_in():
+	$TransitionPlayer.play("fade_in")
+	print("faded in finished")
 
-
-
-
-
-
-
-
-
-
-
-
-
+func fade_out():
+	$TransitionPlayer.play_backwards("fade_in")
+	print("faded out finished")
+	
+func quit_transition():
+	$TransitionPlayer.play_backwards("fade_in")
+	if not $TransitionPlayer.is_playing():
+		get_tree().quit()
 
 
 

@@ -1,11 +1,16 @@
 extends Control
 
 const cave_level : PackedScene = preload("res://scenes/game/caves.tscn")
-signal new_game
+
+signal new_game_signal
 signal continue_game
+signal quit_signal
+
 
 func _on_new_game_button_pressed():
-	new_game.emit()
+#	self.add_sibling(cave_level.instantiate())
+	new_game_signal.emit()
+	self.queue_free()
 	pass # Replace with function body.
 
 
@@ -19,4 +24,4 @@ func _on_settings_button_pressed():
 
 
 func _on_quit_button_pressed():
-	get_tree().quit()
+	quit_signal.emit()

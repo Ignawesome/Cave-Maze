@@ -1,5 +1,6 @@
 extends Node2D
 
+signal retry
 
 
 func win_or_lose(win:bool):
@@ -12,7 +13,7 @@ func win_or_lose(win:bool):
 
 
 func _on_retry_button_pressed():
-	
+	retry.emit()
 	
 	pass
 
