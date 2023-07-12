@@ -1,10 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://c5s25uvu1jej6"]
+[gd_scene load_steps=7 format=3 uid="uid://c5s25uvu1jej6"]
 
 [ext_resource type="Script" path="res://scenes/game/caves.gd" id="1_67k3o"]
 [ext_resource type="Texture2D" uid="uid://odl8acnv4sda" path="res://assets/sprites/cave.png" id="2_6mwlx"]
+[ext_resource type="Texture2D" uid="uid://02k74nd17w0r" path="res://assets/sprites/arrowUp.png" id="2_sopod"]
+[ext_resource type="Texture2D" uid="uid://0emu6lmmr4ki" path="res://assets/sprites/pointer.png" id="2_ymyl3"]
+[ext_resource type="Texture2D" uid="uid://dx25p57iix70y" path="res://assets/sprites/arrowLeft.png" id="3_g146t"]
+[ext_resource type="Texture2D" uid="uid://beoynhqs8ca3n" path="res://assets/sprites/arrowRight.png" id="4_8y5ow"]
 
 [node name="CaveScene" type="Node2D"]
 script = ExtResource("1_67k3o")
+cursor = ExtResource("2_ymyl3")
+arrow_up = ExtResource("2_sopod")
+arrow_left = ExtResource("3_g146t")
+arrow_right = ExtResource("4_8y5ow")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -10
@@ -40,6 +48,9 @@ visible = false
 polygon = PackedVector2Array(46.1872, 261.127, 100.364, 239.708, 373.767, 239.078, 432.983, 275.616, 44, 280)
 
 [connection signal="input_event" from="LeftDoor" to="." method="_on_left_door_input_event" binds= [1]]
+[connection signal="mouse_exited" from="LeftDoor" to="." method="_on_mouse_exited"]
 [connection signal="input_event" from="MiddleDoor" to="." method="_on_middle_door_input_event" binds= [2]]
+[connection signal="mouse_exited" from="MiddleDoor" to="." method="_on_mouse_exited"]
 [connection signal="input_event" from="RightDoor" to="." method="_on_right_door_input_event" binds= [3]]
+[connection signal="mouse_exited" from="RightDoor" to="." method="_on_mouse_exited"]
 [connection signal="input_event" from="Back" to="." method="_on_back_input_event" binds= [0]]
