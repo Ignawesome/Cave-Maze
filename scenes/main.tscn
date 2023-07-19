@@ -1,0 +1,18 @@
+[gd_scene load_steps=6 format=3 uid="uid://b8y6fhm02gyrs"]
+
+[ext_resource type="Script" path="res://scenes/main.gd" id="1_fwelu"]
+[ext_resource type="Texture2D" uid="uid://0emu6lmmr4ki" path="res://assets/sprites/pointer.png" id="2_8nejo"]
+[ext_resource type="PackedScene" uid="uid://b4l6fvdx3ybql" path="res://global/transition_manager.tscn" id="3_q5hut"]
+[ext_resource type="Script" path="res://global/scene_db.gd" id="4_oy23e"]
+[ext_resource type="PackedScene" uid="uid://capd2cj8gjih8" path="res://scenes/music_manager.tscn" id="5_opb6c"]
+
+[node name="Main" type="Node"]
+script = ExtResource("1_fwelu")
+cursor = ExtResource("2_8nejo")
+
+[node name="TransitionManager" parent="." instance=ExtResource("3_q5hut")]
+
+[node name="SceneDB" type="Node" parent="."]
+script = ExtResource("4_oy23e")
+
+[node name="MusicManager" parent="." instance=ExtResource("5_opb6c")]
