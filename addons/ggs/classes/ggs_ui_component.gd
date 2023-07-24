@@ -13,7 +13,7 @@ func _ready() -> void:
 
 
 func init_value() -> void:
-	setting_value = setting.current
+	setting_value = 50
 
 
 func apply_setting() -> void:

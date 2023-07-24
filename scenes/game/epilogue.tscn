@@ -1,0 +1,78 @@
+[gd_scene load_steps=14 format=3 uid="uid://dfifv4582mjm8"]
+
+[ext_resource type="Script" path="res://scenes/game/playercontroller.gd" id="1_0b6oa"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_trbou"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vttnu"]
+sky_top_color = Color(0.211765, 0.431373, 0.811765, 1)
+sky_horizon_color = Color(0.756863, 0.580392, 0.807843, 1)
+ground_bottom_color = Color(0.215686, 0.160784, 0.133333, 1)
+ground_horizon_color = Color(0.129412, 0.313726, 0.14902, 1)
+ground_curve = 0.0324903
+sun_angle_max = 63.4
+sun_curve = 0.139955
+
+[sub_resource type="Sky" id="Sky_bq1vp"]
+sky_material = SubResource("ProceduralSkyMaterial_vttnu")
+
+[sub_resource type="Environment" id="Environment_yhecd"]
+background_mode = 2
+background_energy_multiplier = 0.95
+sky = SubResource("Sky_bq1vp")
+fog_light_color = Color(0.223529, 0.247059, 0.282353, 1)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_amg40"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_kffga"]
+size = Vector2(150, 150)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_wv4sd"]
+noise_type = 0
+seed = 1
+frequency = 0.0461
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_vc7ru"]
+noise = SubResource("FastNoiseLite_wv4sd")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_m7vw3"]
+frequency = 0.127
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_6b0uj"]
+noise = SubResource("FastNoiseLite_m7vw3")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ph8q4"]
+albedo_color = Color(0.372549, 0.372549, 0.372549, 1)
+albedo_texture = SubResource("NoiseTexture2D_vc7ru")
+heightmap_texture = SubResource("NoiseTexture2D_6b0uj")
+proximity_fade_distance = 41.55
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_tb0bo"]
+
+[node name="Epilogue" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.851727, -0.473727, 0.22393, 0, 0.427358, 0.904083, -0.523986, 0.770031, -0.363992, 2.20608, 2.87353, 0)
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+script = ExtResource("1_0b6oa")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
+shape = SubResource("CapsuleShape3D_trbou")
+
+[node name="Camera3D" type="Camera3D" parent="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.451052, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_yhecd")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+physics_material_override = SubResource("PhysicsMaterial_amg40")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = SubResource("PlaneMesh_kffga")
+surface_material_override/0 = SubResource("StandardMaterial3D_ph8q4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("WorldBoundaryShape3D_tb0bo")

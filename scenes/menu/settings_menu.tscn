@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://btq2j5isru2lj"]
+[gd_scene load_steps=7 format=3 uid="uid://btq2j5isru2lj"]
 
 [ext_resource type="Script" path="res://addons/ggs/classes/ggs_ui_component.gd" id="2_ubxh5"]
 [ext_resource type="Texture2D" uid="uid://buotak2dk5n0x" path="res://addons/ggs/assets/game_settings/audio_volume.svg" id="3_k5cs5"]
@@ -12,6 +12,20 @@ bus_name = "Music"
 current = 80.0
 default = 80.0
 name = "Master Volume 2"
+category = "Audio"
+icon = ExtResource("3_k5cs5")
+desc = "Change volume of a specific audio bus."
+value_type = 3
+value_hint = 1
+value_hint_string = "0,100"
+
+[sub_resource type="Resource" id="Resource_ia3l4"]
+resource_name = "Audio Volume"
+script = ExtResource("4_j3468")
+bus_name = "Master"
+current = 80.0
+default = 80.0
+name = "Audio Volume"
 category = "Audio"
 icon = ExtResource("3_k5cs5")
 desc = "Change volume of a specific audio bus."
@@ -69,7 +83,7 @@ text = "Master Volume"
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 3
-setting = SubResource("Resource_sy52t")
+setting = SubResource("Resource_ia3l4")
 
 [node name="ggsUIComponent2" type="MarginContainer" parent="MarginContainer/PanelContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2

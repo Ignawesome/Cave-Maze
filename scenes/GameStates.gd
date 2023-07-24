@@ -1,0 +1,10 @@
+extends Node
+
+
+enum GAME_STATES {
+	MAIN_MENU,
+	LOADING,
+	SETTINGS,
+	VICTORY,
+	DEATH
+	}
