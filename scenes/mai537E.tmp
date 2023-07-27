@@ -12,7 +12,6 @@
 script = ExtResource("1_fwelu")
 cave_scene_path = "res://scenes/game/caves.tscn"
 end_scene_path = "res://scenes/game/end.tscn"
-main_menu_path = "res://scenes/menu/main_menu.tscn"
 
 [node name="Background" type="ColorRect" parent="."]
 visible = false

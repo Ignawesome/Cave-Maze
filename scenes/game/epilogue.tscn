@@ -1,8 +1,7 @@
-[gd_scene load_steps=14 format=3 uid="uid://dfifv4582mjm8"]
+[gd_scene load_steps=25 format=3 uid="uid://dfifv4582mjm8"]
 
-[ext_resource type="Script" path="res://scenes/game/playercontroller.gd" id="1_0b6oa"]
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_trbou"]
+[ext_resource type="PackedScene" uid="uid://v81jjo87ydjy" path="res://player.tscn" id="1_d5txf"]
+[ext_resource type="PackedScene" uid="uid://bomag5eys0krb" path="res://assets/other/mueble tv.dae" id="2_st74o"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vttnu"]
 sky_top_color = Color(0.211765, 0.431373, 0.811765, 1)
@@ -49,20 +48,46 @@ proximity_fade_distance = 41.55
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_tb0bo"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pi5h5"]
+cull_mode = 2
+depth_draw_mode = 1
+billboard_mode = 1
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_jq4xh"]
+material = SubResource("StandardMaterial3D_pi5h5")
+
+[sub_resource type="Skin" id="Skin_bs73i"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oaypo"]
+albedo_color = Color(0.368627, 1, 1, 1)
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_n5v3d"]
+
+[sub_resource type="Sky" id="Sky_lmao8"]
+
+[sub_resource type="Environment" id="Environment_e2ten"]
+background_mode = 2
+sky = SubResource("Sky_lmao8")
+
+[sub_resource type="Sky" id="Sky_ccduu"]
+
+[sub_resource type="Environment" id="Environment_825m0"]
+background_mode = 2
+sky = SubResource("Sky_ccduu")
+
+[sub_resource type="World3D" id="World3D_c2fey"]
+environment = SubResource("Environment_e2ten")
+fallback_environment = SubResource("Environment_825m0")
+camera_attributes = SubResource("CameraAttributesPractical_n5v3d")
+
+[sub_resource type="BoxMesh" id="BoxMesh_kp5fy"]
+
 [node name="Epilogue" type="Node3D"]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.851727, -0.473727, 0.22393, 0, 0.427358, 0.904083, -0.523986, 0.770031, -0.363992, 2.20608, 2.87353, 0)
 
-[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-script = ExtResource("1_0b6oa")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
-shape = SubResource("CapsuleShape3D_trbou")
-
-[node name="Camera3D" type="Camera3D" parent="CharacterBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.451052, 0)
+[node name="CharacterBody3D" parent="." instance=ExtResource("1_d5txf")]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_yhecd")
@@ -76,3 +101,34 @@ surface_material_override/0 = SubResource("StandardMaterial3D_ph8q4")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 shape = SubResource("WorldBoundaryShape3D_tb0bo")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(-8.99418e-08, -1, 0, 2.05763, -4.37114e-08, 0, 0, 0, 5.56069, 8.91446, 2, 0.337719)
+mesh = SubResource("PlaneMesh_jq4xh")
+skin = SubResource("Skin_bs73i")
+surface_material_override/0 = SubResource("StandardMaterial3D_oaypo")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="MeshInstance3D"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="MeshInstance3D/SubViewportContainer"]
+world_3d = SubResource("World3D_c2fey")
+handle_input_locally = false
+size = Vector2i(480, 270)
+render_target_update_mode = 4
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(-6.66779e-15, 1.25106e-08, 18.729, 4.06071, -1.25106e-08, 0, 1.77499e-07, 0.286209, -8.1867e-07, -0.221145, 2, 6)
+mesh = SubResource("BoxMesh_kp5fy")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(-6.66779e-15, 1.25106e-08, 18.729, 4.06071, -1.25106e-08, 0, 1.77499e-07, 0.286209, -8.1867e-07, -0.221145, 2, 6)
+mesh = SubResource("BoxMesh_kp5fy")
+
+[node name="mueble tv2" parent="." instance=ExtResource("2_st74o")]
+transform = Transform3D(1.97693, 0, 0, 0, 1.92271, 0, 0, 0, 0.997026, 0.793752, 0.73187, 5.22344)
