@@ -4,16 +4,13 @@ extends Node
 @export var end_scene_path : String
 @export var main_menu_path : String
 
-var cave_node_path : NodePath
-var menu_node_path : NodePath
-var cave_node
+var current_node
+
 @onready var main_menu : Control = $UI/MainMenu
-@onready var cave_scene_ready : Node2D = $GameWorld/CaveScene
 
 
 func _ready():
-	print(menu_node_path)
-	connect_scene_signal(main_menu)
+	connect_scene_signals(main_menu)
 	$StateManager.change_state(2)
 
 
@@ -37,20 +34,31 @@ func end_transition():
 
 func _process(delta):
 	if Input.is_action_just_pressed("quit"):
-		get_tree().quit()
+		show_menu()
+#		get_tree().quit()
 
 func change_scene_to(scene_file_path):
 	$StateManager.change_state(3)
 	await start_transition()
-	delete_current_scene(cave_node)
-	cave_node = instantiate_scene(scene_file_path)
-	connect_scene_signal(cave_node)
+	await delete_current_scene(current_node)
+	current_node = instantiate_scene(scene_file_path)
+	connect_scene_signals(current_node)
 	end_transition()
-	return cave_node
+	return current_node
 
-func connect_scene_signal(node):
+func show_menu():
+	if $StateManager.current_state == 1:
+		var new_menu : PackedScene = load(main_menu_path)
+		var node : Node = new_menu.instantiate()
+		if node != null:
+			$UI.add_child(node)
+			connect_scene_signals(node)
+			$StateManager.change_state(2)
+
+func connect_scene_signals(node : Node):
 	if node != null:
 		var signal_list = node.get_signal_list()
+		print(signal_list)
 		for i in signal_list:
 			match i.name:
 				"new_room_signal":
@@ -71,7 +79,7 @@ func instantiate_scene(path : String):
 		return node
 
 func delete_current_scene(current_node):
-	var menu = $UI.get_node_or_null("MainMenu") 
+	var menu = $UI.get_node_or_null("MainMenu")
 	if menu != null:
 		menu.queue_free()
 	if current_node != null:

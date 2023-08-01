@@ -1,4 +1,5 @@
 extends Node
+class_name GameState
 
 var current_state : int
 
@@ -38,6 +39,7 @@ func change_state(state):
 			playing_state(false)
 			show_menu(false)
 			show_mouse(false)
+			
 			
 		GAME_STATES.SETTINGS:
 			print("State set to: SETTINGS ", current_state)

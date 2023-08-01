@@ -40,11 +40,12 @@ mouse_filter = 2
 
 [node name="MainMenu" parent="UI" instance=ExtResource("3_au7lq")]
 layout_mode = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="TransitionManager" parent="." instance=ExtResource("2_4dtgm")]
+visible = false
 
 [node name="MusicManager" type="Node" parent="."]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="MusicManager"]
 stream = ExtResource("3_x0lhm")
-autoplay = true
