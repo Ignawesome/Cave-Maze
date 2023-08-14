@@ -1,10 +1,16 @@
-extends Node2D
-class_name CaveLevel
+extends Level
 
 signal new_room_signal
 signal game_over_signal
 
+signal berkano_pickup
+@onready var berkano = preload("res://scenes/menu/UI_item.tscn")
+
+
 @onready var state_manager = get_node("/root/Main/StateManager")
+
+
+
 
 func check_door(door : int):
 	match door:
@@ -55,3 +61,11 @@ func _on_right_door_input_event(_viewport, event, _shape_idx):
 	if event is InputEventMouseButton and event.button_index == 1 and event.pressed:
 		if state_manager.current_state != 3:
 			check_door(3)
+
+
+func _on_arrow_left_input_event(_viewport, event, _shape_idx):
+	if event is InputEventMouseButton and event.button_index == 1 and event.pressed:
+		berkano_pickup.emit(berkano)
+		
+		
+	pass # Replace with function body.

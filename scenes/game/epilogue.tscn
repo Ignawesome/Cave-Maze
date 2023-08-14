@@ -1,6 +1,6 @@
 [gd_scene load_steps=25 format=3 uid="uid://dfifv4582mjm8"]
 
-[ext_resource type="PackedScene" uid="uid://v81jjo87ydjy" path="res://player.tscn" id="1_d5txf"]
+[ext_resource type="PackedScene" uid="uid://v81jjo87ydjy" path="res://debug/player.tscn" id="1_d5txf"]
 [ext_resource type="PackedScene" uid="uid://bomag5eys0krb" path="res://assets/other/mueble tv.dae" id="2_st74o"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vttnu"]

@@ -9,7 +9,8 @@ enum GAME_STATES {
 	MENU,
 	LOADING,
 	END,
-	SETTINGS
+	SETTINGS,
+	INVENTORY
 	}
 
 func change_state(state):
@@ -19,6 +20,7 @@ func change_state(state):
 			print("State set to: CUTSCENE ", current_state)
 			show_mouse(false)
 			playing_state(false)
+			hide_inventory(true)
 			
 		GAME_STATES.PLAYING:
 			print("State set to: PLAYING ", current_state)
@@ -26,12 +28,14 @@ func change_state(state):
 				$"../UI".get_node_or_null("MainMenu").queue_free()
 			playing_state(true)
 			show_mouse(true)
+			hide_inventory(true)
 			#play cave music
 			
 		GAME_STATES.MENU:
 			print("State set to: MENU ", current_state)
 			show_mouse(true)
 			playing_state(false)
+			hide_inventory(true)
 			#play menu music
 			
 		GAME_STATES.LOADING:
@@ -39,18 +43,26 @@ func change_state(state):
 			playing_state(false)
 			show_menu(false)
 			show_mouse(false)
-			
+			hide_inventory(true)
 			
 		GAME_STATES.SETTINGS:
 			print("State set to: SETTINGS ", current_state)
 			playing_state(false)
 			show_mouse(true)
+			hide_inventory(true)
 			
 		GAME_STATES.END:
 			print("State set to: END ", current_state)
 			playing_state(false)
 			show_mouse(true)
+			hide_inventory(true)
 			#play victory or defeat music
+			
+		GAME_STATES.INVENTORY:
+			print("State set to: INVENTORY ", current_state)
+			show_mouse(true)
+			playing_state(true)
+			hide_inventory(false)
 			
 
 			
@@ -74,3 +86,10 @@ func show_menu(show):
 		SceneDb.user_interface.add_child(main_menu_node)
 	elif not show and (main_menu_node != null):
 		main_menu_node.queue_free()
+
+func hide_inventory(hide):
+	if hide:
+		$"../UI/Inventory".hide()
+	else:
+		$"../UI/Inventory".show()
+	

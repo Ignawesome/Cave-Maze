@@ -1,0 +1,105 @@
+[gd_scene load_steps=9 format=3 uid="uid://babuf0fbdot0b"]
+
+[ext_resource type="Theme" uid="uid://dtxalj7m5sqy5" path="res://scenes/menu/CaveTheme.tres" id="1_bo5ou"]
+[ext_resource type="Script" path="res://scenes/menu/InventoryUI.gd" id="2_k28i1"]
+[ext_resource type="PackedScene" uid="uid://br4av6js0a2ku" path="res://scenes/menu/UI_item.tscn" id="3_kgxmj"]
+[ext_resource type="Texture2D" uid="uid://cvamuu4yr4ath" path="res://assets/textures/Runes.png" id="4_g8y1x"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k1o4o"]
+atlas = ExtResource("4_g8y1x")
+region = Rect2(216, 240, 54, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f8lti"]
+atlas = ExtResource("4_g8y1x")
+region = Rect2(54, 240, 54, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h4sna"]
+atlas = ExtResource("4_g8y1x")
+region = Rect2(270, 240, 54, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3orsh"]
+atlas = ExtResource("4_g8y1x")
+region = Rect2(0, 240, 54, 60)
+
+[node name="Inventory" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 2.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_bo5ou")
+script = ExtResource("2_k28i1")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 163.0
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TabContainer" type="TabContainer" parent="Panel/MarginContainer"]
+layout_mode = 2
+
+[node name="Items" type="ScrollContainer" parent="Panel/MarginContainer/TabContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer/TabContainer/Items"]
+custom_minimum_size = Vector2(120, 200)
+layout_mode = 2
+
+[node name="Perthro" parent="Panel/MarginContainer/TabContainer/Items/VBoxContainer" instance=ExtResource("3_kgxmj")]
+custom_minimum_size = Vector2(100, 25)
+layout_mode = 2
+item_name = "Perthro"
+item_texture = SubResource("AtlasTexture_k1o4o")
+
+[node name="Algiz" parent="Panel/MarginContainer/TabContainer/Items/VBoxContainer" instance=ExtResource("3_kgxmj")]
+custom_minimum_size = Vector2(100, 25)
+layout_mode = 2
+item_name = "Algiz"
+item_texture = SubResource("AtlasTexture_f8lti")
+
+[node name="Berkano" parent="Panel/MarginContainer/TabContainer/Items/VBoxContainer" instance=ExtResource("3_kgxmj")]
+custom_minimum_size = Vector2(100, 25)
+layout_mode = 2
+item_name = "Berkano"
+item_texture = SubResource("AtlasTexture_h4sna")
+
+[node name="Jera" parent="Panel/MarginContainer/TabContainer/Items/VBoxContainer" instance=ExtResource("3_kgxmj")]
+custom_minimum_size = Vector2(100, 25)
+layout_mode = 2
+item_name = "Jera"
+item_texture = SubResource("AtlasTexture_3orsh")
+
+[node name="Notes" type="ScrollContainer" parent="Panel/MarginContainer/TabContainer"]
+visible = false
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer/TabContainer/Notes"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ItemButton4" parent="Panel/MarginContainer/TabContainer/Notes/VBoxContainer" instance=ExtResource("3_kgxmj")]
+layout_mode = 2
+
+[node name="ItemButton" parent="Panel/MarginContainer/TabContainer/Notes/VBoxContainer" instance=ExtResource("3_kgxmj")]
+layout_mode = 2
+
+[node name="ItemButton2" parent="Panel/MarginContainer/TabContainer/Notes/VBoxContainer" instance=ExtResource("3_kgxmj")]
+layout_mode = 2
+
+[node name="ItemButton3" parent="Panel/MarginContainer/TabContainer/Notes/VBoxContainer" instance=ExtResource("3_kgxmj")]
+layout_mode = 2
