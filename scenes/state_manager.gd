@@ -50,6 +50,7 @@ func change_state(state):
 			playing_state(false)
 			show_mouse(true)
 			hide_inventory(true)
+			show_menu(false)
 			
 		GAME_STATES.END:
 			print("State set to: END ", current_state)

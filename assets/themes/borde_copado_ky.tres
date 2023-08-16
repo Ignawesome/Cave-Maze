@@ -1,16 +1,17 @@
 [gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://60u1jnis73lu"]
 
-[ext_resource type="Texture2D" uid="uid://biu4wtvq5mqcd" path="res://scenes/menu/borderUI.png" id="1_s3ncu"]
+[ext_resource type="Texture2D" uid="uid://biu4wtvq5mqcd" path="res://assets/themes/border_UI.png" id="1_7b23w"]
 
 [resource]
-content_margin_left = 13.0
-content_margin_top = 13.0
-content_margin_right = 13.0
-content_margin_bottom = 13.0
-texture = ExtResource("1_s3ncu")
+content_margin_left = 20.0
+content_margin_top = 20.0
+content_margin_right = 20.0
+content_margin_bottom = 20.0
+texture = ExtResource("1_7b23w")
 texture_margin_left = 13.0
 texture_margin_top = 13.0
 texture_margin_right = 14.0
 texture_margin_bottom = 13.0
 axis_stretch_horizontal = 1
 axis_stretch_vertical = 1
+modulate_color = Color(0.854902, 0.854902, 0.854902, 1)

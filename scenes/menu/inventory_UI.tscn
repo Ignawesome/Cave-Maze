@@ -1,0 +1,196 @@
+[gd_scene load_steps=8 format=3 uid="uid://babuf0fbdot0b"]
+
+[ext_resource type="Theme" uid="uid://dtxalj7m5sqy5" path="res://assets/themes/avoid_cave_theme.tres" id="1_naw7n"]
+[ext_resource type="Script" path="res://scenes/menu/inventory_UI.gd" id="2_8yogl"]
+[ext_resource type="Texture2D" uid="uid://c6mogvtb6ainy" path="res://assets/textures/runes.tres" id="4_2okop"]
+[ext_resource type="Theme" uid="uid://bvke1eripwx1b" path="res://assets/themes/border_theme.tres" id="4_63ptd"]
+[ext_resource type="Texture2D" uid="uid://cvamuu4yr4ath" path="res://assets/textures/Runes.png" id="5_spy8j"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w8q74"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0wneh"]
+atlas = ExtResource("5_spy8j")
+region = Rect2(108, 60, 54, 60)
+
+[node name="Inventory" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_naw7n")
+script = ExtResource("2_8yogl")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.285417
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TabContainer" type="TabContainer" parent="Panel/MarginContainer"]
+layout_mode = 2
+tab_alignment = 1
+
+[node name="Items" type="ScrollContainer" parent="Panel/MarginContainer/TabContainer"]
+layout_mode = 2
+
+[node name="ItemContainer" type="GridContainer" parent="Panel/MarginContainer/TabContainer/Items"]
+unique_name_in_owner = true
+layout_mode = 2
+columns = 3
+
+[node name="Slot 1" type="PanelContainer" parent="Panel/MarginContainer/TabContainer/Items/ItemContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+theme = ExtResource("4_63ptd")
+theme_override_styles/panel = SubResource("StyleBoxFlat_w8q74")
+
+[node name="TextureButton" type="TextureButton" parent="Panel/MarginContainer/TabContainer/Items/ItemContainer/Slot 1"]
+layout_mode = 2
+texture_normal = ExtResource("4_2okop")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Slot 2" type="PanelContainer" parent="Panel/MarginContainer/TabContainer/Items/ItemContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 0
+theme = ExtResource("4_63ptd")
+theme_override_styles/panel = SubResource("StyleBoxFlat_w8q74")
+
+[node name="Button" type="Button" parent="Panel/MarginContainer/TabContainer/Items/ItemContainer/Slot 2"]
+layout_mode = 2
+icon = SubResource("AtlasTexture_0wneh")
+expand_icon = true
+
+[node name="Slot 3" type="PanelContainer" parent="Panel/MarginContainer/TabContainer/Items/ItemContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+theme = ExtResource("4_63ptd")
+theme_override_styles/panel = SubResource("StyleBoxFlat_w8q74")
+
+[node name="Slot 4" type="PanelContainer" parent="Panel/MarginContainer/TabContainer/Items/ItemContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+theme = ExtResource("4_63ptd")
+theme_override_styles/panel = SubResource("StyleBoxFlat_w8q74")
+
+[node name="Slot 5" type="PanelContainer" parent="Panel/MarginContainer/TabContainer/Items/ItemContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+theme = ExtResource("4_63ptd")
+theme_override_styles/panel = SubResource("StyleBoxFlat_w8q74")
+
+[node name="Slot 6" type="PanelContainer" parent="Panel/MarginContainer/TabContainer/Items/ItemContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+theme = ExtResource("4_63ptd")
+theme_override_styles/panel = SubResource("StyleBoxFlat_w8q74")
+
+[node name="Slot 7" type="PanelContainer" parent="Panel/MarginContainer/TabContainer/Items/ItemContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+theme = ExtResource("4_63ptd")
+theme_override_styles/panel = SubResource("StyleBoxFlat_w8q74")
+
+[node name="Slot 8" type="PanelContainer" parent="Panel/MarginContainer/TabContainer/Items/ItemContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+theme = ExtResource("4_63ptd")
+theme_override_styles/panel = SubResource("StyleBoxFlat_w8q74")
+
+[node name="Slot 9" type="PanelContainer" parent="Panel/MarginContainer/TabContainer/Items/ItemContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+theme = ExtResource("4_63ptd")
+theme_override_styles/panel = SubResource("StyleBoxFlat_w8q74")
+
+[node name="Slot 10" type="PanelContainer" parent="Panel/MarginContainer/TabContainer/Items/ItemContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+theme = ExtResource("4_63ptd")
+theme_override_styles/panel = SubResource("StyleBoxFlat_w8q74")
+
+[node name="Slot 11" type="PanelContainer" parent="Panel/MarginContainer/TabContainer/Items/ItemContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+theme = ExtResource("4_63ptd")
+theme_override_styles/panel = SubResource("StyleBoxFlat_w8q74")
+
+[node name="Slot 12" type="PanelContainer" parent="Panel/MarginContainer/TabContainer/Items/ItemContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+theme = ExtResource("4_63ptd")
+theme_override_styles/panel = SubResource("StyleBoxFlat_w8q74")
+
+[node name="Slot 13" type="PanelContainer" parent="Panel/MarginContainer/TabContainer/Items/ItemContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+theme = ExtResource("4_63ptd")
+theme_override_styles/panel = SubResource("StyleBoxFlat_w8q74")
+
+[node name="Slot 14" type="PanelContainer" parent="Panel/MarginContainer/TabContainer/Items/ItemContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+theme = ExtResource("4_63ptd")
+theme_override_styles/panel = SubResource("StyleBoxFlat_w8q74")
+
+[node name="Slot 15" type="PanelContainer" parent="Panel/MarginContainer/TabContainer/Items/ItemContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+theme = ExtResource("4_63ptd")
+theme_override_styles/panel = SubResource("StyleBoxFlat_w8q74")
+
+[node name="Slot 16" type="PanelContainer" parent="Panel/MarginContainer/TabContainer/Items/ItemContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+theme = ExtResource("4_63ptd")
+theme_override_styles/panel = SubResource("StyleBoxFlat_w8q74")
+
+[node name="Slot 17" type="PanelContainer" parent="Panel/MarginContainer/TabContainer/Items/ItemContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+theme = ExtResource("4_63ptd")
+theme_override_styles/panel = SubResource("StyleBoxFlat_w8q74")
+
+[node name="Slot 18" type="PanelContainer" parent="Panel/MarginContainer/TabContainer/Items/ItemContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+theme = ExtResource("4_63ptd")
+theme_override_styles/panel = SubResource("StyleBoxFlat_w8q74")
+
+[node name="Notes" type="ScrollContainer" parent="Panel/MarginContainer/TabContainer"]
+visible = false
+layout_mode = 2
+
+[node name="NoteContainer" type="VBoxContainer" parent="Panel/MarginContainer/TabContainer/Notes"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1

@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="Cave Maze"
+config/tags=PackedStringArray("my_project")
 run/main_scene="res://scenes/main.tscn"
 config/features=PackedStringArray("4.1", "GL Compatibility")
 config/icon="res://assets/sprites/icon.svg"
@@ -41,6 +42,12 @@ enabled=PackedStringArray()
 [global]
 
 look_sensitivity=0.0
+
+[gui]
+
+fonts/dynamic_fonts/use_oversampling=false
+theme/custom_font="res://assets/other/alagard_by_Hewett_Tsoi.ttf"
+theme/default_font_subpixel_positioning=0
 
 [input]
 

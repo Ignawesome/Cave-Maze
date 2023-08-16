@@ -50,4 +50,4 @@ polygon = PackedVector2Array(27, 30, -27, 30, -27, -30, 27, -30)
 [connection signal="input_event" from="LeftDoor" to="." method="_on_left_door_input_event"]
 [connection signal="input_event" from="MiddleDoor" to="." method="_on_middle_door_input_event"]
 [connection signal="input_event" from="RightDoor" to="." method="_on_right_door_input_event"]
-[connection signal="input_event" from="Berkano" to="." method="_on_arrow_left_input_event"]
+[connection signal="input_event" from="Berkano" to="." method="_on_berkano_input_event"]

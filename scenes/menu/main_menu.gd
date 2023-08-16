@@ -1,4 +1,6 @@
 extends Control
+class_name MainMenu
+
 
 signal new_game_signal
 signal continue_signal

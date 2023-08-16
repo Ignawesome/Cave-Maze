@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://scenes/state_manager.gd" id="2_s1bix"]
 [ext_resource type="PackedScene" uid="uid://bd6v36ui8wl8r" path="res://scenes/menu/main_menu.tscn" id="3_au7lq"]
 [ext_resource type="AudioStream" uid="uid://dh68sxbhsemj8" path="res://assets/sounds/cave themeb4.ogg" id="3_x0lhm"]
-[ext_resource type="PackedScene" uid="uid://babuf0fbdot0b" path="res://scenes/menu/InventoryUI.tscn" id="4_320yq"]
+[ext_resource type="PackedScene" uid="uid://babuf0fbdot0b" path="res://scenes/menu/inventory_UI.tscn" id="4_320yq"]
 
 [sub_resource type="GDScript" id="GDScript_t4qsd"]
 
@@ -41,10 +41,12 @@ grow_vertical = 2
 mouse_filter = 2
 
 [node name="MainMenu" parent="UI" instance=ExtResource("3_au7lq")]
+unique_name_in_owner = true
 layout_mode = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="Inventory" parent="UI" instance=ExtResource("4_320yq")]
+unique_name_in_owner = true
 visible = false
 layout_mode = 1
 
@@ -55,3 +57,6 @@ visible = false
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="MusicManager"]
 stream = ExtResource("3_x0lhm")
+autoplay = true
+stream_paused = true
+bus = &"Music"

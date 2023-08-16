@@ -3,10 +3,6 @@ extends Level
 signal new_room_signal
 signal game_over_signal
 
-signal berkano_pickup
-@onready var berkano = preload("res://scenes/menu/UI_item.tscn")
-
-
 @onready var state_manager = get_node("/root/Main/StateManager")
 
 
@@ -38,7 +34,7 @@ func correct_door_chosen(correct : bool):
 			game_over_signal.emit(true)
 		else:
 			maze.current_room += 1
-			new_room_signal.emit()
+			new_room_signal.emit(SceneDb.cave_scene_path)
 	else:
 		game_over_signal.emit(false)
 
@@ -63,9 +59,10 @@ func _on_right_door_input_event(_viewport, event, _shape_idx):
 			check_door(3)
 
 
-func _on_arrow_left_input_event(_viewport, event, _shape_idx):
+func _on_berkano_input_event(_viewport, event, _shape_idx):
 	if event is InputEventMouseButton and event.button_index == 1 and event.pressed:
-		berkano_pickup.emit(berkano)
+		InventoryDb.add_to_inventory("Berkano")
+		print("berkano sent to inventory manager")
 		
 		
 	pass # Replace with function body.
