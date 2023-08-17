@@ -63,7 +63,6 @@ layout_mode = 2
 tab_alignment = 1
 
 [node name="Items" type="ScrollContainer" parent="Panel/MarginContainer/TabContainer"]
-visible = false
 layout_mode = 2
 
 [node name="ItemContainer" type="GridContainer" parent="Panel/MarginContainer/TabContainer/Items"]
@@ -164,6 +163,7 @@ size_flags_horizontal = 3
 alignment = 1
 
 [node name="ItemList" type="ItemList" parent="Panel/MarginContainer/TabContainer"]
+visible = false
 layout_mode = 2
 tooltip_text = "Item description 1
 "
@@ -194,3 +194,5 @@ item_4/text = "Key"
 item_4/icon = SubResource("AtlasTexture_iynte")
 item_5/text = "Blender"
 item_5/icon = SubResource("AtlasTexture_w42ke")
+
+[connection signal="gui_input" from="." to="." method="_hide_inventory_on_external_click"]

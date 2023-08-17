@@ -12,3 +12,8 @@ func create_item(name, texture):
 	new_button.set_expand_icon(true)
 	new_button.alignment = 0
 	print(name + " item created")
+
+
+func _hide_inventory_on_external_click(event):
+	if event is InputEventMouseButton and event.button_index == 1 and event.pressed:
+		SceneDb.main.show_inventory()
