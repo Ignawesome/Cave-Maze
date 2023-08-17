@@ -76,7 +76,6 @@ func playing_state(playing : bool):
 func show_mouse(show):
 	if show:
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-		Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED)
 	if not show:
 		Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 

@@ -58,5 +58,4 @@ visible = false
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="MusicManager"]
 stream = ExtResource("3_x0lhm")
 autoplay = true
-stream_paused = true
 bus = &"Music"
