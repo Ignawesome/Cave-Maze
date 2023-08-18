@@ -94,7 +94,7 @@ layout_mode = 2
 focus_neighbor_top = NodePath("../ControlsButton")
 toggle_mode = true
 button_group = ExtResource("3_3xvpl")
-text = "Main Menu"
+text = "Back"
 
 [node name="VSeparator" type="VSeparator" parent="PanelContainer/HBoxContainer"]
 layout_mode = 2
@@ -112,6 +112,7 @@ texture = SubResource("NoiseTexture2D_8kxqq")
 expand_mode = 4
 
 [node name="AudioContainer" type="VBoxContainer" parent="PanelContainer/HBoxContainer/PanelContainer"]
+unique_name_in_owner = true
 visible = false
 layout_mode = 2
 
@@ -149,6 +150,7 @@ step = 0.001
 value = 0.5
 
 [node name="DisplayContainer" type="VBoxContainer" parent="PanelContainer/HBoxContainer/PanelContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 
 [node name="VBoxContainer" type="HBoxContainer" parent="PanelContainer/HBoxContainer/PanelContainer/DisplayContainer"]
@@ -192,6 +194,7 @@ text = "Fullscreen
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 6
+button_pressed = true
 
 [node name="VBoxContainer3" type="HBoxContainer" parent="PanelContainer/HBoxContainer/PanelContainer/DisplayContainer"]
 layout_mode = 2
@@ -204,6 +207,7 @@ text = "Monitor
 "
 
 [node name="MonitorCheckBox" type="OptionButton" parent="PanelContainer/HBoxContainer/PanelContainer/DisplayContainer/VBoxContainer3"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 6
 item_count = 2
@@ -213,6 +217,7 @@ popup/item_1/text = "Secondary"
 popup/item_1/id = 1
 
 [node name="ControlsContainer" type="VBoxContainer" parent="PanelContainer/HBoxContainer/PanelContainer"]
+unique_name_in_owner = true
 visible = false
 layout_mode = 2
 

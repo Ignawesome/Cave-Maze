@@ -71,4 +71,4 @@ grow_vertical = 2
 mouse_filter = 2
 texture = ExtResource("2_0jdac")
 
-[connection signal="animation_finished" from="TransitionPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="animation_finished" from="TransitionPlayer" to="." method="_on_transition_player_animation_finished"]

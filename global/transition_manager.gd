@@ -9,15 +9,13 @@ func _process(delta):
 	if Input.is_action_just_pressed("fade_out"):
 		fade_out()
 
-#func _ready():
-#	hide()
 
 func fade_in():
 	show()
 	$BlackOverlay.set_mouse_filter(2)
 	$TransitionPlayer.play("fade_in")
 	await $TransitionPlayer.animation_finished
-	
+
 
 func fade_out():
 	show()

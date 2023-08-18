@@ -2,6 +2,7 @@ extends Node
 class_name GameState
 
 var current_state : int
+var previous_state : int
 
 enum GAME_STATES {
 	CUTSCENE,
@@ -13,7 +14,9 @@ enum GAME_STATES {
 	INVENTORY
 	}
 
+
 func change_state(state):
+	previous_state = current_state
 	current_state = state
 	match current_state:		
 		GAME_STATES.CUTSCENE:
@@ -36,6 +39,7 @@ func change_state(state):
 			show_mouse(true)
 			playing_state(false)
 			hide_inventory(true)
+			show_menu(true)
 			#play menu music
 			
 		GAME_STATES.LOADING:
@@ -66,6 +70,11 @@ func change_state(state):
 			hide_inventory(false)
 			
 
+func change_state_to_previous():
+	change_state(previous_state)
+	
+
+
 			
 func playing_state(playing : bool):
 	if playing:
@@ -80,12 +89,11 @@ func show_mouse(show):
 		Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 
 func show_menu(show):
-	var main_menu_node : Control
-	if show:
-		main_menu_node = SceneDb.main_menu.instantiate()
-		SceneDb.user_interface.add_child(main_menu_node)
+	var main_menu_node = SceneDb.user_interface.find_child("MainMenu", false, false)
+	if show and (main_menu_node != null):
+		main_menu_node.show()
 	elif not show and (main_menu_node != null):
-		main_menu_node.queue_free()
+		main_menu_node.hide()
 
 func hide_inventory(hide):
 	if hide:

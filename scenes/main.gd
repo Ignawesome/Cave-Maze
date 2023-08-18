@@ -6,6 +6,7 @@ extends Node
 @export var inventory_path : String
 
 var current_node
+var config_file = ConfigFile.new()
 
 @onready var inventory_node := %Inventory
 @onready var main_menu := %MainMenu
@@ -14,6 +15,7 @@ var current_node
 func _ready():
 	connect_scene_signals(main_menu)
 	$StateManager.change_state(2)
+	%Settings.load_and_apply_all_settings_from_file(config_file)
 
 func new_game():
 	# Show intro
@@ -48,8 +50,8 @@ func _process(delta):
 
 
 func change_scene_to(scene_file_path : String):
-	$StateManager.change_state(3)
 	await start_transition()
+	$StateManager.change_state(3)
 	await delete_current_scene(current_node)
 	current_node = instantiate_scene(scene_file_path)
 	connect_scene_signals(current_node)
@@ -59,7 +61,7 @@ func change_scene_to(scene_file_path : String):
 
 
 func show_menu():
-	if $StateManager.current_state == 1 or $StateManager.current_state == 5 or $StateManager.current_state == 6 :
+	if $StateManager.current_state == 1 or $StateManager.current_state == 6 :
 		var new_menu : PackedScene = load(main_menu_path)
 		var node : Node = new_menu.instantiate()
 		if $StateManager.current_state == 1:
@@ -71,14 +73,20 @@ func show_menu():
 			$StateManager.change_state(2)
 
 func show_settings():
-	var m_menu = $UI.find_child("MainMenu*", false, false)
-	if m_menu != null:
-		m_menu.queue_free()
 	if $StateManager.current_state != 5:
-		var settings_menu = SceneDb.settings.instantiate()
-		SceneDb.user_interface.add_child(settings_menu)
+		%Settings.show()
 		$StateManager.change_state(5)
-	pass
+	
+	
+	
+#	var m_menu = $UI.find_child("MainMenu*", false, false)
+#	if m_menu != null:
+#		m_menu.queue_free()
+#	if $StateManager.current_state != 5:
+#		var settings_menu = SceneDb.settings.instantiate()
+#		SceneDb.user_interface.add_child(settings_menu)
+#		$StateManager.change_state(5)
+
 
 func show_inventory():
 	if $StateManager.current_state == 6:
@@ -87,10 +95,6 @@ func show_inventory():
 	elif $StateManager.current_state == 1:
 		%Inventory.show()
 		$StateManager.change_state(6)
-	else:
-		pass
-
-
 
 
 func connect_scene_signals(node : Node):

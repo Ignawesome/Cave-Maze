@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=17 format=3 uid="uid://bvke1eripwx1b"]
+[gd_resource type="Theme" load_steps=18 format=3 uid="uid://bvke1eripwx1b"]
 
 [ext_resource type="Texture2D" uid="uid://biu4wtvq5mqcd" path="res://assets/themes/border_UI.png" id="1_dat7y"]
 [ext_resource type="FontFile" uid="uid://dps85q238gydx" path="res://assets/other/Kenney Mini.ttf" id="2_0km3x"]
@@ -42,6 +42,18 @@ corner_radius_top_left = 2
 corner_radius_top_right = 2
 corner_radius_bottom_right = 2
 corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6dxbd"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sjhsf"]
 texture = ExtResource("1_dat7y")
@@ -126,6 +138,7 @@ Button/styles/disabled = SubResource("StyleBoxFlat_qnsva")
 Button/styles/focus = SubResource("StyleBoxFlat_thlul")
 Button/styles/hover = SubResource("StyleBoxFlat_i23g4")
 Button/styles/normal = SubResource("StyleBoxFlat_7x8mo")
+CheckBox/styles/pressed = SubResource("StyleBoxFlat_6dxbd")
 Label/colors/font_color = Color(0.976471, 0.976471, 0.976471, 1)
 Label/colors/font_outline_color = Color(0, 0, 0, 1)
 Label/colors/font_shadow_color = Color(0, 0, 0, 0.784314)

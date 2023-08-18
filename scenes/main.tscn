@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://b8y6fhm02gyrs"]
+[gd_scene load_steps=9 format=3 uid="uid://b8y6fhm02gyrs"]
 
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_fwelu"]
 [ext_resource type="PackedScene" uid="uid://b4l6fvdx3ybql" path="res://global/transition_manager.tscn" id="2_4dtgm"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bd6v36ui8wl8r" path="res://scenes/menu/main_menu.tscn" id="3_au7lq"]
 [ext_resource type="AudioStream" uid="uid://dh68sxbhsemj8" path="res://assets/sounds/cave themeb4.ogg" id="3_x0lhm"]
 [ext_resource type="PackedScene" uid="uid://babuf0fbdot0b" path="res://scenes/menu/inventory_UI.tscn" id="4_320yq"]
+[ext_resource type="PackedScene" uid="uid://dy3buq74oqbom" path="res://scenes/menu/settings.tscn" id="5_pmhfd"]
 
 [sub_resource type="GDScript" id="GDScript_t4qsd"]
 
@@ -46,6 +47,11 @@ layout_mode = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="Inventory" parent="UI" instance=ExtResource("4_320yq")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+
+[node name="Settings" parent="UI" instance=ExtResource("5_pmhfd")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 1
