@@ -41,21 +41,24 @@ polygon = PackedVector2Array(371.689, 56.2004, 420.688, 58.4276, 450.533, 83.372
 [node name="Berkano" type="Area2D" parent="."]
 
 [node name="BerkanoSprite" type="Sprite2D" parent="Berkano"]
-position = Vector2(420, 225)
+position = Vector2(433.5, 240)
+scale = Vector2(0.5, 0.5)
 texture = SubResource("AtlasTexture_sowqu")
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Berkano"]
-position = Vector2(420, 225)
+position = Vector2(434, 239)
+scale = Vector2(0.488426, 0.488426)
 polygon = PackedVector2Array(27, 30, -27, 30, -27, -30, 27, -30)
 
 [node name="NoteUI" parent="." instance=ExtResource("4_kfdc8")]
 anchors_preset = 3
+anchor_left = 1.0
 anchor_top = 1.0
-anchor_bottom = 1.0
 offset_left = 486.0
 offset_top = -1.0
 offset_right = 486.0
 offset_bottom = -1.0
+grow_horizontal = 0
 grow_vertical = 0
 
 [connection signal="input_event" from="LeftDoor" to="." method="_on_left_door_input_event"]

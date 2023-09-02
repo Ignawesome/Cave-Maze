@@ -89,12 +89,19 @@ toggle_mode = true
 button_group = ExtResource("3_3xvpl")
 text = "Controls"
 
+[node name="ResetButton" type="Button" parent="PanelContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../ControlsButton")
+toggle_mode = true
+button_group = ExtResource("3_3xvpl")
+text = "Reset*"
+
 [node name="MainMenuButton" type="Button" parent="PanelContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 focus_neighbor_top = NodePath("../ControlsButton")
 toggle_mode = true
 button_group = ExtResource("3_3xvpl")
-text = "Back"
+text = "Apply"
 
 [node name="VSeparator" type="VSeparator" parent="PanelContainer/HBoxContainer"]
 layout_mode = 2
@@ -171,13 +178,13 @@ alignment = 1
 item_count = 4
 selected = 0
 allow_reselect = true
-popup/item_0/text = "x1"
+popup/item_0/text = "480x270"
 popup/item_0/id = 0
-popup/item_1/text = "x2"
+popup/item_1/text = "960x540"
 popup/item_1/id = 1
-popup/item_2/text = "x3"
+popup/item_2/text = "1440x810"
 popup/item_2/id = 2
-popup/item_3/text = "x4"
+popup/item_3/text = "1920x1080"
 popup/item_3/id = 3
 
 [node name="VBoxContainer2" type="HBoxContainer" parent="PanelContainer/HBoxContainer/PanelContainer/DisplayContainer"]
@@ -275,6 +282,7 @@ stretch_mode = 5
 [connection signal="button_down" from="PanelContainer/HBoxContainer/VBoxContainer/AudioButton" to="." method="_on_audio_button_button_down"]
 [connection signal="button_down" from="PanelContainer/HBoxContainer/VBoxContainer/DisplayButton" to="." method="_on_display_button_button_down"]
 [connection signal="button_down" from="PanelContainer/HBoxContainer/VBoxContainer/ControlsButton" to="." method="_on_controls_button_button_down"]
+[connection signal="button_down" from="PanelContainer/HBoxContainer/VBoxContainer/ResetButton" to="." method="_on_reset_button_button_down"]
 [connection signal="button_down" from="PanelContainer/HBoxContainer/VBoxContainer/MainMenuButton" to="." method="_on_main_menu_button_button_down"]
 [connection signal="value_changed" from="PanelContainer/HBoxContainer/PanelContainer/AudioContainer/MasterVolumeSlider" to="." method="_on_master_volume_slider_value_changed"]
 [connection signal="value_changed" from="PanelContainer/HBoxContainer/PanelContainer/AudioContainer/MusicVolumeSlider" to="." method="_on_music_volume_slider_value_changed"]

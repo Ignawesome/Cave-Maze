@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://duug8t1v4qmxw"]
+
+[ext_resource type="PackedScene" uid="uid://babuf0fbdot0b" path="res://scenes/menu/inventory_UI.tscn" id="1_oso0u"]
+[ext_resource type="PackedScene" uid="uid://sxgrwnupynja" path="res://addons/dialogue_manager/example_balloon/small_example_balloon.tscn" id="2_v2pki"]
+[ext_resource type="PackedScene" uid="uid://c5s25uvu1jej6" path="res://scenes/game/caves.tscn" id="3_8nm87"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Inventory" parent="." instance=ExtResource("1_oso0u")]
+layout_mode = 1
+
+[node name="ExampleBalloon" parent="." instance=ExtResource("2_v2pki")]
+
+[node name="SubViewport" type="SubViewport" parent="."]
+size = Vector2i(350, 160)
+
+[node name="CaveScene" parent="SubViewport" instance=ExtResource("3_8nm87")]

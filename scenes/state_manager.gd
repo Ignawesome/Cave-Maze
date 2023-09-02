@@ -100,4 +100,5 @@ func hide_inventory(hide):
 		$"../UI/Inventory".hide()
 	else:
 		$"../UI/Inventory".show()
-	
+
+

@@ -7,7 +7,7 @@ var solution : Dictionary = {
 	room_number[0] : randi() % 3 +1,
 	room_number[1] : randi() % 3 +1,
 	room_number[2] : randi() % 3 +1,
-	room_number[3] : randi() % 3 +1,
+#	room_number[3] : randi() % 3 +1,
 #	room_number[4] : randi() % 3 +1,
 #	room_number[5] : randi() % 3 +1,
 #	room_number[6] : randi() % 3 +1,

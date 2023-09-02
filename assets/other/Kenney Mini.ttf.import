@@ -27,7 +27,17 @@ Fallbacks=null
 fallbacks=[]
 Compress=null
 compress=true
-preload=[]
+preload=[{
+"chars": [],
+"glyphs": [],
+"name": "size16",
+"size": Vector2i(0, 0)
+}, {
+"chars": [],
+"glyphs": [],
+"name": "size12",
+"size": Vector2i(12, 0)
+}]
 language_support={}
 script_support={}
 opentype_features={}

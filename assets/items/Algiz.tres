@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ItemResource" load_steps=4 format=3 uid="uid://blfjdn7t6n0u6"]
+
+[ext_resource type="Script" path="res://item_class.gd" id="1_78wyf"]
+[ext_resource type="Texture2D" uid="uid://cvamuu4yr4ath" path="res://assets/textures/Runes.png" id="2_iyd0t"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_py553"]
+atlas = ExtResource("2_iyd0t")
+region = Rect2(54, 240, 54, 60)
+
+[resource]
+script = ExtResource("1_78wyf")
+name = "Algiz"
+tooltip = ""
+id = 1
+texture = SubResource("AtlasTexture_py553")
+description = ""
+consumable = false
+max_stack = 9
+permanent = false

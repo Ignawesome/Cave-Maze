@@ -1,35 +1,17 @@
-[gd_scene load_steps=14 format=3 uid="uid://babuf0fbdot0b"]
+[gd_scene load_steps=7 format=3 uid="uid://babuf0fbdot0b"]
 
 [ext_resource type="Theme" uid="uid://dtxalj7m5sqy5" path="res://assets/themes/avoid_cave_theme.tres" id="1_naw7n"]
 [ext_resource type="Script" path="res://scenes/menu/inventory_UI.gd" id="2_8yogl"]
-[ext_resource type="Theme" uid="uid://bvke1eripwx1b" path="res://assets/themes/border_theme.tres" id="4_63ptd"]
-[ext_resource type="Script" path="res://scripts/item_slot_class.gd" id="4_xklti"]
+[ext_resource type="Texture2D" uid="uid://27vnwkjoysxe" path="res://assets/textures/genericItems_spritesheet_colored.png" id="4_34nap"]
 [ext_resource type="FontFile" uid="uid://dps85q238gydx" path="res://assets/other/Kenney Mini.ttf" id="5_tghdx"]
-[ext_resource type="Texture2D" uid="uid://di3f3g54byfod" path="res://assets/textures/runes/runeBlack_tile_001.png" id="5_v16cj"]
-[ext_resource type="Texture2D" uid="uid://ga1g4dienewe" path="res://assets/textures/runes/runeBlack_tile_002.png" id="7_i35xq"]
-[ext_resource type="Texture2D" uid="uid://dslkof5fxg17i" path="res://assets/textures/runes/runeBlack_tile_004.png" id="8_2dy8l"]
-[ext_resource type="Texture2D" uid="uid://bmjjy617s1jqi" path="res://assets/textures/runes/runeBlack_tile_006.png" id="9_adsxd"]
-[ext_resource type="Texture2D" uid="uid://27vnwkjoysxe" path="res://assets/textures/genericItems_spritesheet_colored.png" id="10_po8oe"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8ude3"]
-bg_color = Color(1, 1, 1, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0, 0, 0, 1)
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
+[sub_resource type="AtlasTexture" id="AtlasTexture_dmeyd"]
+atlas = ExtResource("4_34nap")
+region = Rect2(366, 964, 95, 72)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_iynte"]
-atlas = ExtResource("10_po8oe")
-region = Rect2(368, 965, 93, 68)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_w42ke"]
-atlas = ExtResource("10_po8oe")
-region = Rect2(461, 919, 90, 140)
+[sub_resource type="AtlasTexture" id="AtlasTexture_8e4xs"]
+atlas = ExtResource("4_34nap")
+region = Rect2(692, 1068, 56, 107)
 
 [node name="Inventory" type="Control"]
 layout_mode = 3
@@ -44,7 +26,7 @@ script = ExtResource("2_8yogl")
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_right = 0.454167
+anchor_right = 0.266667
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -62,137 +44,30 @@ grow_vertical = 2
 layout_mode = 2
 tab_alignment = 1
 
-[node name="Items" type="ScrollContainer" parent="Panel/MarginContainer/TabContainer"]
-layout_mode = 2
-
-[node name="ItemContainer" type="GridContainer" parent="Panel/MarginContainer/TabContainer/Items"]
+[node name="Items" type="ItemList" parent="Panel/MarginContainer/TabContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_horizontal = 3
-columns = 3
-
-[node name="ItemSlot" type="PanelContainer" parent="Panel/MarginContainer/TabContainer/Items/ItemContainer"]
-custom_minimum_size = Vector2(32, 32)
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
-theme = ExtResource("4_63ptd")
-theme_override_styles/panel = SubResource("StyleBoxFlat_8ude3")
-script = ExtResource("4_xklti")
-
-[node name="ItemSlot2" type="PanelContainer" parent="Panel/MarginContainer/TabContainer/Items/ItemContainer"]
-custom_minimum_size = Vector2(32, 32)
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
-theme = ExtResource("4_63ptd")
-theme_override_styles/panel = SubResource("StyleBoxFlat_8ude3")
-script = ExtResource("4_xklti")
-
-[node name="ItemSlot3" type="PanelContainer" parent="Panel/MarginContainer/TabContainer/Items/ItemContainer"]
-custom_minimum_size = Vector2(32, 32)
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
-theme = ExtResource("4_63ptd")
-theme_override_styles/panel = SubResource("StyleBoxFlat_8ude3")
-script = ExtResource("4_xklti")
-
-[node name="ItemSlot4" type="PanelContainer" parent="Panel/MarginContainer/TabContainer/Items/ItemContainer"]
-custom_minimum_size = Vector2(32, 32)
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
-theme = ExtResource("4_63ptd")
-theme_override_styles/panel = SubResource("StyleBoxFlat_8ude3")
-script = ExtResource("4_xklti")
-
-[node name="ItemSlot5" type="PanelContainer" parent="Panel/MarginContainer/TabContainer/Items/ItemContainer"]
-custom_minimum_size = Vector2(32, 32)
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
-theme = ExtResource("4_63ptd")
-theme_override_styles/panel = SubResource("StyleBoxFlat_8ude3")
-script = ExtResource("4_xklti")
-
-[node name="ItemSlot6" type="PanelContainer" parent="Panel/MarginContainer/TabContainer/Items/ItemContainer"]
-custom_minimum_size = Vector2(32, 32)
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
-theme = ExtResource("4_63ptd")
-theme_override_styles/panel = SubResource("StyleBoxFlat_8ude3")
-script = ExtResource("4_xklti")
-
-[node name="ItemSlot7" type="PanelContainer" parent="Panel/MarginContainer/TabContainer/Items/ItemContainer"]
-custom_minimum_size = Vector2(32, 32)
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
-theme = ExtResource("4_63ptd")
-theme_override_styles/panel = SubResource("StyleBoxFlat_8ude3")
-script = ExtResource("4_xklti")
-
-[node name="ItemSlot8" type="PanelContainer" parent="Panel/MarginContainer/TabContainer/Items/ItemContainer"]
-custom_minimum_size = Vector2(32, 32)
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
-theme = ExtResource("4_63ptd")
-theme_override_styles/panel = SubResource("StyleBoxFlat_8ude3")
-script = ExtResource("4_xklti")
-
-[node name="ItemSlot9" type="PanelContainer" parent="Panel/MarginContainer/TabContainer/Items/ItemContainer"]
-custom_minimum_size = Vector2(32, 32)
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
-theme = ExtResource("4_63ptd")
-theme_override_styles/panel = SubResource("StyleBoxFlat_8ude3")
-script = ExtResource("4_xklti")
-
-[node name="Notes" type="ScrollContainer" parent="Panel/MarginContainer/TabContainer"]
-visible = false
-layout_mode = 2
-
-[node name="NoteContainer" type="VBoxContainer" parent="Panel/MarginContainer/TabContainer/Notes"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-alignment = 1
-
-[node name="ItemList" type="ItemList" parent="Panel/MarginContainer/TabContainer"]
-visible = false
-layout_mode = 2
-tooltip_text = "Item description 1
-"
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hovered_color = Color(0.482353, 0.65098, 1, 1)
-theme_override_colors/font_selected_color = Color(0.341176, 0.341176, 0.341176, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_selected_color = Color(0.835294, 0, 0.964706, 1)
 theme_override_fonts/font = ExtResource("5_tghdx")
 theme_override_font_sizes/font_size = 8
-select_mode = 1
 allow_reselect = true
+allow_rmb_select = true
 text_overrun_behavior = 0
-item_count = 6
-max_columns = 2
+item_count = 3
 same_column_width = true
-fixed_column_width = 40
-icon_mode = 0
-fixed_icon_size = Vector2i(32, 32)
-item_0/text = "Ansuz"
-item_0/icon = ExtResource("5_v16cj")
-item_1/text = "Berkano"
-item_1/icon = ExtResource("7_i35xq")
-item_2/text = "Dagaz"
-item_2/icon = ExtResource("8_2dy8l")
-item_3/text = "Fehu"
-item_3/icon = ExtResource("9_adsxd")
-item_4/text = "Key"
-item_4/icon = SubResource("AtlasTexture_iynte")
-item_5/text = "Blender"
-item_5/icon = SubResource("AtlasTexture_w42ke")
+fixed_icon_size = Vector2i(16, 16)
+item_0/text = "Key"
+item_0/icon = SubResource("AtlasTexture_dmeyd")
+item_1/text = "Phone"
+item_1/icon = SubResource("AtlasTexture_8e4xs")
+item_2/text = ""
+
+[node name="Notes" type="ItemList" parent="Panel/MarginContainer/TabContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
 
 [connection signal="gui_input" from="." to="." method="_hide_inventory_on_external_click"]
+[connection signal="item_clicked" from="Panel/MarginContainer/TabContainer/Items" to="." method="_on_item_list_item_clicked"]

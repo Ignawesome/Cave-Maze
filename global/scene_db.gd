@@ -6,7 +6,8 @@ extends Node
 @onready var end_scene : Resource = preload("res://scenes/game/end.tscn")
 @onready var inventory_scene : Resource = preload("res://scenes/menu/inventory_UI.tscn")
 @onready var settings : Resource = preload("res://scenes/menu/settings.tscn")
-
+@onready var context_menu := preload("res://scenes/menu/context_menu.tscn")
+@onready var item_descriptions = preload("res://dialogues/item_descriptions.dialogue")
 
 @onready var main = get_node("/root/Main")
 @onready var state_manager = get_node("/root/Main/StateManager")
@@ -16,3 +17,4 @@ extends Node
 @onready var user_interface = get_node("/root/Main/UI")
 @onready var inventory = get_node("/root/Main/UI/Inventory")
 @onready var music_node = get_node("/root/Main/MusicManager/AudioStreamPlayer")
+

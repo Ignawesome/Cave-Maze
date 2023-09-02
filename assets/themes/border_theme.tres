@@ -1,7 +1,8 @@
-[gd_resource type="Theme" load_steps=18 format=3 uid="uid://bvke1eripwx1b"]
+[gd_resource type="Theme" load_steps=19 format=3 uid="uid://bvke1eripwx1b"]
 
 [ext_resource type="Texture2D" uid="uid://biu4wtvq5mqcd" path="res://assets/themes/border_UI.png" id="1_dat7y"]
 [ext_resource type="FontFile" uid="uid://dps85q238gydx" path="res://assets/other/Kenney Mini.ttf" id="2_0km3x"]
+[ext_resource type="StyleBox" uid="uid://4eww5dc6esqg" path="res://assets/themes/white_black_border.tres" id="2_2tk1m"]
 [ext_resource type="FontFile" uid="uid://cjbgwkf7x3oa5" path="res://assets/other/alagard_by_Hewett_Tsoi.ttf" id="3_jvker"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qnsva"]
@@ -150,11 +151,23 @@ MarginContainer/constants/margin_right = 2
 MarginContainer/constants/margin_top = 2
 Panel/styles/panel = SubResource("StyleBoxTexture_sjhsf")
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_oisb3")
+PopupMenu/colors/font_color = Color(0.117647, 0.117647, 0.117647, 1)
+PopupMenu/colors/font_hover_color = Color(0.219608, 0.219608, 0.219608, 1)
+PopupMenu/colors/font_outline_color = Color(1, 1, 1, 1)
+PopupMenu/styles/panel = ExtResource("2_2tk1m")
 ProgressBar/colors/font_color = Color(0, 0, 0, 1)
 ProgressBar/colors/font_outline_color = Color(1, 1, 1, 1)
 ProgressBar/constants/outline_size = 4
 ProgressBar/styles/background = SubResource("StyleBoxFlat_15k6g")
 ProgressBar/styles/fill = SubResource("StyleBoxFlat_wxpt0")
+RichTextLabel/colors/default_color = Color(0, 0, 0, 1)
+RichTextLabel/font_sizes/bold_font_size = 8
+RichTextLabel/font_sizes/bold_italics_font_size = 8
+RichTextLabel/font_sizes/italics_font_size = 8
+RichTextLabel/font_sizes/mono_font_size = 8
+RichTextLabel/font_sizes/normal_font_size = 8
+RichTextLabel/fonts/mono_font = ExtResource("2_0km3x")
+RichTextLabel/fonts/normal_font = ExtResource("2_0km3x")
 TextEdit/fonts/font = SubResource("FontVariation_gnjb4")
 VSlider/styles/grabber_area = SubResource("StyleBoxFlat_gp2lv")
 VSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_sidqc")

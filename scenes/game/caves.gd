@@ -61,8 +61,12 @@ func _on_right_door_input_event(_viewport, event, _shape_idx):
 
 func _on_berkano_input_event(_viewport, event, _shape_idx):
 	if event is InputEventMouseButton and event.button_index == 1 and event.pressed:
-		InventoryDb.add_to_inventory("Berkano")
 		print("berkano sent to inventory manager")
+		DialogueManager.show_example_dialogue_balloon(SceneDb.item_descriptions, "Berkano")
+		var item_count = SceneDb.inventory.inventory.get_item_count()
+		if "Berkano" in SceneDb.inventory.inventory:
+			print("Berkano already in inventory")
+			$Berkano.queue_free()
+		else:
+			InventoryDb.add_to_inventory("Berkano")
 		
-		
-	pass # Replace with function body.

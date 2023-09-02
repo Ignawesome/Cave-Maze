@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ItemResource" load_steps=4 format=3 uid="uid://ucpph8nbmgw3"]
+
+[ext_resource type="Script" path="res://item_class.gd" id="1_fej74"]
+[ext_resource type="Texture2D" uid="uid://cvamuu4yr4ath" path="res://assets/textures/Runes.png" id="2_s57uh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_py553"]
+atlas = ExtResource("2_s57uh")
+region = Rect2(270, 120, 54, 60)
+
+[resource]
+script = ExtResource("1_fej74")
+name = "Dagaz"
+tooltip = ""
+id = 4
+texture = SubResource("AtlasTexture_py553")
+description = ""
+consumable = false
+max_stack = 9
+permanent = false

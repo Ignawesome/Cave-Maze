@@ -80,6 +80,9 @@ func _on_main_menu_button_button_down():
 	SceneDb.state_manager.change_state_to_previous()
 	SceneDb.main.show_menu()
 
+func _on_reset_button_button_down():
+	#TODO
+	pass # Replace with function body.
 
 # Code related to volume sliders
 func set_volume(bus, value):
@@ -158,3 +161,6 @@ func center_screen():
 	window_size = get_window().get_size()
 	get_window().position = (screen_size * 0.5 - window_size * 0.5)
 	get_window().set_current_screen(current_monitor)
+
+
+

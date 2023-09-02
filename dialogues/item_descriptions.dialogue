@@ -1,0 +1,20 @@
+~ Key
+Nathan: Hmm... but there are no doors in this cave.
+=> END
+
+~ Phone
+This phone is old as fuck. Battery's gone.
+=> END
+
+~ Berkano
+Edmund: Companionship.
+- Use
+	This rune spawns three flies that fight for you.
+- Discard
+	Piece of shit, I want Perthro!
+=> END
+
+
+
+#- Start again => Key
+#- End the conversation => END
