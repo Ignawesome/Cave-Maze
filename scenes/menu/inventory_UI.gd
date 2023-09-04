@@ -17,7 +17,6 @@ func add_item(item : ItemResource):
 func _on_item_list_item_clicked(index, at_position, mouse_button_index):
 	item_selected = index
 	if mouse_button_index == 2:
-		print("right click, popup")
 		instance_context_menu(index, at_position)
 	pass # Replace with function body.
 

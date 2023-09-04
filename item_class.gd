@@ -19,6 +19,7 @@ var icon : Texture2D
 func _ready():
 	pass # Replace with function body.
 
-
 func inventory_slot(invetory_node):
+	
 	pass
+

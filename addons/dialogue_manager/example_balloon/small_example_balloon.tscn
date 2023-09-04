@@ -23,7 +23,6 @@ layer = 100
 script = ExtResource("1_4u26j")
 
 [node name="Balloon" type="PanelContainer" parent="."]
-anchors_preset = -1
 offset_bottom = 235.0
 grow_horizontal = 2
 grow_vertical = 0

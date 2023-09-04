@@ -1,13 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://dpesunutehl83"]
+[gd_scene load_steps=4 format=3 uid="uid://dpesunutehl83"]
 
 [ext_resource type="Theme" uid="uid://bvke1eripwx1b" path="res://assets/themes/border_theme.tres" id="1_4tmka"]
 [ext_resource type="Script" path="res://scenes/menu/context_menu.gd" id="2_d4ivv"]
+[ext_resource type="FontFile" uid="uid://dps85q238gydx" path="res://assets/other/Kenney Mini.ttf" id="2_qm6pl"]
 
 [node name="ContextMenu" type="PopupMenu"]
-size = Vector2i(97, 84)
+size = Vector2i(77, 80)
 visible = true
 always_on_top = true
 theme = ExtResource("1_4tmka")
+theme_override_fonts/font = ExtResource("2_qm6pl")
+theme_override_font_sizes/font_size = 12
 item_count = 4
 item_0/text = "Use"
 item_0/id = 0

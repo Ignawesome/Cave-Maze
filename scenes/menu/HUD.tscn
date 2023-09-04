@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://duug8t1v4qmxw"]
+[gd_scene load_steps=5 format=3 uid="uid://duug8t1v4qmxw"]
 
 [ext_resource type="PackedScene" uid="uid://babuf0fbdot0b" path="res://scenes/menu/inventory_UI.tscn" id="1_oso0u"]
 [ext_resource type="PackedScene" uid="uid://sxgrwnupynja" path="res://addons/dialogue_manager/example_balloon/small_example_balloon.tscn" id="2_v2pki"]
-[ext_resource type="PackedScene" uid="uid://c5s25uvu1jej6" path="res://scenes/game/caves.tscn" id="3_8nm87"]
+[ext_resource type="PackedScene" uid="uid://d0p5gomrgwnoy" path="res://die_box.tscn" id="3_5vv6x"]
+[ext_resource type="Theme" uid="uid://bvke1eripwx1b" path="res://assets/themes/border_theme.tres" id="3_eah35"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -17,7 +18,26 @@ layout_mode = 1
 
 [node name="ExampleBalloon" parent="." instance=ExtResource("2_v2pki")]
 
-[node name="SubViewport" type="SubViewport" parent="."]
-size = Vector2i(350, 160)
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 303.0
+offset_top = 14.0
+offset_right = 466.0
+offset_bottom = 182.0
+theme = ExtResource("3_eah35")
 
-[node name="CaveScene" parent="SubViewport" instance=ExtResource("3_8nm87")]
+[node name="SubViewportContainer" type="SubViewportContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="Panel/SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(163, 168)
+render_target_update_mode = 4
+
+[node name="DieBox" parent="Panel/SubViewportContainer/SubViewport" instance=ExtResource("3_5vv6x")]
