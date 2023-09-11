@@ -1,8 +1,0 @@
-[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://dk7x4i04u17dw"]
-
-[ext_resource type="Texture2D" uid="uid://27vnwkjoysxe" path="res://assets/textures/genericItems_spritesheet_colored.png" id="1_k3sc8"]
-
-[resource]
-resource_local_to_scene = true
-atlas = ExtResource("1_k3sc8")
-region = Rect2(367, 964, 94, 73)

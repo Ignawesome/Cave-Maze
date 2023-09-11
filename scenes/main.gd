@@ -11,10 +11,13 @@ var config_file = ConfigFile.new()
 @onready var inventory_node := %Inventory
 @onready var main_menu := %MainMenu
 
-
 func _ready():
+	Input.set_custom_mouse_cursor(SceneDb.mouse_point,Input.CURSOR_ARROW)
+	Input.set_custom_mouse_cursor(SceneDb.mouse_grab,Input.CURSOR_POINTING_HAND)
+	Input.set_custom_mouse_cursor(SceneDb.mouse_drag,Input.CURSOR_DRAG)
+	
 	connect_scene_signals(main_menu)
-	$StateManager.change_state(2)
+	StateManager.change_state(2)
 	%Settings.load_and_apply_all_settings_from_file(config_file)
 
 func new_game():
@@ -26,11 +29,11 @@ func new_game():
 
 func new_room(scene_path : String):
 	await change_scene_to(scene_path)
-	$StateManager.change_state(1)
+	StateManager.change_state(1)
 
 func game_over(win : bool):
 	var end = await change_scene_to(end_scene_path)
-	$StateManager.change_state(4)
+	StateManager.change_state(4)
 	if win:
 		end.win()
 	else:
@@ -51,7 +54,7 @@ func _process(delta):
 
 func change_scene_to(scene_file_path : String):
 	await start_transition()
-	$StateManager.change_state(3)
+	StateManager.change_state(3)
 	await delete_current_scene(current_node)
 	current_node = instantiate_scene(scene_file_path)
 	connect_scene_signals(current_node)
@@ -61,40 +64,31 @@ func change_scene_to(scene_file_path : String):
 
 
 func show_menu():
-	if $StateManager.current_state == 1 or $StateManager.current_state == 6 :
+	if StateManager.current_state == 1 or StateManager.current_state == 6 :
 		var new_menu : PackedScene = load(main_menu_path)
 		var node : Node = new_menu.instantiate()
-		if $StateManager.current_state == 1:
+		if StateManager.current_state == 1:
 			$GameWorld.find_child("CaveScene", false, false).queue_free()
 		if node != null:
 			$UI.add_child(node, true)
 			connect_scene_signals(node)
 			%Inventory.hide()
-			$StateManager.change_state(2)
+			StateManager.change_state(2)
 
 func show_settings():
-	if $StateManager.current_state != 5:
+	if StateManager.current_state != 5:
 		%Settings.show()
-		$StateManager.change_state(5)
-	
-	
-	
-#	var m_menu = $UI.find_child("MainMenu*", false, false)
-#	if m_menu != null:
-#		m_menu.queue_free()
-#	if $StateManager.current_state != 5:
-#		var settings_menu = SceneDb.settings.instantiate()
-#		SceneDb.user_interface.add_child(settings_menu)
-#		$StateManager.change_state(5)
+		StateManager.change_state(5)
+
 
 
 func show_inventory():
-	if $StateManager.current_state == 6:
+	if StateManager.current_state == 6:
 		%Inventory.hide()
-		$StateManager.change_state(1)
-	elif $StateManager.current_state == 1:
+		StateManager.change_state(1)
+	elif StateManager.current_state == 1:
 		%Inventory.show()
-		$StateManager.change_state(6)
+		StateManager.change_state(6)
 
 
 func connect_scene_signals(node : Node):
@@ -129,3 +123,4 @@ func delete_current_scene(current_node):
 		menu.queue_free()
 	if current_node != null:
 		current_node.queue_free()
+

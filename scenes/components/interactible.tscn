@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://cqaq3x45uvh8a"]
+
+[ext_resource type="Script" path="res://scenes/components/interactible.gd" id="1_bj6bf"]
+[ext_resource type="Resource" uid="uid://dtmx2f7v7w8ic" path="res://scenes/components/inventory/items/suitcase.tres" id="2_w5s1v"]
+[ext_resource type="Texture2D" uid="uid://27vnwkjoysxe" path="res://assets/textures/raw/genericItems_spritesheet_colored.png" id="3_itggs"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n670v"]
+atlas = ExtResource("3_itggs")
+region = Rect2(143, 1117, 118, 108)
+
+[node name="Interactible" type="Area2D"]
+script = ExtResource("1_bj6bf")
+item = ExtResource("2_w5s1v")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_n670v")
+metadata/_edit_lock_ = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(-59, -54)
+polygon = PackedVector2Array(64, 1, 32, 5, 27, 5, 31, 20, 31, 24, 23, 25, 13, 25, 5, 27, 0, 27, 14, 106, 14, 108, 26, 108, 107, 98, 116, 98, 118, 97, 118, 90, 110, 19, 110, 15, 100, 15, 84, 18, 76, 18, 76, 0, 64, 0)
+metadata/_edit_lock_ = true
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]

@@ -1,60 +1,42 @@
-[gd_scene load_steps=9 format=3 uid="uid://b8y6fhm02gyrs"]
+[gd_scene load_steps=10 format=3 uid="uid://b8y6fhm02gyrs"]
 
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_fwelu"]
-[ext_resource type="PackedScene" uid="uid://b4l6fvdx3ybql" path="res://global/transition_manager.tscn" id="2_4dtgm"]
-[ext_resource type="Script" path="res://scenes/state_manager.gd" id="2_s1bix"]
+[ext_resource type="PackedScene" uid="uid://b4l6fvdx3ybql" path="res://global/managers/transition_manager.tscn" id="2_4dtgm"]
 [ext_resource type="PackedScene" uid="uid://bd6v36ui8wl8r" path="res://scenes/menu/main_menu.tscn" id="3_au7lq"]
+[ext_resource type="Script" path="res://scenes/user_interface.gd" id="3_oeacu"]
 [ext_resource type="AudioStream" uid="uid://dh68sxbhsemj8" path="res://assets/sounds/cave themeb4.ogg" id="3_x0lhm"]
-[ext_resource type="PackedScene" uid="uid://babuf0fbdot0b" path="res://scenes/menu/inventory_UI.tscn" id="4_320yq"]
+[ext_resource type="PackedScene" uid="uid://babuf0fbdot0b" path="res://scenes/components/inventory/inventory_UI.tscn" id="4_320yq"]
 [ext_resource type="PackedScene" uid="uid://dy3buq74oqbom" path="res://scenes/menu/settings.tscn" id="5_pmhfd"]
+[ext_resource type="PackedScene" uid="uid://c5hpbb1s03i0c" path="res://scenes/menu/dragged_item.tscn" id="7_fxagr"]
 
 [sub_resource type="GDScript" id="GDScript_t4qsd"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_fwelu")
-cave_scene_path = "res://scenes/game/caves.tscn"
-end_scene_path = "res://scenes/game/end.tscn"
-main_menu_path = "res://scenes/menu/main_menu.tscn"
-inventory_path = "res://scenes/menu/InventoryUI.tscn"
-
-[node name="Background" type="ColorRect" parent="."]
-visible = false
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 1)
-
-[node name="StateManager" type="Node" parent="."]
-script = ExtResource("2_s1bix")
+cave_scene_path = "res://scenes/screens/caves.tscn"
+end_scene_path = "res://scenes/screens/end.tscn"
+main_menu_path = "res://scenes/main.tscn"
+inventory_path = "res://scenes/components/inventory/inventory_UI.tscn"
 
 [node name="GameWorld" type="Node2D" parent="."]
 script = SubResource("GDScript_t4qsd")
 
-[node name="UI" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
+[node name="UI" type="CanvasLayer" parent="."]
+script = ExtResource("3_oeacu")
 
 [node name="MainMenu" parent="UI" instance=ExtResource("3_au7lq")]
 unique_name_in_owner = true
-layout_mode = 1
-metadata/_edit_use_anchors_ = true
 
 [node name="Inventory" parent="UI" instance=ExtResource("4_320yq")]
 unique_name_in_owner = true
 visible = false
-layout_mode = 1
 
 [node name="Settings" parent="UI" instance=ExtResource("5_pmhfd")]
 unique_name_in_owner = true
 visible = false
-layout_mode = 1
+
+[node name="DraggedItem" parent="UI" instance=ExtResource("7_fxagr")]
+unique_name_in_owner = true
 
 [node name="TransitionManager" parent="." instance=ExtResource("2_4dtgm")]
 visible = false
@@ -65,3 +47,5 @@ visible = false
 stream = ExtResource("3_x0lhm")
 autoplay = true
 bus = &"Music"
+
+[editable path="UI/Inventory"]

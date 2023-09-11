@@ -14,7 +14,7 @@ config/name="Cave Maze"
 config/tags=PackedStringArray("my_project")
 run/main_scene="res://scenes/main.tscn"
 config/features=PackedStringArray("4.1", "GL Compatibility")
-config/icon="res://assets/sprites/icon.svg"
+config/icon="res://assets/textures/icons/icon.svg"
 
 [audio]
 
@@ -22,11 +22,14 @@ general/text_to_speech=true
 
 [autoload]
 
-SceneDb="*res://global/scene_db.gd"
-maze="*res://global/maze.gd"
-InventoryDb="*res://global/item_db.gd"
+SceneDb="*res://global/databases/scene_db.gd"
+maze="*res://global/managers/maze.gd"
+InventoryDb="*res://global/databases/global_events.gd"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 SaveSystem="*res://addons/save_system/SaveSystem.gd"
+StateManager="*res://global/managers/state_manager.gd"
+MouseManager="*res://global/mouse_cursor_manager.gd"
+InteractionMng="*res://InteractionManager.gd"
 
 [display]
 
@@ -36,7 +39,7 @@ window/size/initial_position_type=2
 window/size/window_width_override=1280
 window/size/window_height_override=720
 window/stretch/mode="canvas_items"
-mouse_cursor/custom_image="res://assets/sprites/pointer.png"
+mouse_cursor/custom_image="res://assets/textures/icons/skel_hand_point.png"
 
 [editor_plugins]
 
@@ -121,6 +124,8 @@ quit={
 inventory={
 "deadzone": 0.5,
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":73,"key_label":0,"unicode":105,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194306,"key_label":0,"unicode":0,"echo":false,"script":null)
+, Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":0,"position":Vector2(0, 0),"global_position":Vector2(0, 0),"factor":1.0,"button_index":3,"canceled":false,"pressed":false,"double_click":false,"script":null)
 ]
 }
 
@@ -134,5 +139,8 @@ look_sensitivity=0.05
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+2d/snap/snap_2d_transforms_to_pixel=true
+2d/snap/snap_2d_vertices_to_pixel=true

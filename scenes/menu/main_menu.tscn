@@ -1,13 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://bd6v36ui8wl8r"]
+[gd_scene load_steps=5 format=3 uid="uid://bd6v36ui8wl8r"]
 
 [ext_resource type="Script" path="res://scenes/menu/main_menu.gd" id="1_d1tie"]
 [ext_resource type="Theme" uid="uid://bvke1eripwx1b" path="res://assets/themes/border_theme.tres" id="1_jkuo2"]
 [ext_resource type="StyleBox" uid="uid://60u1jnis73lu" path="res://assets/themes/borde_copado_ky.tres" id="3_6y0x3"]
 [ext_resource type="FontFile" uid="uid://cjbgwkf7x3oa5" path="res://assets/other/alagard_by_Hewett_Tsoi.ttf" id="4_1a0ye"]
-
-[sub_resource type="FontVariation" id="FontVariation_yjlsd"]
-base_font = ExtResource("4_1a0ye")
-spacing_glyph = 3
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -45,8 +41,8 @@ size_flags_vertical = 4
 
 [node name="Label" type="Label" parent="ColorRect/MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.258824, 0.258824, 0.258824, 1)
-theme_override_fonts/font = SubResource("FontVariation_yjlsd")
+theme_override_colors/font_color = Color(0.282353, 0.282353, 0.282353, 1)
+theme_override_fonts/font = ExtResource("4_1a0ye")
 theme_override_font_sizes/font_size = 64
 text = "Cave Maze"
 horizontal_alignment = 1
@@ -62,18 +58,22 @@ layout_mode = 2
 
 [node name="NewGameButton" type="Button" parent="ColorRect/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
+mouse_default_cursor_shape = 2
 text = "New Game"
 
 [node name="ContinueButton" type="Button" parent="ColorRect/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
+mouse_default_cursor_shape = 2
 text = "Continue"
 
 [node name="SettingsButton" type="Button" parent="ColorRect/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
+mouse_default_cursor_shape = 2
 text = "Settings"
 
 [node name="QuitButton" type="Button" parent="ColorRect/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
+mouse_default_cursor_shape = 2
 text = "Quit Game"
 
 [connection signal="pressed" from="ColorRect/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/NewGameButton" to="." method="_on_new_game_button_pressed"]

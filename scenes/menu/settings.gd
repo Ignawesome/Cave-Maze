@@ -77,7 +77,7 @@ func _on_controls_button_button_down():
 func _on_main_menu_button_button_down():
 	config_file.save("res://settings.cfg")
 	self.hide()
-	SceneDb.state_manager.change_state_to_previous()
+	StateManager.change_state_to_previous()
 	SceneDb.main.show_menu()
 
 func _on_reset_button_button_down():

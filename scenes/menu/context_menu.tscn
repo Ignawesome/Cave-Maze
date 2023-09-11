@@ -24,3 +24,4 @@ script = ExtResource("2_d4ivv")
 metadata/_edit_use_anchors_ = true
 
 [connection signal="index_pressed" from="." to="." method="_on_index_pressed"]
+[connection signal="popup_hide" from="." to="." method="_on_popup_hide"]

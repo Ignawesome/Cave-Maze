@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="ItemResource" load_steps=4 format=3 uid="uid://sabvrv8lb7vh"]
+
+[ext_resource type="Script" path="res://scenes/components/inventory/item_class.gd" id="1_ny2tp"]
+[ext_resource type="Texture2D" uid="uid://27vnwkjoysxe" path="res://assets/textures/raw/genericItems_spritesheet_colored.png" id="2_x8irx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ign3"]
+atlas = ExtResource("2_x8irx")
+region = Rect2(268, 647, 101, 109)
+
+[resource]
+script = ExtResource("1_ny2tp")
+name = &"Money"
+tooltip = "Moolah"
+texture = SubResource("AtlasTexture_1ign3")
+description = "It's just 10 bucks"
+title = ""
+permanent = false
+undraggable = false
+pickable = false
+interactible = false
+times_interacted = 0
+combinations = Array[StringName]([])

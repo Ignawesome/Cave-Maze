@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="InventoryReference" load_steps=7 format=3 uid="uid://b7he35apodw4g"]
+
+[ext_resource type="Resource" uid="uid://b5q1fcldpj2kd" path="res://scenes/components/inventory/items/Key.tres" id="1_qiodx"]
+[ext_resource type="Script" path="res://scenes/components/inventory/items_in_inventory.gd" id="1_x6sed"]
+[ext_resource type="Resource" uid="uid://ucpph8nbmgw3" path="res://scenes/components/inventory/items/Dagaz.tres" id="2_06m3y"]
+[ext_resource type="Resource" uid="uid://dje5841on36ba" path="res://scenes/components/inventory/items/Berkano.tres" id="3_jvbx0"]
+[ext_resource type="Resource" uid="uid://d0ejeo3guhtlx" path="res://scenes/components/inventory/items/Phone.tres" id="4_26mpt"]
+[ext_resource type="Resource" uid="uid://des1uhf3d07kp" path="res://scenes/components/inventory/items/Jera.tres" id="4_xbp4n"]
+
+[resource]
+script = ExtResource("1_x6sed")
+items_in_inventory = Array[Resource("res://scenes/components/inventory/item_class.gd")]([ExtResource("1_qiodx"), ExtResource("2_06m3y"), ExtResource("3_jvbx0"), ExtResource("4_xbp4n"), ExtResource("4_26mpt"), null, null, null, null, null, null, null, null, null, null, null, null, null])

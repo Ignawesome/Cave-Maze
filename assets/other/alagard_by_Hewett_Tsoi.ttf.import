@@ -13,7 +13,7 @@ dest_files=["res://.godot/imported/alagard_by_Hewett_Tsoi.ttf-74776f0f5586869d9d
 [params]
 
 Rendering=null
-antialiasing=1
+antialiasing=0
 generate_mipmaps=false
 multichannel_signed_distance_field=false
 msdf_pixel_range=8
@@ -30,8 +30,15 @@ compress=true
 preload=[{
 "chars": [],
 "glyphs": [],
-"name": "New Configuration",
-"size": Vector2i(16, 0)
+"name": "16",
+"size": Vector2i(16, 0),
+"variation_embolden": 0.0
+}, {
+"chars": [],
+"glyphs": [],
+"name": "64",
+"size": Vector2i(64, 0),
+"variation_embolden": null
 }]
 language_support={}
 script_support={}

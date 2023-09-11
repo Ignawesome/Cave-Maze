@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://v81jjo87ydjy"]
 
-[ext_resource type="Script" path="res://scenes/game/playercontroller.gd" id="1_mnrla"]
+[ext_resource type="Script" path="res://scenes/screens/playercontroller.gd" id="1_mnrla"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_trbou"]
 

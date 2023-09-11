@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://duug8t1v4qmxw"]
 
-[ext_resource type="PackedScene" uid="uid://babuf0fbdot0b" path="res://scenes/menu/inventory_UI.tscn" id="1_oso0u"]
+[ext_resource type="PackedScene" uid="uid://babuf0fbdot0b" path="res://scenes/components/inventory/inventory_UI.tscn" id="1_oso0u"]
 [ext_resource type="PackedScene" uid="uid://sxgrwnupynja" path="res://addons/dialogue_manager/example_balloon/small_example_balloon.tscn" id="2_v2pki"]
-[ext_resource type="PackedScene" uid="uid://d0p5gomrgwnoy" path="res://die_box.tscn" id="3_5vv6x"]
+[ext_resource type="PackedScene" uid="uid://d0p5gomrgwnoy" path="res://scenes/components/dice_box/die_box.tscn" id="3_5vv6x"]
 [ext_resource type="Theme" uid="uid://bvke1eripwx1b" path="res://assets/themes/border_theme.tres" id="3_eah35"]
 
 [node name="Control" type="Control"]

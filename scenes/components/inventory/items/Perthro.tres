@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="ItemResource" load_steps=4 format=3 uid="uid://dpe54yb76gm0k"]
+
+[ext_resource type="Script" path="res://scenes/components/inventory/item_class.gd" id="1_120kn"]
+[ext_resource type="Texture2D" uid="uid://cvamuu4yr4ath" path="res://assets/textures/raw/Runes.png" id="2_h0y0x"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_py553"]
+atlas = ExtResource("2_h0y0x")
+region = Rect2(216, 240, 54, 60)
+
+[resource]
+script = ExtResource("1_120kn")
+name = &"Perthro"
+tooltip = ""
+id = 2
+texture = SubResource("AtlasTexture_py553")
+description = ""
+max_stack = 9
+permanent = false
+undraggable = false
+pickable = false
+combinations = Array[ExtResource("1_120kn")]([])

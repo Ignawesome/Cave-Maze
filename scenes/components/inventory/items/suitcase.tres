@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="ItemResource" load_steps=5 format=3 uid="uid://dtmx2f7v7w8ic"]
+
+[ext_resource type="Script" path="res://scenes/components/inventory/item_class.gd" id="1_dqlko"]
+[ext_resource type="Resource" uid="uid://huavw2o42ufx" path="res://dialogues/item_descriptions.dialogue" id="1_m5wh4"]
+[ext_resource type="Texture2D" uid="uid://27vnwkjoysxe" path="res://assets/textures/raw/genericItems_spritesheet_colored.png" id="2_rd3fq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2xp03"]
+atlas = ExtResource("2_rd3fq")
+region = Rect2(143, 1117, 118, 108)
+
+[resource]
+script = ExtResource("1_dqlko")
+name = &"Suitcase"
+tooltip = "It could have anything"
+texture = SubResource("AtlasTexture_2xp03")
+description = "Found this in an alley"
+dialogue = ExtResource("1_m5wh4")
+title = "SuitcaseLocked"
+permanent = false
+undraggable = false
+pickable = false
+interactible = false
+times_interacted = 0
+combinations = Array[StringName]([&"Key"])

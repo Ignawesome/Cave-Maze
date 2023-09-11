@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://bo8mhgg3w73jb"]
+[gd_scene load_steps=6 format=3 uid="uid://bo8mhgg3w73jb"]
 
-[ext_resource type="AudioStream" uid="uid://dgif7rdspkhw8" path="res://assets/textures/note/FlippingPages.ogg" id="1_gfgh0"]
-[ext_resource type="Texture2D" uid="uid://c3rvh74r5tqpi" path="res://assets/textures/note/OldTwoPages.png" id="2_ch1ql"]
+[ext_resource type="Script" path="res://scenes/menu/note_interface.gd" id="1_p8unj"]
+[ext_resource type="Texture2D" uid="uid://c3rvh74r5tqpi" path="res://scenes/components/note/OldTwoPages.png" id="2_768hk"]
 [ext_resource type="FontFile" uid="uid://dps85q238gydx" path="res://assets/other/Kenney Mini.ttf" id="3_mp28r"]
+[ext_resource type="AudioStream" uid="uid://dgif7rdspkhw8" path="res://scenes/components/note/FlippingPages.ogg" id="4_28o7o"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_mkw6p"]
 line_spacing = 1.0
@@ -12,24 +13,17 @@ font_color = Color(0, 0, 0, 1)
 
 [node name="NoteUI" type="Control"]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+script = ExtResource("1_p8unj")
 metadata/_edit_lock_ = true
-
-[node name="PageFlipSound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("1_gfgh0")
-bus = &"SFX"
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
 offset_right = 302.0
 offset_bottom = 218.0
-texture = ExtResource("2_ch1ql")
+texture = ExtResource("2_768hk")
 stretch_mode = 4
 
 [node name="HBoxContainer" type="HBoxContainer" parent="TextureRect"]
@@ -91,3 +85,7 @@ One would like to believe they know when they are close to death.
 label_settings = SubResource("LabelSettings_mkw6p")
 autowrap_mode = 2
 clip_text = true
+
+[node name="PageFlipSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_28o7o")
+bus = &"SFX"

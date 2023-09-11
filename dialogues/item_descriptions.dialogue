@@ -1,5 +1,8 @@
-~ Key
-Nathan: Hmm... but there are no doors in this cave.
+#~ Key
+#Nathan: Hmm... but there are no doors in this cave.
+#=> END
+~ IncorrectItem
+I can't use it like that.
 => END
 
 ~ Phone
@@ -14,7 +17,16 @@ Edmund: Companionship.
 	Piece of shit, I want Perthro!
 => END
 
+~ SuitcaseLocked
+This suitcase is locked.
+=> END
 
+~ SuitcaseOpened
+I opened the suitcase.
+=> END
 
+~ SuitcaseAlreadyOpen
+It's already open.
+=> END
 #- Start again => Key
 #- End the conversation => END

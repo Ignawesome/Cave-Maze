@@ -1,7 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://bw03rs3p6xk2f"]
+[gd_scene load_steps=5 format=3 uid="uid://73jm5qjy52vq"]
 
 [ext_resource type="Script" path="res://addons/dialogue_manager/example_balloon/example_balloon.gd" id="1_4u26j"]
-[ext_resource type="PackedScene" path="res://addons/dialogue_manager/dialogue_label.tscn" id="2_a8ve6"]
+[ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/dialogue_label.tscn" id="2_a8ve6"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5d24i"]
 content_margin_left = 40.0
@@ -25,12 +25,9 @@ script = ExtResource("1_4u26j")
 color = Color(0, 0, 0, 1)
 
 [node name="Margin" type="MarginContainer" parent="Balloon"]
-layout_mode = 1
-anchors_preset = 10
+layout_mode = 0
 anchor_right = 1.0
-offset_left = -43.0
-offset_right = 43.0
-offset_bottom = 240.0
+offset_bottom = 119.0
 grow_horizontal = 2
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 10
@@ -53,7 +50,6 @@ scroll_active = false
 
 [node name="DialogueLabel" parent="Balloon/Margin/VBox" instance=ExtResource("2_a8ve6")]
 layout_mode = 2
-theme_override_font_sizes/normal_font_size = 16
 text = "Dialogue"
 
 [node name="Responses" type="VBoxContainer" parent="Balloon/Margin/VBox"]
