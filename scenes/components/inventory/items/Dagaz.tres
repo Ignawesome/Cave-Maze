@@ -13,7 +13,6 @@ name = &"Dagaz"
 tooltip = ""
 texture = SubResource("AtlasTexture_py553")
 description = ""
-title = ""
 permanent = false
 undraggable = false
 pickable = false

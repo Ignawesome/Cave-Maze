@@ -10,7 +10,6 @@ var locked = true
 
 
 func _ready():
-	SceneDb.held_item.set("being_dragged", true)
 #	SceneDb.held_item.interact.connect(interact_with_item)
 	for interactible in interactibles.get_children():
 		pass
@@ -86,8 +85,8 @@ func _on_berkano_input_event(_viewport, event, _shape_idx):
 		if "Berkano" in SceneDb.inventory.inventory:
 			print("Berkano already in inventory")
 			$Berkano.queue_free()
-		else:
-			InventoryDb.add_to_inventory("Berkano")
+#		else:
+#			InventoryDb.add_to_inventory("Berkano")
 		
 
 

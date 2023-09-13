@@ -1,10 +1,9 @@
 extends Control
-class_name Inventory
 
 @onready var inventory_slots = %Items
-@onready var dragged_item = $"../DraggedItem"
 @onready var notes = %Notes
 
+@onready var panel = $Panel
 
 @export var player_inventory : InventoryReference
 
@@ -26,27 +25,27 @@ func update_inventory(item_array : Array[ItemResource]):
 			inventory_slots.set_item_tooltip(inventory_slots.add_item(item.name,
 			 item.texture, true), item.tooltip)
 
-
-func add_item(item : ItemResource):
-	if item == null:
-		return FAILED
-	player_inventory.add_item(item)
-	update_inventory(player_inventory.items_in_inventory)
-	return OK
-	
-func remove_item(item : ItemResource):
-	if item == null:
-		return FAILED
-	player_inventory.remove_item(item)
-	update_inventory(player_inventory.items_in_inventory)
-	return OK
+#
+#func add_item(item : ItemResource):
+#	if item == null:
+#		return FAILED
+#	player_inventory.add_item(item)
+#	update_inventory(player_inventory.items_in_inventory)
+#	return OK
+#
+#func remove_item(item : ItemResource):
+#	if item == null:
+#		return FAILED
+#	player_inventory.remove_item(item)
+#	update_inventory(player_inventory.items_in_inventory)
+#	return OK
 
 
 func _on_item_list_item_clicked(index, at_position, mouse_button_index):
 	item_selected = player_inventory.find_item(index)
 	if mouse_button_index == 2:
 		instance_context_menu(index, at_position)
-	elif mouse_button_index == 1:
+	elif mouse_button_index == 1 and item_selected:
 		if not item_selected.undraggable:
 			start_item_drag(item_selected)
 	
@@ -69,21 +68,21 @@ func context_menu_clicked(index : int):
 		#Use
 		0:
 			start_item_drag(item_selected)
-			print(item_selected.name, " used.")
+#			print(item_selected.name, " used.")
 			
 			pass
 		#Examine
 		1:
-			print(item_selected.name, " examined.")
+#			print(item_selected.name, " examined.")
 			pass
 		#Combine
 		2:
-			print(item_selected.name, " combined.")
+#			print(item_selected.name, " combined.")
 			pass
 		#Drop
 		3:
-			print(item_selected.name, " dropped.")
-			remove_item(item_selected)
+#			print(item_selected.name, " dropped.")
+			player_inventory.remove_item(item_selected)
 			pass
 
 
@@ -108,18 +107,5 @@ func item_combined(item_clicked):
 
 #Hide the inventory when mouse leaves
 func _on_inventory_mouse_exit():
-	if get_viewport().get_mouse_position().x > 125:
-		await get_tree().create_timer(2)
+	if get_viewport().get_mouse_position().x > panel.get_size().x:
 		StateManager.change_state(1)
-
-
-
-#func find_item_resource(item):
-#	if item == int:
-#		player_inventory.find_item(inventory_slots.get_item_text(item))
-#		pass
-#	elif item == StringName:
-#		pass
-#	else:
-#		return FAILED
-#	return item_selected

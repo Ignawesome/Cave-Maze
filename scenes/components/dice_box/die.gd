@@ -24,9 +24,9 @@ func _ready():
 
 func _physics_process(delta):
 	if self.get_contact_count() > 0:
-		set_angular_damp(angular_damp * 1.5)
+		set_angular_damp(-100) #angular_damp * 0.1
 		if self.gravity_scale < 10:
-			set_gravity_scale(gravity_scale * 1.5)
+			set_gravity_scale(25) #gravity_scale * 1.5
 
 func _on_sleeping_state_changed():
 	var sides = %Sides

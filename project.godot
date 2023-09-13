@@ -24,12 +24,12 @@ general/text_to_speech=true
 
 SceneDb="*res://global/databases/scene_db.gd"
 maze="*res://global/managers/maze.gd"
-InventoryDb="*res://global/databases/global_events.gd"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 SaveSystem="*res://addons/save_system/SaveSystem.gd"
 StateManager="*res://global/managers/state_manager.gd"
 MouseManager="*res://global/mouse_cursor_manager.gd"
 InteractionMng="*res://InteractionManager.gd"
+GlobalEvents="*res://global/databases/global_events.gd"
 
 [display]
 

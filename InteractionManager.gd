@@ -1,24 +1,21 @@
 extends Node
-class_name InteractionManager
 
 
-@onready var dragged_item = SceneDb.held_item.held_item_var
-@onready var main  = SceneDb.main
-var count := 0
+const interactions := {
+	"Key" : ["Door", "Suitcase", "Box", "Chest"],
+	"Phone" : ["Henry", "Mary"],
+	"Berkano" : ["Isaac"]
+}
 
-
-
-
-# Called when the node enters the scene tree for the first time.
-#func _ready():
-#	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	if dragged_item:
-#		print("Held item is " + dragged_item.name + " at " + str(count) + " seconds")
-#	else:
-#		print("no dragged_item")
-
-	
+func check_interaction(item_name : String , other_item_name : String):
+	if item_name in interactions:
+		if other_item_name in interactions[item_name]:
+			return true
+	else:
+		return false
+		
+func use_item_with_item(item : ItemResource, other_item : ItemResource):
+	if (item.name in other_item.combinations) or (other_item.name in item.combinations):
+		return true
+	else:
+		return false

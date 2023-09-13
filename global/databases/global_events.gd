@@ -4,18 +4,24 @@ extends Node
 
 #Dictionary to track items solved
 var items_state := {
-	"Suitcase" : false
+	"suitcase_locked" : true
 }
 
 # Dictionary to track unlocked doors (door name as key, boolean as value)
 var unlocked_doors := {
-	"StartCell" : false,
-	"FirstRoom1" : false,
-	"FirstRoom2" : false
+	"start_cell" : false,
+	"first_room1" : false,
+	"first_room2" : false
 }
 
 # List to track items that should not spawn
 var banned_items := []
+
+
+func set_item_state(item : String, state : Variant):
+	items_state[item] = state
+	print("Global state of " + item + "changed to: " + str(state))
+	print(items_state)
 
 
 # Function to mark a door as unlocked

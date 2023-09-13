@@ -11,7 +11,6 @@ sky_material = SubResource("ProceduralSkyMaterial_enaxl")
 
 [sub_resource type="Environment" id="Environment_dkerf"]
 background_mode = 1
-background_color = Color(0, 0, 0, 0)
 sky = SubResource("Sky_5ifuh")
 tonemap_mode = 2
 
@@ -24,6 +23,9 @@ material = SubResource("StandardMaterial3D_qx38x")
 size = Vector2(50, 50)
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_uwu3j"]
+friction = 33.65
+rough = true
+absorbent = true
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_wqydp"]
 data = PackedVector3Array(25, 0, 25, -25, 0, 25, 25, 0, -25, -25, 0, 25, -25, 0, -25, 25, 0, -25)

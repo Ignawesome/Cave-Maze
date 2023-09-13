@@ -15,19 +15,7 @@ var result_count : Dictionary = {}
 func _ready():
 	spawn_die(die_scene)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-#	var first_die = dice_array[0]
-#	camera_3d.look_at_from_position(first_die.global_position - Vector3(0,4,0), first_die.global_position, Vector3.UP)
-#	set_position(first_die.global_position - Vector3(0,-4,0))
-#	
-#	print(dice_array[0].global_position)
-#	var camera_aim
-#	if dice_array.size() > 0:
-#		camera_aim = find_average_position(dice_array)
-#	%DieCamera.look_at(camera_aim, Vector3.UP)
-	
+
 func _input(event):
 	if Input.is_mouse_button_pressed(1):
 		get_tree().reload_current_scene()

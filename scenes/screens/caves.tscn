@@ -1,14 +1,17 @@
-[gd_scene load_steps=6 format=3 uid="uid://c5s25uvu1jej6"]
+[gd_scene load_steps=8 format=3 uid="uid://c5s25uvu1jej6"]
 
 [ext_resource type="Script" path="res://scenes/screens/caves.gd" id="1_oo653"]
 [ext_resource type="Texture2D" uid="uid://odl8acnv4sda" path="res://assets/textures/backgrounds/cave.png" id="2_shb3m"]
 [ext_resource type="PackedScene" uid="uid://cqaq3x45uvh8a" path="res://scenes/components/interactible.tscn" id="3_lf43h"]
 [ext_resource type="PackedScene" uid="uid://l505vves2al3" path="res://suitcase.tscn" id="4_b3bwu"]
+[ext_resource type="Resource" uid="uid://des1uhf3d07kp" path="res://scenes/components/inventory/items/Jera.tres" id="6_qo4pp"]
+[ext_resource type="Resource" uid="uid://b5q1fcldpj2kd" path="res://scenes/components/inventory/items/Key.tres" id="8_d1x2h"]
 [ext_resource type="PackedScene" uid="uid://bo8mhgg3w73jb" path="res://scenes/menu/note_ui.tscn" id="9_b7lkf"]
 
 [node name="CaveScene" type="Node2D"]
 script = ExtResource("1_oo653")
 metadata/_edit_lock_ = true
+metadata/_edit_horizontal_guides_ = []
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -10
@@ -52,10 +55,19 @@ grow_horizontal = 0
 grow_vertical = 0
 
 [node name="Interactibles" type="Node2D" parent="."]
+position = Vector2(129, -105)
 
 [node name="Suitcase" parent="Interactibles" instance=ExtResource("4_b3bwu")]
+position = Vector2(268, 320)
 
 [node name="Interactible" parent="Interactibles" instance=ExtResource("3_lf43h")]
+position = Vector2(186, 152)
+item = ExtResource("6_qo4pp")
+
+[node name="Key" parent="Interactibles" instance=ExtResource("3_lf43h")]
+position = Vector2(-15, 161)
+scale = Vector2(0.5, 0.5)
+item = ExtResource("8_d1x2h")
 
 [connection signal="input_event" from="LeftDoor" to="." method="_on_left_door_input_event"]
 [connection signal="input_event" from="MiddleDoor" to="." method="_on_middle_door_input_event"]

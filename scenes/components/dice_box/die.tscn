@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bgwc5gpf2k1n8" path="res://scenes/components/dice_box/die_die2.png" id="1_si5fl"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_yuh52"]
-friction = 0.7
+friction = 2.3
 rough = true
 absorbent = true
 
@@ -51,7 +51,7 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_u4rnj")
 
 [node name="Die" type="RigidBody3D"]
-mass = 5.55
+mass = 4.05
 physics_material_override = SubResource("PhysicsMaterial_yuh52")
 gravity_scale = 1.5
 max_contacts_reported = 1

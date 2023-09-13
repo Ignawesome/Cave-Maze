@@ -1,9 +1,12 @@
-#~ Key
-#Nathan: Hmm... but there are no doors in this cave.
-#=> END
+
 ~ IncorrectItem
 I can't use it like that.
 => END
+
+~ KeyDescription
+Nathan: Hmm... are there any doors in this cave?
+=> END
+
 
 ~ Phone
 This phone is old as fuck. Battery's gone.
@@ -17,12 +20,23 @@ Edmund: Companionship.
 	Piece of shit, I want Perthro!
 => END
 
-~ SuitcaseLocked
-This suitcase is locked.
+~ Suitcase
+if GlobalEvents.items_state["suitcase_locked"] == false
+	This suitcase is already open.
+else
+	It's locked. I can't open it.
+=> END
+
+~ SuitcaseKeyAgain
+It's already open you dimwit.
+=> END
+
+~ SuitcaseDescription
+It's a pretty nice suitcase I must say.
 => END
 
 ~ SuitcaseOpened
-I opened the suitcase.
+I used the key to open it.
 => END
 
 ~ SuitcaseAlreadyOpen

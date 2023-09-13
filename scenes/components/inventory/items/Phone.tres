@@ -13,7 +13,6 @@ name = &"Phone"
 tooltip = "My phone"
 texture = SubResource("AtlasTexture_pjo3l")
 description = "Nobody used flip phones anymore"
-title = ""
 permanent = false
 undraggable = false
 pickable = false

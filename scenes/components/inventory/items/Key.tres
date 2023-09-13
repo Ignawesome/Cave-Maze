@@ -13,7 +13,6 @@ name = &"Key"
 tooltip = "My keys"
 texture = SubResource("AtlasTexture_b78fd")
 description = "I can't enter my house without these."
-title = ""
 permanent = false
 undraggable = false
 pickable = false

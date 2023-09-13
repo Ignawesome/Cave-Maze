@@ -13,11 +13,10 @@ signal interact_signal(ItemResource)
 var being_dragged := false :
 	set(value):
 		interact_signal.emit(value)
-		print("emitted being_dragged signal")
+#		print("emitted being_dragged signal")
 		being_dragged = value
 	get: 
 		return being_dragged
-
 
 
 func _ready():
@@ -41,14 +40,15 @@ func _input(event):
 #		stop_item_dragging()
 	elif event is InputEventMouseButton \
 	and event.button_index == 2 \
-	and event.is_pressed():
+	and event.is_pressed() \
+	and get("being_dragged"):
 		stop_item_dragging()
+		get_viewport().set_input_as_handled()
 
 
 func _on_item_dragging(item : ItemResource):
 	Input.set_custom_mouse_cursor(SceneDb.mouse_drag, Input.CURSOR_ARROW)
 	being_dragged = true
-	StateManager.is_item_in_hand()
 	held_item_var = item
 	self.texture = item.texture
 	self.show()

@@ -2,15 +2,25 @@ extends Resource
 class_name InventoryReference
 
 @export var items_in_inventory : Array[ItemResource]
+#@export var inventoryUI : Control
 
-func add_item(item : ItemResource):
+var owner = self.get_local_scene()
+
+
+func add_item(item : ItemResource) -> void:
+	if item == null:
+		printerr("Tried to add a null item to inventory")
+		return
 	items_in_inventory.append(item)
+	owner.update_inventory(items_in_inventory)
 	
 func remove_item(item : ItemResource) -> void:
 	items_in_inventory.erase(item)
+	owner.update_inventory(items_in_inventory)
 	
 func clear_inventory() -> void:
 	items_in_inventory.clear()
+	owner.update_inventory(items_in_inventory)
 
 func has_item(item : ItemResource):
 	if items_in_inventory.has(item):
@@ -28,10 +38,3 @@ func find_item(item_id : int = -1, item_name : StringName = ""):
 	else:
 		return null
 
-
-func use_item(item : ItemResource):
-	item.use_effect()
-
-func combine_items(item : ItemResource, other_item : ItemResource):
-	if item.combinations.has(other_item):
-		pass

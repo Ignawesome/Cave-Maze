@@ -1,68 +1,48 @@
 extends Interactible
 
-var locked = true
+var locked := true :
+	set(value):
+		GlobalEvents.set_item_state("suitcase_locked", value)
+		locked = value
+	get:
+		return locked
 
 
 func _ready():
-	pass
+	set("locked", GlobalEvents.items_state["suitcase_locked"])
 
-func _on_interact():
-	pass
+
+func examine_item(item_name : ItemResource):
+	DialogueManager.show_example_dialogue_balloon(item.dialogue, item.name + "Description")
 	
-func _on_examine():
+func check_item_interaction(hand_item : ItemResource, other_item : ItemResource):
+	#If the suitcase is still locked
+	if locked:
+		#Check the item
+		#If the key is right
+		if InteractionMng.check_interaction(hand_item.name, item.name): # if InteractionMng.use_item_with_item(hand_item, item):
+			open_suitcase()
+		#If it's some other item
+		else:
+			DialogueManager.show_example_dialogue_balloon(SceneDb.ITEM_DESCRIPTIONS, "IncorrectItem")
+	#If the suitcase has already been opened
+	elif not locked:
+		#If you are trying to open it again with the key
+		if InteractionMng.check_interaction(hand_item.name, item.name): # if InteractionMng.use_item_with_item(hand_item, item):
+			DialogueManager.show_example_dialogue_balloon(SceneDb.ITEM_DESCRIPTIONS, "SuitcaseKeyAgain")
+		#If you are using another item on the open suitcase
+		else:
+			DialogueManager.show_example_dialogue_balloon(SceneDb.ITEM_DESCRIPTIONS, "Suitcase")
+
+
+func interact_with_item(item : ItemResource):
+	DialogueManager.show_example_dialogue_balloon(SceneDb.ITEM_DESCRIPTIONS, "Suitcase")
+
+
+func pick_up_interactible(item : ItemResource):
 	pass
-
-
-func _on_item_interact():
-	pass
-
-#	if not held_item.interact.is_connected(_on_interact):
-#		held_item.interact.connect(_on_interact)
-#	print("Suitcase sees item: ", held_item)
-
-#func _on_interact(item_name):
-#	if item_name and item_name == "Key" and locked:
-#		open_suitcase()
-#	elif item_name and item_name == "Key" and not locked:
-#		DialogueManager.show_example_dialogue_balloon(SceneDb.ITEM_DESCRIPTIONS, "SuitcaseAlreadyOpen")
-#	else:
-#		DialogueManager.show_example_dialogue_balloon(SceneDb.ITEM_DESCRIPTIONS, "SuitcaseLocked")
-
-
-func _on_input_event(_viewport, event, _shape_idx) -> void:
-	if event is InputEventMouseButton \
-	and event.button_index == 2 \
-	and event.pressed:
-		item.examine_item()
-	if event is InputEventMouseButton \
-	and event.button_index == 1 \
-	and event.pressed:
-		var held_item = SceneDb.held_item.held_item_var
-		print(held_item)
-		if held_item:
-			print(held_item.name)
-			if held_item.name == &"Key":
-				open_suitcase()
-			else:
-				DialogueManager.show_example_dialogue_balloon(SceneDb.ITEM_DESCRIPTIONS, "IncorrectItem")
-			return
-		elif locked:
-			print("it's locked")
-			DialogueManager.show_example_dialogue_balloon(SceneDb.ITEM_DESCRIPTIONS, "SuitcaseLocked")
-			
-			return
-		elif not locked:
-			DialogueManager.show_example_dialogue_balloon(SceneDb.ITEM_DESCRIPTIONS, "SuitcaseAlreadyOpen")
-
-
-#		if dragged_item and dragged_item.name == "Key" and locked:
-#			open_suitcase()
-#		elif dragged_item and dragged_item.name == "Key" and not locked:
-#			DialogueManager.show_example_dialogue_balloon(SceneDb.ITEM_DESCRIPTIONS, "SuitcaseAlreadyOpen")
-#		else:
-#			DialogueManager.show_example_dialogue_balloon(SceneDb.ITEM_DESCRIPTIONS, "SuitcaseLocked")
-#	pass # Replace with function body.
 
 func open_suitcase():
-	locked = false
+	set("locked", false)
 	DialogueManager.show_example_dialogue_balloon(SceneDb.ITEM_DESCRIPTIONS, "SuitcaseOpened")
+	SceneDb.inventory.player_inventory.add_item(load("res://scenes/components/inventory/items/Money.tres"))

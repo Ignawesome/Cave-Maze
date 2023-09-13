@@ -7,7 +7,7 @@ class_name ItemResource
 @export var texture : AtlasTexture
 @export_multiline var description : String	
 @export var dialogue : DialogueResource
-@export var title : String
+#@export var title : String
 
 @export var permanent : bool
 @export var undraggable : bool
@@ -16,6 +16,7 @@ class_name ItemResource
 
 @export var times_interacted := 0
 @export var combinations : Array[StringName]
+
 
 #@export var collision : PackedVector2Array
 #@export var collision_shape : Shape2D
@@ -30,8 +31,12 @@ const ICON_SIZE := Vector2i(16,16)
 func open_door():
 	pass
 
-func examine_item():
-	DialogueManager.show_example_dialogue_balloon(dialogue, title)
+func examine_item(title : String):
+	pass
 	
-
+func interact_with_item(item : ItemResource):
+	pass
+	
+func check_item_interaction(item  : ItemResource, other_item : ItemResource):
+	pass
 

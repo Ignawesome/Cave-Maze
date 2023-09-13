@@ -4,7 +4,7 @@ class_name GameState
 var current_state : int
 var previous_state : int
 
-
+var is_item_in_hand : bool
 
 enum GAME_STATES {
 	CUTSCENE,
@@ -15,6 +15,9 @@ enum GAME_STATES {
 	SETTINGS,
 	INVENTORY
 	}
+
+func _ready():
+	SceneDb.held_item.item_held_signal.connect(_is_item_in_hand)
 
 
 func change_state(state):
@@ -103,5 +106,6 @@ func hide_inventory(hide):
 	else:
 		SceneDb.inventory.show()
 
-func is_item_in_hand():
-	return SceneDb.held_item.get("being_dragged")
+func _is_item_in_hand():
+	is_item_in_hand = SceneDb.held_item.get("being_dragged")
+	return is_item_in_hand

@@ -197,8 +197,8 @@ func create_resource_from_text(text: String) -> Resource:
 
 ## Show the example balloon
 func show_example_dialogue_balloon(resource: DialogueResource, title: String = "0", extra_game_states: Array = []) -> void:
-	var ExampleBalloonScene = load("res://addons/dialogue_manager/example_balloon/example_balloon.tscn")
-	var SmallExampleBalloonScene = load("res://addons/dialogue_manager/example_balloon/small_example_balloon.tscn")
+	var ExampleBalloonScene = load("res://scenes/components/dialogue/balloon.tscn")
+	var SmallExampleBalloonScene = load("res://scenes/components/dialogue/small_balloon.tscn")
 
 	var is_small_window: bool = ProjectSettings.get_setting("display/window/size/viewport_width") < 500
 	var balloon: Node = (SmallExampleBalloonScene if is_small_window else ExampleBalloonScene).instantiate()
