@@ -17,7 +17,7 @@ func _ready():
 	Input.set_custom_mouse_cursor(SceneDb.mouse_drag,Input.CURSOR_DRAG)
 	
 	connect_scene_signals(main_menu)
-	StateManager.change_state(2)
+	StateManager.change_state(StateManager.GAME_STATES.MENU)
 	%Settings.load_and_apply_all_settings_from_file(config_file)
 
 func new_game():
@@ -46,10 +46,11 @@ func end_transition():
 	await $TransitionManager.fade_in()
 
 func _process(delta):
-	if Input.is_action_just_pressed("quit"):
-		show_menu()
 	if Input.is_action_just_pressed("inventory"):
 		show_inventory()
+
+
+
 
 
 func change_scene_to(scene_file_path : String):
@@ -64,21 +65,24 @@ func change_scene_to(scene_file_path : String):
 
 
 func show_menu():
-	if StateManager.current_state == 1 or StateManager.current_state == 6 :
-		var new_menu : PackedScene = load(main_menu_path)
-		var node : Node = new_menu.instantiate()
-		if StateManager.current_state == 1:
-			$GameWorld.find_child("CaveScene", false, false).queue_free()
-		if node != null:
-			$UI.add_child(node, true)
-			connect_scene_signals(node)
-			%Inventory.hide()
-			StateManager.change_state(2)
+	if StateManager.confirm_current_game_state(StateManager.GAME_STATES.PLAYING) or \
+	StateManager.confirm_current_game_state(StateManager.GAME_STATES.INVENTORY):
+#		var new_menu : PackedScene = load(main_menu_path)
+#		var node : Node = new_menu.instantiate()
+#		if StateManager.confirm_current_game_state(StateManager.GAME_STATES.PLAYING):
+#			$GameWorld.find_child("CaveScene", false, false).queue_free()
+#		if node != null:
+#			$UI.add_child(node, true)
+#			connect_scene_signals(node)
+#			%Inventory.hide()
+			StateManager.change_state(StateManager.GAME_STATES.MENU)
+	elif StateManager.confirm_current_game_state(StateManager.GAME_STATES.MENU):
+		get_tree().quit()
 
 func show_settings():
-	if StateManager.current_state != 5:
-		%Settings.show()
-		StateManager.change_state(5)
+	if not StateManager.confirm_current_game_state(StateManager.GAME_STATES.SETTINGS):
+#		%Settings.show()
+		StateManager.change_state(StateManager.GAME_STATES.SETTINGS)
 
 
 
@@ -93,7 +97,8 @@ func show_inventory():
 
 func connect_scene_signals(node : Node):
 	if node != null:
-		var signal_list = node.get_signal_list()
+		var signal_list = node.script.get_script_signal_list()
+		
 		for i in signal_list:
 			match i.name:
 				"new_room_signal":
@@ -120,7 +125,7 @@ func instantiate_scene(path : String):
 func delete_current_scene(current_node):
 	var menu = $UI.find_child("MainMenu*", false, false)
 	if menu != null:
-		menu.queue_free()
+		menu.hide()
 	if current_node != null:
 		current_node.queue_free()
 

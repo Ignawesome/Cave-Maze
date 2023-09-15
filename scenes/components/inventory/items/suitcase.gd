@@ -9,6 +9,7 @@ var locked := true :
 
 
 func _ready():
+	super._ready()
 	set("locked", GlobalEvents.items_state["suitcase_locked"])
 
 

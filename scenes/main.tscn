@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://b8y6fhm02gyrs"]
+[gd_scene load_steps=18 format=3 uid="uid://b8y6fhm02gyrs"]
 
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_fwelu"]
 [ext_resource type="PackedScene" uid="uid://b4l6fvdx3ybql" path="res://global/managers/transition_manager.tscn" id="2_4dtgm"]
@@ -6,10 +6,22 @@
 [ext_resource type="Script" path="res://scenes/user_interface.gd" id="3_oeacu"]
 [ext_resource type="AudioStream" uid="uid://dh68sxbhsemj8" path="res://assets/sounds/cave themeb4.ogg" id="3_x0lhm"]
 [ext_resource type="PackedScene" uid="uid://babuf0fbdot0b" path="res://scenes/components/inventory/inventory_UI.tscn" id="4_320yq"]
+[ext_resource type="Resource" uid="uid://b5q1fcldpj2kd" path="res://scenes/components/inventory/items/Key.tres" id="5_0ktdc"]
 [ext_resource type="PackedScene" uid="uid://dy3buq74oqbom" path="res://scenes/menu/settings.tscn" id="5_pmhfd"]
+[ext_resource type="Resource" uid="uid://ucpph8nbmgw3" path="res://scenes/components/inventory/items/Dagaz.tres" id="6_sq228"]
 [ext_resource type="PackedScene" uid="uid://c5hpbb1s03i0c" path="res://scenes/menu/dragged_item.tscn" id="7_fxagr"]
+[ext_resource type="Resource" uid="uid://dje5841on36ba" path="res://scenes/components/inventory/items/Berkano.tres" id="7_m87rv"]
+[ext_resource type="Resource" uid="uid://des1uhf3d07kp" path="res://scenes/components/inventory/items/Jera.tres" id="8_raylb"]
+[ext_resource type="Resource" uid="uid://d0ejeo3guhtlx" path="res://scenes/components/inventory/items/Phone.tres" id="9_o32hb"]
+[ext_resource type="Script" path="res://scenes/components/inventory/inventory_reference.gd" id="10_qjihu"]
+[ext_resource type="PackedScene" uid="uid://b7iv2ggy3qd45" path="res://scenes/menu/pause_menu.tscn" id="13_enve6"]
 
 [sub_resource type="GDScript" id="GDScript_t4qsd"]
+
+[sub_resource type="Resource" id="Resource_ww0pr"]
+resource_local_to_scene = true
+script = ExtResource("10_qjihu")
+items_in_inventory = Array[Resource("res://scenes/components/inventory/item_class.gd")]([ExtResource("5_0ktdc"), ExtResource("6_sq228"), ExtResource("7_m87rv"), ExtResource("8_raylb"), ExtResource("9_o32hb")])
 
 [node name="Main" type="Node"]
 script = ExtResource("1_fwelu")
@@ -30,12 +42,16 @@ unique_name_in_owner = true
 [node name="Inventory" parent="UI" instance=ExtResource("4_320yq")]
 unique_name_in_owner = true
 visible = false
+player_inventory = SubResource("Resource_ww0pr")
 
 [node name="Settings" parent="UI" instance=ExtResource("5_pmhfd")]
 unique_name_in_owner = true
 visible = false
 
 [node name="DraggedItem" parent="UI" instance=ExtResource("7_fxagr")]
+unique_name_in_owner = true
+
+[node name="PauseMenu" parent="UI" instance=ExtResource("13_enve6")]
 unique_name_in_owner = true
 
 [node name="TransitionManager" parent="." instance=ExtResource("2_4dtgm")]

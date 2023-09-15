@@ -16,7 +16,6 @@ signal interact_held_item_signal(item : ItemResource, hand_item : ItemResource)
 
 func _ready():
 	if auto_generate:
-#		self.set_name(item.name)
 		sprite.set_texture(item.texture)
 		_set_collision_polygons(sprite.texture.get_image())
 

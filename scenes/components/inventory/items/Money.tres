@@ -13,7 +13,6 @@ name = &"Money"
 tooltip = "Moolah"
 texture = SubResource("AtlasTexture_1ign3")
 description = "It's just 10 bucks"
-title = ""
 permanent = false
 undraggable = false
 pickable = false

@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://l505vves2al3"]
 
-[ext_resource type="Script" path="res://scenes/screens/suitcase.gd" id="1_ier62"]
+[ext_resource type="Script" path="res://scenes/components/inventory/items/suitcase.gd" id="1_wlp12"]
 [ext_resource type="Texture2D" uid="uid://27vnwkjoysxe" path="res://assets/textures/raw/genericItems_spritesheet_colored.png" id="2_wxr2k"]
 [ext_resource type="Resource" uid="uid://dtmx2f7v7w8ic" path="res://scenes/components/inventory/items/suitcase.tres" id="2_xwuyb"]
 
@@ -9,10 +9,11 @@ atlas = ExtResource("2_wxr2k")
 region = Rect2(143, 1117, 118, 108)
 
 [node name="Suitcase" type="Area2D"]
-script = ExtResource("1_ier62")
+script = ExtResource("1_wlp12")
 item = ExtResource("2_xwuyb")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 1)
 texture = SubResource("AtlasTexture_dabbf")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]

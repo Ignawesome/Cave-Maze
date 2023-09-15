@@ -16,7 +16,7 @@ class_name ItemResource
 
 @export var times_interacted := 0
 @export var combinations : Array[StringName]
-
+@export var specific_script : Script
 
 #@export var collision : PackedVector2Array
 #@export var collision_shape : Shape2D
