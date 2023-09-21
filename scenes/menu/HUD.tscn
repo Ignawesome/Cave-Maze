@@ -1,9 +1,21 @@
-[gd_scene load_steps=5 format=3 uid="uid://duug8t1v4qmxw"]
+[gd_scene load_steps=13 format=3 uid="uid://duug8t1v4qmxw"]
 
 [ext_resource type="PackedScene" uid="uid://babuf0fbdot0b" path="res://scenes/components/inventory/inventory_UI.tscn" id="1_oso0u"]
-[ext_resource type="PackedScene" uid="uid://sxgrwnupynja" path="res://addons/dialogue_manager/example_balloon/small_example_balloon.tscn" id="2_v2pki"]
+[ext_resource type="Resource" uid="uid://b5q1fcldpj2kd" path="res://scenes/components/inventory/items/Key.tres" id="2_1es73"]
+[ext_resource type="PackedScene" uid="uid://b361p61jmf257" path="res://scenes/components/dialogue/small_balloon.tscn" id="2_v2pki"]
 [ext_resource type="PackedScene" uid="uid://d0p5gomrgwnoy" path="res://scenes/components/dice_box/die_box.tscn" id="3_5vv6x"]
 [ext_resource type="Theme" uid="uid://bvke1eripwx1b" path="res://assets/themes/border_theme.tres" id="3_eah35"]
+[ext_resource type="Resource" uid="uid://ucpph8nbmgw3" path="res://scenes/components/inventory/items/Dagaz.tres" id="3_opdmc"]
+[ext_resource type="Resource" uid="uid://dje5841on36ba" path="res://scenes/components/inventory/items/Berkano.tres" id="4_tey61"]
+[ext_resource type="Resource" uid="uid://des1uhf3d07kp" path="res://scenes/components/inventory/items/Jera.tres" id="5_fog1a"]
+[ext_resource type="Resource" uid="uid://d0ejeo3guhtlx" path="res://scenes/components/inventory/items/Phone.tres" id="6_k1c3q"]
+[ext_resource type="Script" path="res://scenes/components/inventory/inventory_reference.gd" id="7_ab0q0"]
+[ext_resource type="Script" path="res://addons/orchestrator/components/editor/orchestration_graph_node.gd" id="11_tpory"]
+
+[sub_resource type="Resource" id="Resource_y2l6y"]
+resource_local_to_scene = true
+script = ExtResource("7_ab0q0")
+items_in_inventory = Array[Resource("res://scenes/components/inventory/item_class.gd")]([ExtResource("2_1es73"), ExtResource("3_opdmc"), ExtResource("4_tey61"), ExtResource("5_fog1a"), ExtResource("6_k1c3q")])
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -15,6 +27,7 @@ grow_vertical = 2
 
 [node name="Inventory" parent="." instance=ExtResource("1_oso0u")]
 layout_mode = 1
+player_inventory = SubResource("Resource_y2l6y")
 
 [node name="ExampleBalloon" parent="." instance=ExtResource("2_v2pki")]
 
@@ -41,3 +54,11 @@ size = Vector2i(163, 168)
 render_target_update_mode = 4
 
 [node name="DieBox" parent="Panel/SubViewportContainer/SubViewport" instance=ExtResource("3_5vv6x")]
+
+[node name="OrchestrationGraphNode" type="GraphNode" parent="."]
+layout_mode = 0
+offset_right = 76.0
+offset_bottom = 54.0
+show_close = true
+resizable = true
+script = ExtResource("11_tpory")

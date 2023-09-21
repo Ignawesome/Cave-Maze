@@ -6,6 +6,7 @@ signal new_game_signal
 signal continue_signal
 signal settings_signal
 
+
 func _on_new_game_button_pressed():
 	new_game_signal.emit()
 

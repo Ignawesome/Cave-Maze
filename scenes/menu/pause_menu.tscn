@@ -5,7 +5,6 @@
 [ext_resource type="Script" path="res://scenes/menu/pause_menu.gd" id="2_ohv28"]
 
 [node name="PauseMenu" type="Control"]
-visible = false
 top_level = true
 layout_mode = 3
 anchors_preset = 8

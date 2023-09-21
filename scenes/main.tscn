@@ -18,7 +18,7 @@
 
 [sub_resource type="GDScript" id="GDScript_t4qsd"]
 
-[sub_resource type="Resource" id="Resource_ww0pr"]
+[sub_resource type="Resource" id="Resource_5y7c5"]
 resource_local_to_scene = true
 script = ExtResource("10_qjihu")
 items_in_inventory = Array[Resource("res://scenes/components/inventory/item_class.gd")]([ExtResource("5_0ktdc"), ExtResource("6_sq228"), ExtResource("7_m87rv"), ExtResource("8_raylb"), ExtResource("9_o32hb")])
@@ -42,7 +42,7 @@ unique_name_in_owner = true
 [node name="Inventory" parent="UI" instance=ExtResource("4_320yq")]
 unique_name_in_owner = true
 visible = false
-player_inventory = SubResource("Resource_ww0pr")
+player_inventory = SubResource("Resource_5y7c5")
 
 [node name="Settings" parent="UI" instance=ExtResource("5_pmhfd")]
 unique_name_in_owner = true

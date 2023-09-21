@@ -56,12 +56,16 @@ corner_radius_top_right = 3
 corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sjhsf"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5rf8f"]
 texture = ExtResource("1_nepea")
 texture_margin_left = 36.0
 texture_margin_top = 36.0
 texture_margin_right = 11.0
 texture_margin_bottom = 11.0
+expand_margin_left = 11.0
+expand_margin_top = 11.0
+expand_margin_right = 11.0
+expand_margin_bottom = 11.0
 axis_stretch_horizontal = 1
 axis_stretch_vertical = 1
 region_rect = Rect2(0, 0, 99, 73)
@@ -145,7 +149,7 @@ MarginContainer/constants/margin_bottom = 2
 MarginContainer/constants/margin_left = 2
 MarginContainer/constants/margin_right = 2
 MarginContainer/constants/margin_top = 2
-Panel/styles/panel = SubResource("StyleBoxTexture_sjhsf")
+Panel/styles/panel = SubResource("StyleBoxTexture_5rf8f")
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_oisb3")
 PopupMenu/colors/font_color = Color(0.117647, 0.117647, 0.117647, 1)
 PopupMenu/colors/font_hover_color = Color(0.219608, 0.219608, 0.219608, 1)

@@ -20,11 +20,12 @@ enum GAME_STATES {
 	}
 
 func _ready():
-	SceneDb.held_item.item_held_signal.connect(_is_item_in_hand)
+	if SceneDb.held_item:
+		SceneDb.held_item.item_held_signal.connect(_is_item_in_hand)
 
 func get_current_game_state() -> GAME_STATES:
 	return current_state
-	
+
 func confirm_current_game_state(game_state : GAME_STATES) -> bool:
 	return true if game_state == current_state else false
 
@@ -32,15 +33,15 @@ func change_state(state : GAME_STATES):
 	previous_state = current_state
 	current_state = state
 	game_state_changed_to.emit(state)
-	
-	match current_state:		
+
+	match current_state:
 		GAME_STATES.CUTSCENE:
 			print("State set to: CUTSCENE ", current_state)
 			show_mouse(false)
 			playing_state(false)
 			hide_inventory(true)
 			show_pause_menu(false)
-			
+
 		GAME_STATES.PLAYING:
 			print("State set to: PLAYING ", current_state)
 			show_menu(false)
@@ -49,7 +50,7 @@ func change_state(state : GAME_STATES):
 			hide_inventory(true)
 			show_pause_menu(false)
 			#play cave music
-			
+
 		GAME_STATES.MENU:
 			print("State set to: MENU ", current_state)
 			show_mouse(true)
@@ -58,7 +59,7 @@ func change_state(state : GAME_STATES):
 			show_menu(true)
 			show_pause_menu(false)
 			#play menu music
-			
+
 		GAME_STATES.LOADING:
 			print("State set to: LOADING ", current_state)
 			playing_state(false)
@@ -66,7 +67,7 @@ func change_state(state : GAME_STATES):
 			show_mouse(false)
 			hide_inventory(true)
 			show_pause_menu(false)
-			
+
 		GAME_STATES.SETTINGS:
 			print("State set to: SETTINGS ", current_state)
 			playing_state(false)
@@ -75,7 +76,7 @@ func change_state(state : GAME_STATES):
 			show_menu(false)
 			show_pause_menu(false)
 			show_settings(true)
-			
+
 		GAME_STATES.END:
 			print("State set to: END ", current_state)
 			playing_state(false)
@@ -83,14 +84,14 @@ func change_state(state : GAME_STATES):
 			hide_inventory(true)
 			show_pause_menu(false)
 			#play victory or defeat music
-			
+
 		GAME_STATES.INVENTORY:
 			print("State set to: INVENTORY ", current_state)
 			show_mouse(true)
 			playing_state(true)
 			hide_inventory(false)
 			show_pause_menu(false)
-			
+
 		GAME_STATES.PAUSE:
 			print("State set to: PAUSE ", current_state)
 			playing_state(false)
@@ -101,11 +102,11 @@ func change_state(state : GAME_STATES):
 
 func change_state_to_previous():
 	change_state(previous_state)
-	
+
 func show_pause_menu(pause):
 	SceneDb.pause_menu.pause_game(pause)
 
-			
+
 func playing_state(playing : bool):
 	if playing:
 		pass

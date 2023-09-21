@@ -30,6 +30,8 @@ StateManager="*res://global/managers/state_manager.gd"
 MouseManager="*res://global/mouse_cursor_manager.gd"
 InteractionMng="*res://InteractionManager.gd"
 GlobalEvents="*res://global/databases/global_events.gd"
+OrchestratorNodeFactory="*res://addons/orchestrator/orchestrator_node_factory.gd"
+Orchestrator="*res://addons/orchestrator/orchestrator.gd"
 
 [display]
 
@@ -43,7 +45,7 @@ mouse_cursor/custom_image="res://assets/textures/icons/skel_hand_point.png"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg", "res://addons/save_system/plugin.cfg")
+enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg", "res://addons/orchestrator/plugin.cfg", "res://addons/save_system/plugin.cfg")
 
 [global]
 

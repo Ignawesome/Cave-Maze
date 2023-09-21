@@ -1,0 +1,93 @@
+[gd_resource type="Resource" script_class="Orchestration" load_steps=2 format=3 uid="uid://cn2fqh1bgjbo4"]
+
+[ext_resource type="Script" path="res://addons/orchestrator/core/orchestration.gd" id="1_myq47"]
+
+[resource]
+script = ExtResource("1_myq47")
+version = 1
+next_node_id = 15
+zoom = 0.799462
+scroll_offset = Vector2(573.774, -92.469)
+nodes = [{
+"attributes": {},
+"connections": Array[Dictionary]([]),
+"id": "GraphNode-2",
+"name": &"GraphNode-2",
+"position": Vector2(1440, 60),
+"size": Vector2(68.0001, 55),
+"type": 2,
+"type_name": "End"
+}, {
+"attributes": {},
+"connections": Array[Dictionary]([{
+"source_port": 0,
+"target_id": &"GraphNode-13",
+"target_node": &"GraphNode-13",
+"target_port": 0
+}, {
+"source_port": 0,
+"target_id": &"GraphNode-14",
+"target_node": &"GraphNode-14",
+"target_port": 0
+}]),
+"id": "GraphNode-3",
+"name": &"GraphNode-3",
+"position": Vector2(820, 120),
+"size": Vector2(77, 55),
+"type": 1,
+"type_name": "Start"
+}, {
+"attributes": {
+"file_name": "res://scenes/components/inventory/items/suitcase.gd",
+"method_name": "interact_with_item"
+},
+"connections": Array[Dictionary]([{
+"source_port": 0,
+"target_id": &"GraphNode-2",
+"target_node": &"GraphNode-2",
+"target_port": 0
+}]),
+"id": "GraphNode-13",
+"name": &"GraphNode-13",
+"position": Vector2(1000, 20),
+"size": Vector2(316, 138),
+"type": 11,
+"type_name": "Script"
+}, {
+"attributes": {
+"expression": "DialogueManager.show_example_dialogue_balloon(SceneDb.ITEM_DESCRIPTIONS, \"Suitcase\")"
+},
+"connections": Array[Dictionary]([{
+"source_port": 0,
+"target_id": &"GraphNode-2",
+"target_node": &"GraphNode-2",
+"target_port": 0
+}]),
+"id": "GraphNode-14",
+"name": &"GraphNode-14",
+"position": Vector2(1000, 280),
+"size": Vector2(284, 69),
+"type": 10,
+"type_name": "Expression"
+}]
+connections = Array[Dictionary]([{
+"from": &"GraphNode-3",
+"from_port": 0,
+"to": &"GraphNode-13",
+"to_port": 0
+}, {
+"from": &"GraphNode-13",
+"from_port": 0,
+"to": &"GraphNode-2",
+"to_port": 0
+}, {
+"from": &"GraphNode-3",
+"from_port": 0,
+"to": &"GraphNode-14",
+"to_port": 0
+}, {
+"from": &"GraphNode-14",
+"from_port": 0,
+"to": &"GraphNode-2",
+"to_port": 0
+}])

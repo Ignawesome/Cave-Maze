@@ -15,7 +15,7 @@ func _ready():
 	Input.set_custom_mouse_cursor(SceneDb.mouse_point,Input.CURSOR_ARROW)
 	Input.set_custom_mouse_cursor(SceneDb.mouse_grab,Input.CURSOR_POINTING_HAND)
 	Input.set_custom_mouse_cursor(SceneDb.mouse_drag,Input.CURSOR_DRAG)
-	
+
 	connect_scene_signals(main_menu)
 	StateManager.change_state(StateManager.GAME_STATES.MENU)
 	%Settings.load_and_apply_all_settings_from_file(config_file)
@@ -38,7 +38,7 @@ func game_over(win : bool):
 		end.win()
 	else:
 		end.lose()
-	
+
 func start_transition():
 	await $TransitionManager.fade_out()
 
@@ -98,7 +98,7 @@ func show_inventory():
 func connect_scene_signals(node : Node):
 	if node != null:
 		var signal_list = node.script.get_script_signal_list()
-		
+
 		for i in signal_list:
 			match i.name:
 				"new_room_signal":
