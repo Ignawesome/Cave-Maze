@@ -1,0 +1,46 @@
+
+~ IncorrectItem
+I can't use it like that.
+=> END
+
+~ KeyDescription
+Nathan: Hmm... are there any doors in this cave?
+=> END
+
+
+~ Phone
+This phone is old as fuck. Battery's gone.
+=> END
+
+~ Berkano
+Edmund: Companionship.
+- Use
+	This rune spawns three flies that fight for you.
+- Discard
+	Piece of shit, I want Perthro!
+=> END
+
+~ Suitcase
+if GlobalEvents.items_state["suitcase_locked"] == false
+	This suitcase is already open.
+else
+	It's locked. I can't open it.
+=> END
+
+~ SuitcaseKeyAgain
+It's already open you dimwit.
+=> END
+
+~ SuitcaseDescription
+It's a pretty nice suitcase I must say.
+=> END
+
+~ SuitcaseOpened
+I used the key to open it.
+=> END
+
+~ SuitcaseAlreadyOpen
+It's already open.
+=> END
+#- Start again => Key
+#- End the conversation => END

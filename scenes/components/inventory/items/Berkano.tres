@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ItemResource" load_steps=4 format=3 uid="uid://dje5841on36ba"]
+
+[ext_resource type="Resource" uid="uid://des1uhf3d07kp" path="res://scenes/components/inventory/items/Jera.tres" id="1_jqv7v"]
+[ext_resource type="Script" path="res://scenes/components/inventory/item_class.gd" id="1_t48mo"]
+[ext_resource type="Texture2D" uid="uid://bdi0rhg8w8iyt" path="res://assets/textures/imported/rune_atlas.tres" id="3_yimci"]
+
+[resource]
+script = ExtResource("1_t48mo")
+name = &"Berkano"
+tooltip = ""
+id = 0
+texture = ExtResource("3_yimci")
+description = ""
+max_stack = 9
+permanent = false
+combinations = Array[ExtResource("1_t48mo")]([ExtResource("1_jqv7v")])
+collision = PackedVector2Array(0, 0)

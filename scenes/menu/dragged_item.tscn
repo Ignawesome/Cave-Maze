@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://c5hpbb1s03i0c"]
+
+[ext_resource type="Script" path="res://scenes/components/inventory/dragged_item.gd" id="2_b0asj"]
+
+[node name="DraggedItem" type="TextureRect"]
+offset_right = 16.0
+offset_bottom = 16.0
+expand_mode = 1
+stretch_mode = 5
+script = ExtResource("2_b0asj")

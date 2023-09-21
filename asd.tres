@@ -1,0 +1,73 @@
+[gd_resource type="Resource" script_class="Orchestration" load_steps=2 format=3 uid="uid://bdym57tky8u41"]
+
+[ext_resource type="Script" path="res://addons/orchestrator/core/orchestration.gd" id="1_ye7m0"]
+
+[resource]
+script = ExtResource("1_ye7m0")
+version = 1
+next_node_id = 6
+zoom = 1.0
+scroll_offset = Vector2(118, 24)
+nodes = [{
+"attributes": {},
+"connections": Array[Dictionary]([{
+"source_port": 0,
+"target_id": &"GraphNode-5",
+"target_node": &"GraphNode-5",
+"target_port": 0
+}]),
+"id": "GraphNode-1",
+"name": &"GraphNode-1",
+"position": Vector2(176, 361),
+"size": Vector2(77, 55),
+"type": 1,
+"type_name": "Start"
+}, {
+"attributes": {
+"iterations": 0
+},
+"connections": Array[Dictionary]([]),
+"id": "GraphNode-4",
+"name": &"GraphNode-4",
+"position": Vector2(254, 180),
+"size": Vector2(203, 121),
+"type": 7,
+"type_name": "Repeat"
+}, {
+"attributes": {},
+"connections": Array[Dictionary]([]),
+"id": "GraphNode-2",
+"name": &"GraphNode-2",
+"position": Vector2(680, 360),
+"size": Vector2(68, 55),
+"type": 2,
+"type_name": "End"
+}, {
+"attributes": {
+"file_name": "res://asd.gd",
+"method_name": ""
+},
+"connections": Array[Dictionary]([{
+"source_port": 0,
+"target_id": &"GraphNode-2",
+"target_node": &"GraphNode-2",
+"target_port": 0
+}]),
+"id": "GraphNode-5",
+"name": &"GraphNode-5",
+"position": Vector2(320, 360),
+"size": Vector2(316, 138),
+"type": 11,
+"type_name": "Script"
+}]
+connections = Array[Dictionary]([{
+"from": &"GraphNode-1",
+"from_port": 0,
+"to": &"GraphNode-5",
+"to_port": 0
+}, {
+"from": &"GraphNode-5",
+"from_port": 0,
+"to": &"GraphNode-2",
+"to_port": 0
+}])

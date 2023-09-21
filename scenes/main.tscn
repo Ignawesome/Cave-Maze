@@ -1,18 +1,67 @@
-[gd_scene load_steps=6 format=3 uid="uid://b8y6fhm02gyrs"]
+[gd_scene load_steps=18 format=3 uid="uid://b8y6fhm02gyrs"]
 
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_fwelu"]
-[ext_resource type="Texture2D" uid="uid://0emu6lmmr4ki" path="res://assets/sprites/pointer.png" id="2_8nejo"]
-[ext_resource type="PackedScene" uid="uid://b4l6fvdx3ybql" path="res://global/transition_manager.tscn" id="3_q5hut"]
-[ext_resource type="Script" path="res://global/scene_db.gd" id="4_oy23e"]
-[ext_resource type="PackedScene" uid="uid://capd2cj8gjih8" path="res://scenes/music_manager.tscn" id="5_opb6c"]
+[ext_resource type="PackedScene" uid="uid://b4l6fvdx3ybql" path="res://global/managers/transition_manager.tscn" id="2_4dtgm"]
+[ext_resource type="PackedScene" uid="uid://bd6v36ui8wl8r" path="res://scenes/menu/main_menu.tscn" id="3_au7lq"]
+[ext_resource type="Script" path="res://scenes/user_interface.gd" id="3_oeacu"]
+[ext_resource type="AudioStream" uid="uid://dh68sxbhsemj8" path="res://assets/sounds/cave themeb4.ogg" id="3_x0lhm"]
+[ext_resource type="PackedScene" uid="uid://babuf0fbdot0b" path="res://scenes/components/inventory/inventory_UI.tscn" id="4_320yq"]
+[ext_resource type="Resource" uid="uid://b5q1fcldpj2kd" path="res://scenes/components/inventory/items/Key.tres" id="5_0ktdc"]
+[ext_resource type="PackedScene" uid="uid://dy3buq74oqbom" path="res://scenes/menu/settings.tscn" id="5_pmhfd"]
+[ext_resource type="Resource" uid="uid://ucpph8nbmgw3" path="res://scenes/components/inventory/items/Dagaz.tres" id="6_sq228"]
+[ext_resource type="PackedScene" uid="uid://c5hpbb1s03i0c" path="res://scenes/menu/dragged_item.tscn" id="7_fxagr"]
+[ext_resource type="Resource" uid="uid://dje5841on36ba" path="res://scenes/components/inventory/items/Berkano.tres" id="7_m87rv"]
+[ext_resource type="Resource" uid="uid://des1uhf3d07kp" path="res://scenes/components/inventory/items/Jera.tres" id="8_raylb"]
+[ext_resource type="Resource" uid="uid://d0ejeo3guhtlx" path="res://scenes/components/inventory/items/Phone.tres" id="9_o32hb"]
+[ext_resource type="Script" path="res://scenes/components/inventory/inventory_reference.gd" id="10_qjihu"]
+[ext_resource type="PackedScene" uid="uid://b7iv2ggy3qd45" path="res://scenes/menu/pause_menu.tscn" id="13_enve6"]
+
+[sub_resource type="GDScript" id="GDScript_t4qsd"]
+
+[sub_resource type="Resource" id="Resource_5y7c5"]
+resource_local_to_scene = true
+script = ExtResource("10_qjihu")
+items_in_inventory = Array[Resource("res://scenes/components/inventory/item_class.gd")]([ExtResource("5_0ktdc"), ExtResource("6_sq228"), ExtResource("7_m87rv"), ExtResource("8_raylb"), ExtResource("9_o32hb")])
 
 [node name="Main" type="Node"]
 script = ExtResource("1_fwelu")
-cursor = ExtResource("2_8nejo")
+cave_scene_path = "res://scenes/screens/caves.tscn"
+end_scene_path = "res://scenes/screens/end.tscn"
+main_menu_path = "res://scenes/main.tscn"
+inventory_path = "res://scenes/components/inventory/inventory_UI.tscn"
 
-[node name="TransitionManager" parent="." instance=ExtResource("3_q5hut")]
+[node name="GameWorld" type="Node2D" parent="."]
+script = SubResource("GDScript_t4qsd")
 
-[node name="SceneDB" type="Node" parent="."]
-script = ExtResource("4_oy23e")
+[node name="UI" type="CanvasLayer" parent="."]
+script = ExtResource("3_oeacu")
 
-[node name="MusicManager" parent="." instance=ExtResource("5_opb6c")]
+[node name="MainMenu" parent="UI" instance=ExtResource("3_au7lq")]
+unique_name_in_owner = true
+
+[node name="Inventory" parent="UI" instance=ExtResource("4_320yq")]
+unique_name_in_owner = true
+visible = false
+player_inventory = SubResource("Resource_5y7c5")
+
+[node name="Settings" parent="UI" instance=ExtResource("5_pmhfd")]
+unique_name_in_owner = true
+visible = false
+
+[node name="DraggedItem" parent="UI" instance=ExtResource("7_fxagr")]
+unique_name_in_owner = true
+
+[node name="PauseMenu" parent="UI" instance=ExtResource("13_enve6")]
+unique_name_in_owner = true
+
+[node name="TransitionManager" parent="." instance=ExtResource("2_4dtgm")]
+visible = false
+
+[node name="MusicManager" type="Node" parent="."]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="MusicManager"]
+stream = ExtResource("3_x0lhm")
+autoplay = true
+bus = &"Music"
+
+[editable path="UI/Inventory"]

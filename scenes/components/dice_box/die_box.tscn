@@ -1,0 +1,79 @@
+[gd_scene load_steps=11 format=3 uid="uid://d0p5gomrgwnoy"]
+
+[ext_resource type="Script" path="res://scenes/components/dice_box/die_box.gd" id="1_ay5e7"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_enaxl"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_5ifuh"]
+sky_material = SubResource("ProceduralSkyMaterial_enaxl")
+
+[sub_resource type="Environment" id="Environment_dkerf"]
+background_mode = 1
+background_color = Color(0, 0, 0, 0)
+sky = SubResource("Sky_5ifuh")
+tonemap_mode = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qx38x"]
+transparency = 1
+albedo_color = Color(0, 0, 0, 0)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_7k4p3"]
+material = SubResource("StandardMaterial3D_qx38x")
+size = Vector2(50, 50)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_uwu3j"]
+friction = 33.65
+rough = true
+absorbent = true
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_wqydp"]
+data = PackedVector3Array(25, 0, 25, -25, 0, 25, 25, 0, -25, -25, 0, 25, -25, 0, -25, 25, 0, -25)
+
+[sub_resource type="BoxMesh" id="BoxMesh_n5h3h"]
+material = SubResource("StandardMaterial3D_qx38x")
+flip_faces = true
+size = Vector3(2.29, 2, 1.875)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_py5bu"]
+data = PackedVector3Array(1.145, 1, 0.9375, -1.145, 1, 0.9375, -1.145, -1, 0.9375, 1.145, -1, 0.9375, 1.145, 1, 0.9375, -1.145, -1, 0.9375, -1.145, 1, -0.9375, 1.145, 1, -0.9375, 1.145, -1, -0.9375, -1.145, -1, -0.9375, -1.145, 1, -0.9375, 1.145, -1, -0.9375, 1.145, 1, -0.9375, 1.145, 1, 0.9375, 1.145, -1, 0.9375, 1.145, -1, -0.9375, 1.145, 1, -0.9375, 1.145, -1, 0.9375, -1.145, 1, 0.9375, -1.145, 1, -0.9375, -1.145, -1, -0.9375, -1.145, -1, 0.9375, -1.145, 1, 0.9375, -1.145, -1, -0.9375, -1.145, 1, 0.9375, 1.145, 1, 0.9375, 1.145, 1, -0.9375, -1.145, 1, -0.9375, -1.145, 1, 0.9375, 1.145, 1, -0.9375, 1.145, -1, 0.9375, -1.145, -1, 0.9375, -1.145, -1, -0.9375, 1.145, -1, -0.9375, 1.145, -1, 0.9375, -1.145, -1, -0.9375)
+
+[node name="DieBox" type="Node3D"]
+script = ExtResource("1_ay5e7")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_dkerf")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Ground" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_7k4p3")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Ground"]
+physics_material_override = SubResource("PhysicsMaterial_uwu3j")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_wqydp")
+
+[node name="Box" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.8, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("BoxMesh_n5h3h")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Box"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Box/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_py5bu")
+
+[node name="DieSpawner" type="Node3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.86797, 0.047974)
+
+[node name="DieCamera" type="Camera3D" parent="DieSpawner"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 0.013491, 0.999909, 0, -0.999909, 0.013491, 0, 0.452231, 0.00615245)
+projection = 1
+fov = 54.5
+size = 1.88611

@@ -1,0 +1,91 @@
+[gd_scene load_steps=10 format=3 uid="uid://c5s25uvu1jej6"]
+
+[ext_resource type="Script" path="res://scenes/screens/caves.gd" id="1_oo653"]
+[ext_resource type="Texture2D" uid="uid://odl8acnv4sda" path="res://assets/textures/backgrounds/cave.png" id="2_shb3m"]
+[ext_resource type="PackedScene" uid="uid://cqaq3x45uvh8a" path="res://scenes/components/interactible.tscn" id="3_lf43h"]
+[ext_resource type="PackedScene" uid="uid://l505vves2al3" path="res://scenes/suitcase.tscn" id="4_b3bwu"]
+[ext_resource type="Script" path="res://scenes/components/inventory/items/suitcase.gd" id="6_s3u6l"]
+[ext_resource type="Resource" uid="uid://dtmx2f7v7w8ic" path="res://scenes/components/inventory/items/suitcase.tres" id="7_0cv63"]
+[ext_resource type="Resource" uid="uid://b5q1fcldpj2kd" path="res://scenes/components/inventory/items/Key.tres" id="8_d1x2h"]
+[ext_resource type="PackedScene" uid="uid://bo8mhgg3w73jb" path="res://scenes/menu/note_ui.tscn" id="9_b7lkf"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_sbt6t"]
+emission_shape = 1
+emission_sphere_radius = 112.76
+particle_flag_disable_z = true
+gravity = Vector3(0, 98, 0)
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+scale_max = 5.0
+color = Color(0.556863, 1, 1, 0.439216)
+
+[node name="CaveScene" type="Node2D"]
+script = ExtResource("1_oo653")
+metadata/_edit_lock_ = true
+metadata/_edit_horizontal_guides_ = []
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -10
+
+[node name="CaveBackground" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_shb3m")
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
+
+[node name="LeftDoor" type="Area2D" parent="."]
+
+[node name="LeftDoorCollision" type="CollisionPolygon2D" parent="LeftDoor"]
+polygon = PackedVector2Array(13.1021, 46.4005, 52.747, 61.9912, 84.8194, 81.1456, 100.41, 97.1817, 114.219, 120.791, 127.137, 152.863, 128.473, 175.135, 130.255, 202.308, 66.1105, 208.99, 46.0653, 206.317, 31.3655, 193.399, 16.6656, 152.417, 1.07492, 109.654, 1.07492, 45.5096)
+
+[node name="MiddleDoor" type="Area2D" parent="."]
+
+[node name="MiddleDoorCollision" type="CollisionPolygon2D" parent="MiddleDoor"]
+polygon = PackedVector2Array(144.51, 86.491, 159.655, 78.9183, 187.273, 72.2366, 212.218, 49.9641, 282.153, 56.6458, 283.49, 78.0274, 275.917, 112.327, 285.717, 145.736, 285.717, 145.29, 291.953, 160.881, 291.508, 173.799, 272.799, 197.853, 230.927, 192.508, 209.1, 200.526, 194.4, 193.844, 173.909, 163.999, 142.282, 94.0636)
+
+[node name="RightDoor" type="Area2D" parent="."]
+
+[node name="RightDoorCollision" type="CollisionPolygon2D" parent="RightDoor"]
+polygon = PackedVector2Array(371.689, 56.2004, 420.688, 58.4276, 450.533, 83.3728, 449.642, 105.2, 446.079, 120.345, 446.079, 153.308, 426.479, 195.181, 359.216, 201.417, 343.18, 168.899, 340.953, 131.481, 348.971, 82.4819, 357.434, 65.1094)
+
+[node name="NoteUI" parent="." instance=ExtResource("9_b7lkf")]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 518.0
+offset_top = 37.0
+offset_right = 518.0
+offset_bottom = 37.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Interactibles" type="Node2D" parent="."]
+position = Vector2(129, -105)
+
+[node name="Suitcase" parent="Interactibles" instance=ExtResource("4_b3bwu")]
+position = Vector2(268, 320)
+
+[node name="Interactible" parent="Interactibles" instance=ExtResource("3_lf43h")]
+position = Vector2(43, 332)
+script = ExtResource("6_s3u6l")
+item = ExtResource("7_0cv63")
+
+[node name="Key" parent="Interactibles" instance=ExtResource("3_lf43h")]
+position = Vector2(-15, 161)
+scale = Vector2(0.5, 0.5)
+item = ExtResource("8_d1x2h")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(381, 99)
+amount = 466
+process_material = SubResource("ParticleProcessMaterial_sbt6t")
+
+[connection signal="input_event" from="LeftDoor" to="." method="_on_left_door_input_event"]
+[connection signal="input_event" from="MiddleDoor" to="." method="_on_middle_door_input_event"]
+[connection signal="input_event" from="RightDoor" to="." method="_on_right_door_input_event"]

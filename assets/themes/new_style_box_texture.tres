@@ -1,0 +1,9 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://57fujxk3ayt1"]
+
+[ext_resource type="Texture2D" uid="uid://cnm476ha38mg1" path="res://assets/textures/backgrounds/Rock_texture.png" id="1_klj8r"]
+
+[resource]
+texture = ExtResource("1_klj8r")
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+modulate_color = Color(0.65098, 0.384314, 0.117647, 1)

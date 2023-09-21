@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="ItemResource" load_steps=4 format=3 uid="uid://des1uhf3d07kp"]
+
+[ext_resource type="Script" path="res://scenes/components/inventory/item_class.gd" id="1_6ulg8"]
+[ext_resource type="Texture2D" uid="uid://cvamuu4yr4ath" path="res://assets/textures/raw/Runes.png" id="2_usbql"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_py553"]
+atlas = ExtResource("2_usbql")
+region = Rect2(0, 240, 54, 60)
+
+[resource]
+script = ExtResource("1_6ulg8")
+name = &"Jera"
+tooltip = ""
+texture = SubResource("AtlasTexture_py553")
+description = "Seeing double"
+permanent = false
+undraggable = false
+pickable = false
+interactible = false
+times_interacted = 0
+combinations = Array[StringName]([])

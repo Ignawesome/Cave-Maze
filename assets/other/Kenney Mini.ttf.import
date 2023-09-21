@@ -1,0 +1,43 @@
+[remap]
+
+importer="font_data_dynamic"
+type="FontFile"
+uid="uid://dps85q238gydx"
+path="res://.godot/imported/Kenney Mini.ttf-7d0132bd161aad335bfc902f4200f849.fontdata"
+
+[deps]
+
+source_file="res://assets/other/Kenney Mini.ttf"
+dest_files=["res://.godot/imported/Kenney Mini.ttf-7d0132bd161aad335bfc902f4200f849.fontdata"]
+
+[params]
+
+Rendering=null
+antialiasing=1
+generate_mipmaps=false
+multichannel_signed_distance_field=false
+msdf_pixel_range=8
+msdf_size=48
+allow_system_fallback=true
+force_autohinter=false
+hinting=1
+subpixel_positioning=0
+oversampling=0.0
+Fallbacks=null
+fallbacks=[]
+Compress=null
+compress=true
+preload=[{
+"chars": [],
+"glyphs": [],
+"name": "size16",
+"size": Vector2i(0, 0)
+}, {
+"chars": [],
+"glyphs": [],
+"name": "size12",
+"size": Vector2i(12, 0)
+}]
+language_support={}
+script_support={}
+opentype_features={}
