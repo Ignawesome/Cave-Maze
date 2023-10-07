@@ -32,7 +32,7 @@ func load_and_apply_all_settings_from_file(file):
 	load_settings_from_file(file)
 	apply_config_to_settings()
 	apply_settings_to_ui()
-	
+
 func apply_config_to_settings():
 	set_all_volumes()
 	change_resolution(screen_size_option)
@@ -51,9 +51,12 @@ func load_settings_from_file(file):
 	if err != OK:
 		return
 
-	master_volume = file.get_value("Audio", "Master Volume", db_to_linear(AudioServer.get_bus_volume_db(master_bus)))
-	music_volume = file.get_value("Audio", "Music Volume", db_to_linear(AudioServer.get_bus_volume_db(music_bus)))
-	sfx_volume = file.get_value("Audio", "SFX Volume", db_to_linear(AudioServer.get_bus_volume_db(sfx_bus)))
+	master_volume = file.get_value("Audio", "Master Volume", \
+		db_to_linear(AudioServer.get_bus_volume_db(master_bus)))
+	music_volume = file.get_value("Audio", "Music Volume", \
+		db_to_linear(AudioServer.get_bus_volume_db(music_bus)))
+	sfx_volume = file.get_value("Audio", "SFX Volume", \
+		db_to_linear(AudioServer.get_bus_volume_db(sfx_bus)))
 	screen_size_option = file.get_value("Display", "Resolution", screen_size_option)
 	load_fullscreen = file.get_value("Display", "Fullscreen", true)
 	current_monitor = file.get_value("Display", "Monitor", 0)
@@ -134,10 +137,10 @@ func change_resolution(resolution):
 		fullscreen = true
 		%FullscreenCheckBox.button_pressed = true
 		_on_fullscreen_check_box_toggled(true)
-	
+
 	#Save it
 	config_file.set_value("Display", "Resolution", screen_size_option)
-	
+
 
 
 func change_monitor(monitorID):

@@ -1,7 +1,6 @@
-[gd_scene load_steps=26 format=3 uid="uid://b361p61jmf257"]
+[gd_scene load_steps=24 format=3 uid="uid://b361p61jmf257"]
 
 [ext_resource type="Script" path="res://scenes/components/dialogue/balloon.gd" id="1_4u26j"]
-[ext_resource type="Texture2D" uid="uid://c8yr2cyf6okdv" path="res://scenes/components/inventory/items/borderUI2.png" id="2_1wbk3"]
 [ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/dialogue_label.tscn" id="2_a8ve6"]
 [ext_resource type="StyleBox" uid="uid://4eww5dc6esqg" path="res://assets/themes/white_black_border.tres" id="3_qm7vu"]
 [ext_resource type="FontFile" uid="uid://dps85q238gydx" path="res://assets/other/Kenney Mini.ttf" id="4_h6rih"]
@@ -56,17 +55,6 @@ corner_radius_top_left = 3
 corner_radius_top_right = 3
 corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sjhsf"]
-texture = ExtResource("2_1wbk3")
-texture_margin_left = 36.0
-texture_margin_top = 36.0
-texture_margin_right = 11.0
-texture_margin_bottom = 11.0
-axis_stretch_horizontal = 1
-axis_stretch_vertical = 1
-region_rect = Rect2(0, 0, 99, 73)
-modulate_color = Color(1, 1, 1, 0.741176)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oisb3"]
 content_margin_left = 10.0
@@ -147,7 +135,7 @@ MarginContainer/constants/margin_bottom = 2
 MarginContainer/constants/margin_left = 2
 MarginContainer/constants/margin_right = 2
 MarginContainer/constants/margin_top = 2
-Panel/styles/panel = SubResource("StyleBoxTexture_sjhsf")
+Panel/styles/panel = ExtResource("3_qm7vu")
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_oisb3")
 PopupMenu/colors/font_color = Color(0.117647, 0.117647, 0.117647, 1)
 PopupMenu/colors/font_hover_color = Color(0.219608, 0.219608, 0.219608, 1)
@@ -200,12 +188,11 @@ script = ExtResource("1_4u26j")
 
 [node name="Balloon" type="Panel" parent="."]
 custom_minimum_size = Vector2(0, 81.73)
-anchors_preset = 12
-anchor_top = 1.0
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
-grow_vertical = 0
+grow_vertical = 2
 size_flags_vertical = 8
 theme = SubResource("Theme_03wqv")
 

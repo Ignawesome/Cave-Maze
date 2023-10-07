@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://d0p5gomrgwnoy"]
+[gd_scene load_steps=12 format=3 uid="uid://d0p5gomrgwnoy"]
 
 [ext_resource type="Script" path="res://scenes/components/dice_box/die_box.gd" id="1_ay5e7"]
 
@@ -23,6 +23,10 @@ albedo_color = Color(0, 0, 0, 0)
 material = SubResource("StandardMaterial3D_qx38x")
 size = Vector2(50, 50)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vlem4"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0)
+
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_uwu3j"]
 friction = 33.65
 rough = true
@@ -34,10 +38,10 @@ data = PackedVector3Array(25, 0, 25, -25, 0, 25, 25, 0, -25, -25, 0, 25, -25, 0,
 [sub_resource type="BoxMesh" id="BoxMesh_n5h3h"]
 material = SubResource("StandardMaterial3D_qx38x")
 flip_faces = true
-size = Vector3(2.29, 2, 1.875)
+size = Vector3(6, 12, 6)
 
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_py5bu"]
-data = PackedVector3Array(1.145, 1, 0.9375, -1.145, 1, 0.9375, -1.145, -1, 0.9375, 1.145, -1, 0.9375, 1.145, 1, 0.9375, -1.145, -1, 0.9375, -1.145, 1, -0.9375, 1.145, 1, -0.9375, 1.145, -1, -0.9375, -1.145, -1, -0.9375, -1.145, 1, -0.9375, 1.145, -1, -0.9375, 1.145, 1, -0.9375, 1.145, 1, 0.9375, 1.145, -1, 0.9375, 1.145, -1, -0.9375, 1.145, 1, -0.9375, 1.145, -1, 0.9375, -1.145, 1, 0.9375, -1.145, 1, -0.9375, -1.145, -1, -0.9375, -1.145, -1, 0.9375, -1.145, 1, 0.9375, -1.145, -1, -0.9375, -1.145, 1, 0.9375, 1.145, 1, 0.9375, 1.145, 1, -0.9375, -1.145, 1, -0.9375, -1.145, 1, 0.9375, 1.145, 1, -0.9375, 1.145, -1, 0.9375, -1.145, -1, 0.9375, -1.145, -1, -0.9375, 1.145, -1, -0.9375, 1.145, -1, 0.9375, -1.145, -1, -0.9375)
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_xey3t"]
+data = PackedVector3Array(3, 6, 3, -3, 6, 3, -3, -6, 3, 3, -6, 3, 3, 6, 3, -3, -6, 3, -3, 6, -3, 3, 6, -3, 3, -6, -3, -3, -6, -3, -3, 6, -3, 3, -6, -3, 3, 6, -3, 3, 6, 3, 3, -6, 3, 3, -6, -3, 3, 6, -3, 3, -6, 3, -3, 6, 3, -3, 6, -3, -3, -6, -3, -3, -6, 3, -3, 6, 3, -3, -6, -3, -3, 6, 3, 3, 6, 3, 3, 6, -3, -3, 6, -3, -3, 6, 3, 3, 6, -3, 3, -6, 3, -3, -6, 3, -3, -6, -3, 3, -6, -3, 3, -6, 3, -3, -6, -3)
 
 [node name="DieBox" type="Node3D"]
 script = ExtResource("1_ay5e7")
@@ -51,6 +55,7 @@ shadow_enabled = true
 
 [node name="Ground" type="MeshInstance3D" parent="."]
 mesh = SubResource("PlaneMesh_7k4p3")
+surface_material_override/0 = SubResource("StandardMaterial3D_vlem4")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Ground"]
 physics_material_override = SubResource("PhysicsMaterial_uwu3j")
@@ -59,21 +64,29 @@ physics_material_override = SubResource("PhysicsMaterial_uwu3j")
 shape = SubResource("ConcavePolygonShape3D_wqydp")
 
 [node name="Box" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.8, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+transform = Transform3D(-3.49691e-08, 0, 1, 0, 1, 0, -0.8, 0, -4.37114e-08, -0.023987, 5.74353, 0.023987)
 mesh = SubResource("BoxMesh_n5h3h")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Box"]
+[node name="StaticBody3D2" type="StaticBody3D" parent="Box"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Box/StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_py5bu")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Box/StaticBody3D2"]
+shape = SubResource("ConcavePolygonShape3D_xey3t")
 
 [node name="DieSpawner" type="Node3D" parent="."]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.86797, 0.047974)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.023987, 7.65056, 0.023987)
 
 [node name="DieCamera" type="Camera3D" parent="DieSpawner"]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 0.013491, 0.999909, 0, -0.999909, 0.013491, 0, 0.452231, 0.00615245)
+transform = Transform3D(-4.37114e-08, 0.999909, -0.013491, 0, 0.013491, 0.999909, 1, 4.37074e-08, -5.8971e-10, 0, 0.679313, 0)
+keep_aspect = 0
 projection = 1
+current = true
 fov = 54.5
-size = 1.88611
+size = 5.69734
+
+[node name="DieCamera2" type="Camera3D" parent="DieSpawner"]
+unique_name_in_owner = true
+transform = Transform3D(0.999925, -0.00787385, -0.00932873, 0.0106204, 0.937898, 0.346747, 0.00601916, -0.346821, 0.937912, 0, -2.97631, 10.7794)
+visible = false
+size = 8.0

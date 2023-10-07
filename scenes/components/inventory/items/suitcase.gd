@@ -15,7 +15,7 @@ func _ready():
 
 func examine_item(item_name : ItemResource):
 	DialogueManager.show_example_dialogue_balloon(item.dialogue, item.name + "Description")
-	
+
 func check_item_interaction(hand_item : ItemResource, other_item : ItemResource):
 	#If the suitcase is still locked
 	if locked:

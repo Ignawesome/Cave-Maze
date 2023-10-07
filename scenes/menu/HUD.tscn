@@ -1,64 +1,252 @@
-[gd_scene load_steps=13 format=3 uid="uid://duug8t1v4qmxw"]
+[gd_scene load_steps=32 format=3 uid="uid://duug8t1v4qmxw"]
 
+[ext_resource type="PackedScene" uid="uid://do32hkbmn4pjd" path="res://combat_scene.tscn" id="1_75lqb"]
 [ext_resource type="PackedScene" uid="uid://babuf0fbdot0b" path="res://scenes/components/inventory/inventory_UI.tscn" id="1_oso0u"]
 [ext_resource type="Resource" uid="uid://b5q1fcldpj2kd" path="res://scenes/components/inventory/items/Key.tres" id="2_1es73"]
-[ext_resource type="PackedScene" uid="uid://b361p61jmf257" path="res://scenes/components/dialogue/small_balloon.tscn" id="2_v2pki"]
-[ext_resource type="PackedScene" uid="uid://d0p5gomrgwnoy" path="res://scenes/components/dice_box/die_box.tscn" id="3_5vv6x"]
+[ext_resource type="Script" path="res://scenes/menu/HUD.gd" id="2_43x8x"]
 [ext_resource type="Theme" uid="uid://bvke1eripwx1b" path="res://assets/themes/border_theme.tres" id="3_eah35"]
+[ext_resource type="Resource" uid="uid://d0bjbe0a2x2np" path="res://assets/horror.tres" id="3_h4s3j"]
 [ext_resource type="Resource" uid="uid://ucpph8nbmgw3" path="res://scenes/components/inventory/items/Dagaz.tres" id="3_opdmc"]
 [ext_resource type="Resource" uid="uid://dje5841on36ba" path="res://scenes/components/inventory/items/Berkano.tres" id="4_tey61"]
 [ext_resource type="Resource" uid="uid://des1uhf3d07kp" path="res://scenes/components/inventory/items/Jera.tres" id="5_fog1a"]
 [ext_resource type="Resource" uid="uid://d0ejeo3guhtlx" path="res://scenes/components/inventory/items/Phone.tres" id="6_k1c3q"]
 [ext_resource type="Script" path="res://scenes/components/inventory/inventory_reference.gd" id="7_ab0q0"]
-[ext_resource type="Script" path="res://addons/orchestrator/components/editor/orchestration_graph_node.gd" id="11_tpory"]
+[ext_resource type="PackedScene" uid="uid://c8herly8iihb6" path="res://status_panel.tscn" id="9_hgile"]
+[ext_resource type="PackedScene" uid="uid://bwxsmx0r3ywho" path="res://diebox_panel.tscn" id="13_5ehmp"]
+[ext_resource type="FontFile" uid="uid://dps85q238gydx" path="res://assets/other/Kenney Mini.ttf" id="14_8yxuu"]
+[ext_resource type="Texture2D" uid="uid://c8yr2cyf6okdv" path="res://scenes/components/inventory/items/borderUI2.png" id="14_pj71c"]
+[ext_resource type="StyleBox" uid="uid://4eww5dc6esqg" path="res://assets/themes/white_black_border.tres" id="15_0ddry"]
 
-[sub_resource type="Resource" id="Resource_y2l6y"]
+[sub_resource type="Resource" id="Resource_0esmw"]
 resource_local_to_scene = true
 script = ExtResource("7_ab0q0")
 items_in_inventory = Array[Resource("res://scenes/components/inventory/item_class.gd")]([ExtResource("2_1es73"), ExtResource("3_opdmc"), ExtResource("4_tey61"), ExtResource("5_fog1a"), ExtResource("6_k1c3q")])
 
-[node name="Control" type="Control"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qnsva"]
+bg_color = Color(0.6, 0.6, 0.6, 0.431373)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_thlul"]
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+border_blend = true
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i23g4"]
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7x8mo"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6dxbd"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5rf8f"]
+content_margin_top = 12.0
+content_margin_right = 12.0
+content_margin_bottom = 12.0
+texture = ExtResource("14_pj71c")
+texture_margin_left = 36.0
+texture_margin_top = 36.0
+texture_margin_right = 11.0
+texture_margin_bottom = 11.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+region_rect = Rect2(0, 0, 99, 73)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oisb3"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_15k6g"]
+bg_color = Color(0.219608, 0.219608, 0.219608, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wxpt0"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="FontVariation" id="FontVariation_gnjb4"]
+base_font = ExtResource("14_8yxuu")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gp2lv"]
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sidqc"]
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vnngv"]
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Theme" id="Theme_fenck"]
+default_font = ExtResource("14_8yxuu")
+default_font_size = 8
+Button/colors/font_color = Color(0, 0, 0, 1)
+Button/colors/font_disabled_color = Color(0, 0, 0, 0.501961)
+Button/constants/h_separation = 26
+Button/constants/icon_max_width = 32
+Button/styles/disabled = SubResource("StyleBoxFlat_qnsva")
+Button/styles/focus = SubResource("StyleBoxFlat_thlul")
+Button/styles/hover = SubResource("StyleBoxFlat_i23g4")
+Button/styles/normal = SubResource("StyleBoxFlat_7x8mo")
+CheckBox/styles/pressed = SubResource("StyleBoxFlat_6dxbd")
+Label/colors/font_color = Color(0, 0, 0, 1)
+Label/constants/shadow_outline_size = 0
+MarginContainer/constants/margin_bottom = 2
+MarginContainer/constants/margin_left = 2
+MarginContainer/constants/margin_right = 2
+MarginContainer/constants/margin_top = 2
+Panel/styles/panel = SubResource("StyleBoxTexture_5rf8f")
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_oisb3")
+PopupMenu/colors/font_color = Color(0.117647, 0.117647, 0.117647, 1)
+PopupMenu/colors/font_hover_color = Color(0.219608, 0.219608, 0.219608, 1)
+PopupMenu/colors/font_outline_color = Color(1, 1, 1, 1)
+PopupMenu/styles/panel = ExtResource("15_0ddry")
+ProgressBar/colors/font_color = Color(0, 0, 0, 1)
+ProgressBar/colors/font_outline_color = Color(1, 1, 1, 1)
+ProgressBar/constants/outline_size = 4
+ProgressBar/styles/background = SubResource("StyleBoxFlat_15k6g")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_wxpt0")
+RichTextLabel/colors/default_color = Color(0, 0, 0, 1)
+RichTextLabel/font_sizes/bold_font_size = 8
+RichTextLabel/font_sizes/bold_italics_font_size = 8
+RichTextLabel/font_sizes/italics_font_size = 8
+RichTextLabel/font_sizes/mono_font_size = 8
+RichTextLabel/font_sizes/normal_font_size = 8
+RichTextLabel/fonts/mono_font = ExtResource("14_8yxuu")
+RichTextLabel/fonts/normal_font = ExtResource("14_8yxuu")
+TextEdit/fonts/font = SubResource("FontVariation_gnjb4")
+VSlider/styles/grabber_area = SubResource("StyleBoxFlat_gp2lv")
+VSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_sidqc")
+VSlider/styles/slider = SubResource("StyleBoxFlat_vnngv")
+
+[node name="HUD" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="Inventory" parent="." instance=ExtResource("1_oso0u")]
-layout_mode = 1
-player_inventory = SubResource("Resource_y2l6y")
-
-[node name="ExampleBalloon" parent="." instance=ExtResource("2_v2pki")]
-
-[node name="Panel" type="Panel" parent="."]
-layout_mode = 0
-offset_left = 303.0
-offset_top = 14.0
-offset_right = 466.0
-offset_bottom = 182.0
 theme = ExtResource("3_eah35")
+script = ExtResource("2_43x8x")
+enemy = ExtResource("3_h4s3j")
 
-[node name="SubViewportContainer" type="SubViewportContainer" parent="Panel"]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-stretch = true
 
-[node name="SubViewport" type="SubViewport" parent="Panel/SubViewportContainer"]
-handle_input_locally = false
-size = Vector2i(163, 168)
-render_target_update_mode = 4
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
 
-[node name="DieBox" parent="Panel/SubViewportContainer/SubViewport" instance=ExtResource("3_5vv6x")]
+[node name="Control" type="Control" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
 
-[node name="OrchestrationGraphNode" type="GraphNode" parent="."]
-layout_mode = 0
-offset_right = 76.0
-offset_bottom = 54.0
-show_close = true
-resizable = true
-script = ExtResource("11_tpory")
+[node name="StatusPanel" parent="VBoxContainer/HBoxContainer/Control" instance=ExtResource("9_hgile")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Inventory" parent="VBoxContainer/HBoxContainer/Control" instance=ExtResource("1_oso0u")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+size_flags_horizontal = 3
+player_inventory = SubResource("Resource_0esmw")
+
+[node name="CombatUI" parent="VBoxContainer/HBoxContainer" instance=ExtResource("1_75lqb")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="DieboxPanel" parent="VBoxContainer/HBoxContainer" instance=ExtResource("13_5ehmp")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="BattleLog" type="VBoxContainer" parent="VBoxContainer/PanelContainer/ScrollContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = SubResource("Theme_fenck")
+
+[connection signal="attack" from="VBoxContainer/HBoxContainer/CombatUI" to="." method="_on_combat_ui_attack"]
+[connection signal="item" from="VBoxContainer/HBoxContainer/CombatUI" to="." method="_on_combat_ui_item"]
+[connection signal="rest" from="VBoxContainer/HBoxContainer/CombatUI" to="." method="_on_combat_ui_rest"]
+[connection signal="spell" from="VBoxContainer/HBoxContainer/CombatUI" to="." method="_on_combat_ui_spell"]

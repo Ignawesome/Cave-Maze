@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Enemy" load_steps=3 format=3 uid="uid://d0bjbe0a2x2np"]
+
+[ext_resource type="Script" path="res://enemy.gd" id="1_58mtc"]
+[ext_resource type="Texture2D" uid="uid://cpyiu4icrs5k6" path="res://assets/other/monster.png" id="2_l1u25"]
+
+[resource]
+script = ExtResource("1_58mtc")
+HP = 4
+main = NodePath(".")
+texture = ExtResource("2_l1u25")

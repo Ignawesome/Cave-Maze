@@ -1,0 +1,51 @@
+[gd_scene load_steps=6 format=3 uid="uid://ct4wbvh6l4hnp"]
+
+[ext_resource type="Texture2D" uid="uid://ba64dsfbkf8ha" path="res://assets/other/skinless.png" id="1_v0477"]
+[ext_resource type="Texture2D" uid="uid://sbnavu5n263u" path="res://assets/other/heart.png" id="2_yfrnm"]
+[ext_resource type="Texture2D" uid="uid://paov3ewscvj6" path="res://assets/other/brain.png" id="3_n0n8q"]
+[ext_resource type="Texture2D" uid="uid://5s11o2qvyw50" path="res://assets/other/lungs.png" id="4_kgt7p"]
+[ext_resource type="Texture2D" uid="uid://dsfmb1jig3amq" path="res://assets/other/eye.png" id="5_sr1hy"]
+
+[node name="CharacterStatus" type="HBoxContainer"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+texture = ExtResource("1_v0477")
+expand_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "Skinless"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="Heart" type="TextureRect" parent="VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+modulate = Color(0.360784, 0.501961, 0.356863, 0.658824)
+layout_mode = 2
+texture = ExtResource("2_yfrnm")
+
+[node name="Brain" type="TextureRect" parent="VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+modulate = Color(0.360784, 0.501961, 0.356863, 0.658824)
+layout_mode = 2
+texture = ExtResource("3_n0n8q")
+
+[node name="Lungs" type="TextureRect" parent="VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+modulate = Color(0.360784, 0.501961, 0.356863, 0.658824)
+layout_mode = 2
+texture = ExtResource("4_kgt7p")
+
+[node name="Eyes" type="TextureRect" parent="VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+modulate = Color(0.360784, 0.501961, 0.356863, 0.658824)
+layout_mode = 2
+texture = ExtResource("5_sr1hy")

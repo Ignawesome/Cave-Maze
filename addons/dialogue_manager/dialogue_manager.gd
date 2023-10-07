@@ -205,7 +205,14 @@ func show_example_dialogue_balloon(resource: DialogueResource, title: String = "
 	get_tree().current_scene.add_child(balloon)
 	balloon.start(resource, title, extra_game_states)
 
+func show_battle_log(resource: DialogueResource, title: String = "0", extra_game_states: Array = []) -> void:
+	var ExampleBalloonScene = load("res://scenes/components/dialogue/balloon.tscn")
+	var SmallExampleBalloonScene = load("res://scenes/components/dialogue/dialogue_combat_panel.tscn")
 
+	var is_small_window: bool = ProjectSettings.get_setting("display/window/size/viewport_width") < 500
+	var balloon: Node = (SmallExampleBalloonScene if is_small_window else ExampleBalloonScene).instantiate()
+	get_tree().current_scene.add_child(balloon)
+	balloon.start(resource, title, extra_game_states)
 ### Dotnet bridge
 
 

@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ItemResource" load_steps=3 format=3 uid="uid://dlfsxkoqnmqw5"]
+
+[ext_resource type="Script" path="res://scenes/components/inventory/item_class.gd" id="1_ix6f1"]
+[ext_resource type="Texture2D" uid="uid://bdi0rhg8w8iyt" path="res://assets/textures/imported/rune_atlas.tres" id="2_cxlhf"]
+
+[resource]
+script = ExtResource("1_ix6f1")
+name = &"battle"
+tooltip = ""
+texture = ExtResource("2_cxlhf")
+description = ""
+permanent = false
+undraggable = false
+pickable = false
+interactible = false
+times_interacted = 0
+combinations = Array[StringName]([])

@@ -1,0 +1,261 @@
+[gd_scene load_steps=25 format=3 uid="uid://do32hkbmn4pjd"]
+
+[ext_resource type="Texture2D" uid="uid://c8yr2cyf6okdv" path="res://scenes/components/inventory/items/borderUI2.png" id="1_ui7oa"]
+[ext_resource type="Theme" uid="uid://bvke1eripwx1b" path="res://assets/themes/border_theme.tres" id="1_wv8n3"]
+[ext_resource type="StyleBox" uid="uid://4eww5dc6esqg" path="res://assets/themes/white_black_border.tres" id="2_sad5i"]
+[ext_resource type="FontFile" uid="uid://dps85q238gydx" path="res://assets/other/Kenney Mini.ttf" id="3_mf8un"]
+[ext_resource type="Script" path="res://combat_scene.gd" id="3_mg2hd"]
+[ext_resource type="FontFile" uid="uid://cjbgwkf7x3oa5" path="res://assets/other/alagard_by_Hewett_Tsoi.ttf" id="4_b7g2e"]
+[ext_resource type="Resource" uid="uid://d0bjbe0a2x2np" path="res://assets/horror.tres" id="4_qsagt"]
+[ext_resource type="Texture2D" uid="uid://cpyiu4icrs5k6" path="res://assets/other/monster.png" id="5_xxemy"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fujuc"]
+texture = ExtResource("1_ui7oa")
+texture_margin_left = 11.0
+texture_margin_top = 11.0
+texture_margin_right = 11.0
+texture_margin_bottom = 11.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+draw_center = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qnsva"]
+bg_color = Color(0.6, 0.6, 0.6, 0.431373)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_thlul"]
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+border_blend = true
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i23g4"]
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7x8mo"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6dxbd"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5rf8f"]
+texture = ExtResource("1_ui7oa")
+texture_margin_left = 36.0
+texture_margin_top = 36.0
+texture_margin_right = 11.0
+texture_margin_bottom = 11.0
+expand_margin_left = 11.0
+expand_margin_top = 11.0
+expand_margin_right = 11.0
+expand_margin_bottom = 11.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+region_rect = Rect2(0, 0, 99, 73)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oisb3"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_15k6g"]
+bg_color = Color(0.219608, 0.219608, 0.219608, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wxpt0"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="FontVariation" id="FontVariation_gnjb4"]
+base_font = ExtResource("3_mf8un")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gp2lv"]
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sidqc"]
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vnngv"]
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="FontVariation" id="FontVariation_3u18e"]
+base_font = ExtResource("4_b7g2e")
+
+[sub_resource type="Theme" id="Theme_rkg62"]
+default_font = SubResource("FontVariation_3u18e")
+default_font_size = 12
+Button/colors/font_color = Color(0, 0, 0, 1)
+Button/colors/font_disabled_color = Color(0, 0, 0, 0.501961)
+Button/constants/h_separation = 26
+Button/constants/icon_max_width = 32
+Button/styles/disabled = SubResource("StyleBoxFlat_qnsva")
+Button/styles/focus = SubResource("StyleBoxFlat_thlul")
+Button/styles/hover = SubResource("StyleBoxFlat_i23g4")
+Button/styles/normal = SubResource("StyleBoxFlat_7x8mo")
+CheckBox/styles/pressed = SubResource("StyleBoxFlat_6dxbd")
+Label/colors/font_color = Color(0.976471, 0.976471, 0.976471, 1)
+Label/colors/font_outline_color = Color(0, 0, 0, 1)
+Label/colors/font_shadow_color = Color(0, 0, 0, 0.784314)
+Label/constants/outline_size = 1
+Label/constants/shadow_outline_size = 2
+MarginContainer/constants/margin_bottom = 2
+MarginContainer/constants/margin_left = 2
+MarginContainer/constants/margin_right = 2
+MarginContainer/constants/margin_top = 2
+Panel/styles/panel = SubResource("StyleBoxTexture_5rf8f")
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_oisb3")
+PopupMenu/colors/font_color = Color(0.117647, 0.117647, 0.117647, 1)
+PopupMenu/colors/font_hover_color = Color(0.219608, 0.219608, 0.219608, 1)
+PopupMenu/colors/font_outline_color = Color(1, 1, 1, 1)
+PopupMenu/styles/panel = ExtResource("2_sad5i")
+ProgressBar/colors/font_color = Color(0, 0, 0, 1)
+ProgressBar/colors/font_outline_color = Color(1, 1, 1, 1)
+ProgressBar/constants/outline_size = 4
+ProgressBar/styles/background = SubResource("StyleBoxFlat_15k6g")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_wxpt0")
+RichTextLabel/colors/default_color = Color(0, 0, 0, 1)
+RichTextLabel/font_sizes/bold_font_size = 8
+RichTextLabel/font_sizes/bold_italics_font_size = 8
+RichTextLabel/font_sizes/italics_font_size = 8
+RichTextLabel/font_sizes/mono_font_size = 8
+RichTextLabel/font_sizes/normal_font_size = 8
+RichTextLabel/fonts/mono_font = ExtResource("3_mf8un")
+RichTextLabel/fonts/normal_font = ExtResource("3_mf8un")
+TextEdit/fonts/font = SubResource("FontVariation_gnjb4")
+VSlider/styles/grabber_area = SubResource("StyleBoxFlat_gp2lv")
+VSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_sidqc")
+VSlider/styles/slider = SubResource("StyleBoxFlat_vnngv")
+
+[node name="CombatPanel" type="PanelContainer"]
+offset_right = 163.0
+offset_bottom = 168.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("1_wv8n3")
+theme_override_styles/panel = SubResource("StyleBoxTexture_fujuc")
+script = ExtResource("3_mg2hd")
+enemy = ExtResource("4_qsagt")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 2
+color = Color(0, 0, 0, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="EnemyTexture" type="TextureRect" parent="VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture = ExtResource("5_xxemy")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="PanelContainer2" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="PanelContainer" type="GridContainer" parent="VBoxContainer/PanelContainer2"]
+layout_mode = 2
+size_flags_vertical = 10
+columns = 2
+
+[node name="AttackButton" type="Button" parent="VBoxContainer/PanelContainer2/PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 5
+theme_override_constants/outline_size = -310
+text = " Attack "
+
+[node name="ItemButton" type="Button" parent="VBoxContainer/PanelContainer2/PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 5
+theme_override_constants/outline_size = -310
+text = "  Item  "
+
+[node name="RestButton" type="Button" parent="VBoxContainer/PanelContainer2/PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 5
+theme_override_constants/outline_size = -310
+text = " Rest "
+
+[node name="SpellButton" type="Button" parent="VBoxContainer/PanelContainer2/PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 5
+theme_override_constants/outline_size = -310
+text = " Spell "
+
+[node name="CombatUI" type="Control" parent="."]
+visible = false
+layout_mode = 2
+size_flags_vertical = 4
+theme = SubResource("Theme_rkg62")
+
+[connection signal="pressed" from="VBoxContainer/PanelContainer2/PanelContainer/AttackButton" to="." method="_on_attack_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/PanelContainer2/PanelContainer/ItemButton" to="." method="_on_item_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/PanelContainer2/PanelContainer/RestButton" to="." method="_on_rest_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/PanelContainer2/PanelContainer/SpellButton" to="." method="_on_spell_button_pressed"]

@@ -1,6 +1,6 @@
 extends Control
 
-var paused := false : 
+var paused := false :
 	set = pause_game
 
 signal game_paused_signal(bool)
@@ -16,7 +16,7 @@ func _process(delta):
 		or StateManager.confirm_current_game_state(StateManager.GAME_STATES.INVENTORY) \
 		or StateManager.confirm_current_game_state(StateManager.GAME_STATES.CUTSCENE):
 			StateManager.change_state(StateManager.GAME_STATES.PAUSE)
-			
+
 #func pause_game():
 #	if StateManager.confirm_current_game_state(StateManager.GAME_STATES.PAUSE):
 #		StateManager.change_state_to_previous()

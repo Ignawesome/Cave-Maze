@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="DieSide" load_steps=3 format=3 uid="uid://bymj8ovwuhqor"]
+
+[ext_resource type="Script" path="res://die_side.gd" id="1_0a0l8"]
+[ext_resource type="Texture2D" uid="uid://cvc58v1h1dk5i" path="res://assets/textures/icons/sword_side.png" id="2_0brpm"]
+
+[resource]
+script = ExtResource("1_0a0l8")
+name = &"Sword"
+texture = ExtResource("2_0brpm")

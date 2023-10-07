@@ -29,17 +29,17 @@ func interact_with_item(item_held : ItemResource):
 
 func check_door(door : int):
 	match door:
-		1: 
+		1:
 			if maze.solution.get(maze.room_number[maze.current_room]) == 1:
 				correct_door_chosen(true)
 			else:
 				correct_door_chosen(false)
-		2: 
+		2:
 			if maze.solution.get(maze.room_number[maze.current_room]) == 2:
 				correct_door_chosen(true)
 			else:
 				correct_door_chosen(false)
-		3: 
+		3:
 			if maze.solution.get(maze.room_number[maze.current_room]) == 3:
 				correct_door_chosen(true)
 			else:
@@ -87,7 +87,7 @@ func _on_berkano_input_event(_viewport, event, _shape_idx):
 			$Berkano.queue_free()
 #		else:
 #			InventoryDb.add_to_inventory("Berkano")
-		
+
 
 
 func _on_algiz_input_event(viewport, event, shape_idx):
@@ -99,8 +99,8 @@ func _on_algiz_input_event(viewport, event, shape_idx):
 #	if dragged_item.name in target_item.combinations:
 #		print("Used %s on %s", dragged_item.name, target_item)
 #		SceneDb.inventory.add_item(load("res://scenes/components/inventory/items/Money.tres"))
-	
-	
+
+
 
 
 func _on_suitcase_click(_viewport, event, _shape_idx):

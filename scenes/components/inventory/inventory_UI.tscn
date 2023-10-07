@@ -1,9 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://babuf0fbdot0b"]
+[gd_scene load_steps=7 format=3 uid="uid://babuf0fbdot0b"]
 
 [ext_resource type="Theme" uid="uid://dtxalj7m5sqy5" path="res://assets/themes/avoid_cave_theme.tres" id="1_cd4kw"]
 [ext_resource type="Script" path="res://scenes/components/inventory/inventory_UI.gd" id="2_co3t6"]
 [ext_resource type="FontFile" uid="uid://dps85q238gydx" path="res://assets/other/Kenney Mini.ttf" id="3_diqln"]
-[ext_resource type="Resource" uid="uid://b7he35apodw4g" path="res://scenes/components/inventory/items_in_inventory.tres" id="3_x7xtk"]
 [ext_resource type="Texture2D" uid="uid://27vnwkjoysxe" path="res://assets/textures/raw/genericItems_spritesheet_colored.png" id="4_4ictq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dmeyd"]
@@ -14,28 +13,17 @@ region = Rect2(366, 964, 95, 72)
 atlas = ExtResource("4_4ictq")
 region = Rect2(692, 1068, 56, 107)
 
-[node name="Inventory" type="Control"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 1
-theme = ExtResource("1_cd4kw")
-script = ExtResource("2_co3t6")
-player_inventory = ExtResource("3_x7xtk")
-
-[node name="Panel" type="Panel" parent="."]
-layout_mode = 1
+[node name="InventoryPanel" type="Panel"]
 anchors_preset = -1
 anchor_right = 0.266667
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_cd4kw")
+script = ExtResource("2_co3t6")
 metadata/_edit_use_anchors_ = true
 
-[node name="MarginContainer" type="MarginContainer" parent="Panel"]
+[node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -43,11 +31,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TabContainer" type="TabContainer" parent="Panel/MarginContainer"]
+[node name="TabContainer" type="TabContainer" parent="MarginContainer"]
 layout_mode = 2
 tab_alignment = 1
 
-[node name="Items" type="ItemList" parent="Panel/MarginContainer/TabContainer"]
+[node name="Items" type="ItemList" parent="MarginContainer/TabContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 mouse_filter = 1
@@ -68,11 +56,22 @@ item_1/text = "Phone"
 item_1/icon = SubResource("AtlasTexture_8e4xs")
 item_2/text = ""
 
-[node name="Notes" type="ItemList" parent="Panel/MarginContainer/TabContainer"]
+[node name="Notes" type="ItemList" parent="MarginContainer/TabContainer"]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
 mouse_filter = 1
 
-[connection signal="mouse_exited" from="Panel" to="." method="_on_inventory_mouse_exit"]
-[connection signal="item_clicked" from="Panel/MarginContainer/TabContainer/Items" to="." method="_on_item_list_item_clicked"]
+[node name="Inventory" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme = ExtResource("1_cd4kw")
+
+[connection signal="mouse_exited" from="." to="." method="_on_inventory_mouse_exit"]
+[connection signal="item_clicked" from="MarginContainer/TabContainer/Items" to="Inventory" method="_on_item_list_item_clicked"]

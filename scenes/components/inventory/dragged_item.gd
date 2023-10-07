@@ -15,7 +15,7 @@ var being_dragged := false :
 		interact_signal.emit(value)
 #		print("emitted being_dragged signal")
 		being_dragged = value
-	get: 
+	get:
 		return being_dragged
 
 

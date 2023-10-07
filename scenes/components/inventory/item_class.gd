@@ -5,7 +5,7 @@ class_name ItemResource
 @export var name : StringName
 @export var tooltip : String
 @export var texture : AtlasTexture
-@export_multiline var description : String	
+@export_multiline var description : String
 @export var dialogue : DialogueResource
 #@export var title : String
 
@@ -33,10 +33,10 @@ func open_door():
 
 func examine_item(title : String):
 	pass
-	
+
 func interact_with_item(item : ItemResource):
 	pass
-	
+
 func check_item_interaction(item  : ItemResource, other_item : ItemResource):
 	pass
 

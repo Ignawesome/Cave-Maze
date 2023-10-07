@@ -3,7 +3,9 @@ extends Node3D
 @onready var camera_3d = %DieCamera
 @onready var die_spawner = %DieSpawner
 
-signal result
+signal result(Dictionary)
+signal side_hit(DieSide)
+
 
 var die_scene := "res://scenes/components/dice_box/die.tscn"
 var results = []
@@ -13,7 +15,17 @@ var result_count : Dictionary = {}
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	spawn_die(die_scene)
+	pass
+
+func _process(delta: float) -> void:
+	pass
+
+func clear():
+	for die in dice_array:
+		die.queue_free()
+	dice_array.clear()
+	result_count.clear()
+	results.clear()
 
 
 func _input(event):
@@ -22,13 +34,15 @@ func _input(event):
 	if Input.is_mouse_button_pressed(2) and event.is_pressed():
 		spawn_die(die_scene)
 
-func result_tally(side : StringName):
+func result_tally(side : DieSide):
 	results.append(side)
 	if result_count.has(side):
 		result_count[side] += 1
 	else:
 		result_count[side] = 1
 	print(result_count)
+	result.emit(result_count)
+	side_hit.emit(side)
 
 func spawn_die(die_path : String) -> void:
 	var new_die = load(die_path).instantiate()

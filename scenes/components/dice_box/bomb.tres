@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="DieSide" load_steps=3 format=3 uid="uid://dony2p3o58mms"]
+
+[ext_resource type="Script" path="res://die_side.gd" id="1_no3l6"]
+[ext_resource type="Texture2D" uid="uid://ctjjs1gc01w42" path="res://assets/textures/icons/bomb_side.png" id="2_lnu6w"]
+
+[resource]
+script = ExtResource("1_no3l6")
+name = &"Bomb"
+texture = ExtResource("2_lnu6w")

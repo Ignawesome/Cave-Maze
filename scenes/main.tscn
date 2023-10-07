@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://b8y6fhm02gyrs"]
+[gd_scene load_steps=17 format=3 uid="uid://b8y6fhm02gyrs"]
 
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_fwelu"]
 [ext_resource type="PackedScene" uid="uid://b4l6fvdx3ybql" path="res://global/managers/transition_manager.tscn" id="2_4dtgm"]
@@ -16,9 +16,7 @@
 [ext_resource type="Script" path="res://scenes/components/inventory/inventory_reference.gd" id="10_qjihu"]
 [ext_resource type="PackedScene" uid="uid://b7iv2ggy3qd45" path="res://scenes/menu/pause_menu.tscn" id="13_enve6"]
 
-[sub_resource type="GDScript" id="GDScript_t4qsd"]
-
-[sub_resource type="Resource" id="Resource_5y7c5"]
+[sub_resource type="Resource" id="Resource_42lok"]
 resource_local_to_scene = true
 script = ExtResource("10_qjihu")
 items_in_inventory = Array[Resource("res://scenes/components/inventory/item_class.gd")]([ExtResource("5_0ktdc"), ExtResource("6_sq228"), ExtResource("7_m87rv"), ExtResource("8_raylb"), ExtResource("9_o32hb")])
@@ -31,7 +29,6 @@ main_menu_path = "res://scenes/main.tscn"
 inventory_path = "res://scenes/components/inventory/inventory_UI.tscn"
 
 [node name="GameWorld" type="Node2D" parent="."]
-script = SubResource("GDScript_t4qsd")
 
 [node name="UI" type="CanvasLayer" parent="."]
 script = ExtResource("3_oeacu")
@@ -42,7 +39,7 @@ unique_name_in_owner = true
 [node name="Inventory" parent="UI" instance=ExtResource("4_320yq")]
 unique_name_in_owner = true
 visible = false
-player_inventory = SubResource("Resource_5y7c5")
+player_inventory = SubResource("Resource_42lok")
 
 [node name="Settings" parent="UI" instance=ExtResource("5_pmhfd")]
 unique_name_in_owner = true
@@ -53,6 +50,7 @@ unique_name_in_owner = true
 
 [node name="PauseMenu" parent="UI" instance=ExtResource("13_enve6")]
 unique_name_in_owner = true
+visible = false
 
 [node name="TransitionManager" parent="." instance=ExtResource("2_4dtgm")]
 visible = false

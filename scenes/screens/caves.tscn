@@ -8,16 +8,7 @@
 [ext_resource type="Resource" uid="uid://dtmx2f7v7w8ic" path="res://scenes/components/inventory/items/suitcase.tres" id="7_0cv63"]
 [ext_resource type="Resource" uid="uid://b5q1fcldpj2kd" path="res://scenes/components/inventory/items/Key.tres" id="8_d1x2h"]
 [ext_resource type="PackedScene" uid="uid://bo8mhgg3w73jb" path="res://scenes/menu/note_ui.tscn" id="9_b7lkf"]
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_sbt6t"]
-emission_shape = 1
-emission_sphere_radius = 112.76
-particle_flag_disable_z = true
-gravity = Vector3(0, 98, 0)
-orbit_velocity_min = 0.0
-orbit_velocity_max = 0.0
-scale_max = 5.0
-color = Color(0.556863, 1, 1, 0.439216)
+[ext_resource type="Resource" uid="uid://dlfsxkoqnmqw5" path="res://scenes/components/inventory/items/debug_battle.tres" id="10_k0686"]
 
 [node name="CaveScene" type="Node2D"]
 script = ExtResource("1_oo653")
@@ -66,25 +57,26 @@ grow_horizontal = 0
 grow_vertical = 0
 
 [node name="Interactibles" type="Node2D" parent="."]
-position = Vector2(129, -105)
 
 [node name="Suitcase" parent="Interactibles" instance=ExtResource("4_b3bwu")]
-position = Vector2(268, 320)
+position = Vector2(408, 231)
+scale = Vector2(0.48, 0.48)
 
-[node name="Interactible" parent="Interactibles" instance=ExtResource("3_lf43h")]
-position = Vector2(43, 332)
+[node name="SuitcaseCopy" parent="Interactibles" instance=ExtResource("3_lf43h")]
+position = Vector2(166, 237)
+scale = Vector2(0.47, 0.47)
 script = ExtResource("6_s3u6l")
 item = ExtResource("7_0cv63")
 
 [node name="Key" parent="Interactibles" instance=ExtResource("3_lf43h")]
-position = Vector2(-15, 161)
-scale = Vector2(0.5, 0.5)
+position = Vector2(46, 235)
+scale = Vector2(0.26, 0.26)
 item = ExtResource("8_d1x2h")
 
-[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
-position = Vector2(381, 99)
-amount = 466
-process_material = SubResource("ParticleProcessMaterial_sbt6t")
+[node name="DebugBattle" parent="Interactibles" instance=ExtResource("3_lf43h")]
+position = Vector2(299, 235)
+scale = Vector2(0.26, 0.26)
+item = ExtResource("10_k0686")
 
 [connection signal="input_event" from="LeftDoor" to="." method="_on_left_door_input_event"]
 [connection signal="input_event" from="MiddleDoor" to="." method="_on_middle_door_input_event"]

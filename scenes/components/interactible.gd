@@ -40,7 +40,7 @@ func _on_input_event(_viewport, event, _shape_idx) -> void:
 func examine_item(item : ItemResource):
 	print("it's a BASE CLASS suitcase ")
 	DialogueManager.show_example_dialogue_balloon(item.dialogue, item.name + "Description")
-	
+
 func check_item_interaction(hand_item : ItemResource, other_item : ItemResource):
 	print("Base class item interaction")
 

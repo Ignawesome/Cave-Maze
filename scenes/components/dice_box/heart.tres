@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="DieSide" load_steps=3 format=3 uid="uid://bvbdctow805a3"]
+
+[ext_resource type="Script" path="res://die_side.gd" id="1_3jekm"]
+[ext_resource type="Texture2D" uid="uid://ccd8lywfqxg57" path="res://assets/textures/icons/heart_side.png" id="2_ynh5d"]
+
+[resource]
+script = ExtResource("1_3jekm")
+name = &"Heart"
+texture = ExtResource("2_ynh5d")

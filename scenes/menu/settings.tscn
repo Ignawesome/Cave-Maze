@@ -5,7 +5,7 @@
 [ext_resource type="StyleBox" uid="uid://60u1jnis73lu" path="res://assets/themes/borde_copado_ky.tres" id="2_l2jlr"]
 [ext_resource type="ButtonGroup" uid="uid://4024fv1jo8t2" path="res://scenes/menu/settings_buttons.tres" id="3_3xvpl"]
 [ext_resource type="Texture2D" uid="uid://c7qtfeaoqarqy" path="res://scenes/menu/inventory_key.tres" id="4_kkbw8"]
-[ext_resource type="Texture2D" uid="uid://dbfo0cluxpght" path="res://assets/textures/UI/tilemap_packed.png" id="5_ikt7f"]
+[ext_resource type="Texture2D" uid="uid://dbfo0cluxpght" path="res://assets/textures/raw/tilemap_packed.png" id="5_ikt7f"]
 
 [sub_resource type="Gradient" id="Gradient_5hojr"]
 offsets = PackedFloat32Array(0, 0.579151, 1)
