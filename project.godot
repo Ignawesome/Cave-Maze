@@ -46,7 +46,7 @@ mouse_cursor/custom_image="res://assets/textures/icons/skel_hand_point.png"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg", "res://addons/orchestrator/plugin.cfg", "res://addons/save_system/plugin.cfg")
+enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg", "res://addons/orchestrator/plugin.cfg", "res://addons/save_system/plugin.cfg", "res://addons/script-ide/plugin.cfg")
 
 [global]
 

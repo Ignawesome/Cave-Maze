@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://ddi2jtj7gbdcw" path="res://enemy_hp_display.tscn" id="12_f3r2g"]
 [ext_resource type="PackedScene" uid="uid://bwxsmx0r3ywho" path="res://diebox_panel.tscn" id="13_5ehmp"]
 [ext_resource type="Resource" uid="uid://duspstjyh5x2p" path="res://faceless.tres" id="13_du7rs"]
-[ext_resource type="Resource" uid="uid://dony2p3o58mms" path="res://scenes/components/dice_box/bomb.tres" id="14_8b1k0"]
+[ext_resource type="Resource" path="res://scenes/components/dice_box/bomb.tres" id="14_8b1k0"]
 [ext_resource type="PackedScene" uid="uid://c1qqkp5370awp" path="res://command_panel.tscn" id="16_dr7a2"]
 
 [sub_resource type="Theme" id="Theme_23u7v"]

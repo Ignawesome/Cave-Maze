@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="PlayerResource" load_steps=3 format=3 uid="uid://duspstjyh5x2p"]
 
-[ext_resource type="Texture2D" uid="uid://ba64dsfbkf8ha" path="res://assets/other/skinless.png" id="1_1dvtp"]
+[ext_resource type="Texture2D" path="res://assets/other/skinless.png" id="1_1dvtp"]
 [ext_resource type="Script" path="res://player_resource.gd" id="1_6diaw"]
 
 [resource]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://c8herly8iihb6"]
 
-[ext_resource type="Texture2D" uid="uid://bjl2nkvyjkiwq" path="res://assets/textures/icons/skull_side.png" id="4_rfvod"]
+[ext_resource type="Texture2D" path="res://assets/textures/icons/skull_side.png" id="4_rfvod"]
 [ext_resource type="Resource" uid="uid://duspstjyh5x2p" path="res://faceless.tres" id="4_y5hpx"]
 [ext_resource type="Script" path="res://player_resource.gd" id="5_m741f"]
 [ext_resource type="Script" path="res://status_panel.gd" id="5_t62if"]

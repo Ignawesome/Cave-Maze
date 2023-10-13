@@ -19,7 +19,7 @@ var combat_scene : PackedScene = preload("res://scenes/menu/combat_scene.tscn")
 
 var die_scene := "res://scenes/components/dice_box/die.tscn"
 
-var enemy = preload("res://assets/horror.tres")
+var enemy1 = preload("res://assets/horror.tres")
 var enemy_hp : Array[DieSide]
 
 # start combat: set enemy picture and enemy hp dice
@@ -28,7 +28,7 @@ var enemy_hp : Array[DieSide]
 # rest: heal player
 
 func _ready() -> void:
-	start_combat(enemy)
+	start_combat(enemy1)
 
 func start_combat(enemy : Enemy):
 	combat_started.emit(enemy)

@@ -1,10 +1,10 @@
 [gd_scene load_steps=8 format=3 uid="uid://ct4wbvh6l4hnp"]
 
 [ext_resource type="Script" path="res://character_status.gd" id="1_0byxe"]
-[ext_resource type="Texture2D" uid="uid://sbnavu5n263u" path="res://assets/other/heart.png" id="2_yfrnm"]
-[ext_resource type="Texture2D" uid="uid://paov3ewscvj6" path="res://assets/other/brain.png" id="3_n0n8q"]
-[ext_resource type="Texture2D" uid="uid://5s11o2qvyw50" path="res://assets/other/lungs.png" id="4_kgt7p"]
-[ext_resource type="Texture2D" uid="uid://dsfmb1jig3amq" path="res://assets/other/eye.png" id="5_sr1hy"]
+[ext_resource type="Texture2D" path="res://assets/other/heart.png" id="2_yfrnm"]
+[ext_resource type="Texture2D" path="res://assets/other/brain.png" id="3_n0n8q"]
+[ext_resource type="Texture2D" path="res://assets/other/lungs.png" id="4_kgt7p"]
+[ext_resource type="Texture2D" path="res://assets/other/eye.png" id="5_sr1hy"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5krgv"]
 bg_color = Color(0, 0, 0, 1)
