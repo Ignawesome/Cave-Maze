@@ -62,4 +62,6 @@ stream = ExtResource("3_x0lhm")
 autoplay = true
 bus = &"Music"
 
+[connection signal="continue_signal" from="UI/MainMenu" to="." method="_on_main_menu_continue_signal"]
+
 [editable path="UI/Inventory"]

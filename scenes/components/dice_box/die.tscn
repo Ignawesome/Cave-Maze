@@ -3,12 +3,12 @@
 [ext_resource type="Script" path="res://scenes/components/dice_box/default_d6.gd" id="1_j302e"]
 [ext_resource type="Texture2D" uid="uid://bgwc5gpf2k1n8" path="res://scenes/components/dice_box/die_die2.png" id="1_si5fl"]
 [ext_resource type="Script" path="res://scenes/components/dice_box/diessides.gd" id="3_pjena"]
-[ext_resource type="Resource" uid="uid://bvbdctow805a3" path="res://scenes/components/dice_box/heart.tres" id="4_bw3fp"]
-[ext_resource type="Resource" uid="uid://cdpa46p4jkvie" path="res://scenes/components/dice_box/star.tres" id="5_7vfbd"]
-[ext_resource type="Resource" uid="uid://dony2p3o58mms" path="res://scenes/components/dice_box/bomb.tres" id="6_iogwi"]
-[ext_resource type="Resource" uid="uid://bmj5f25ncgwrm" path="res://scenes/components/dice_box/shield.tres" id="7_s0vlm"]
-[ext_resource type="Resource" uid="uid://cpoaxblw6un5n" path="res://scenes/components/dice_box/skull.tres" id="8_tqyoq"]
-[ext_resource type="Resource" uid="uid://bymj8ovwuhqor" path="res://scenes/components/dice_box/sword.tres" id="9_hd83j"]
+[ext_resource type="Resource" path="res://scenes/components/dice_box/heart.tres" id="4_bw3fp"]
+[ext_resource type="Resource" path="res://scenes/components/dice_box/star.tres" id="5_7vfbd"]
+[ext_resource type="Resource" path="res://scenes/components/dice_box/bomb.tres" id="6_iogwi"]
+[ext_resource type="Resource" path="res://scenes/components/dice_box/shield.tres" id="7_s0vlm"]
+[ext_resource type="Resource" path="res://scenes/components/dice_box/skull.tres" id="8_tqyoq"]
+[ext_resource type="Resource" path="res://scenes/components/dice_box/sword.tres" id="9_hd83j"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_yuh52"]
 rough = true
@@ -112,7 +112,8 @@ script = ExtResource("3_pjena")
 side = ExtResource("9_hd83j")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 60.0
+wait_time = 10.0
+one_shot = true
 autostart = true
 
 [connection signal="sleeping_state_changed" from="." to="." method="_on_sleeping_state_changed"]

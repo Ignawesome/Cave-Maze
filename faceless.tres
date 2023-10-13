@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="PlayerResource" load_steps=3 format=3 uid="uid://cb2vqusofxcmd"]
+
+[ext_resource type="Texture2D" path="res://assets/other/skinless.png" id="1_1dvtp"]
+[ext_resource type="Script" path="res://player_resource.gd" id="1_6diaw"]
+
+[resource]
+script = ExtResource("1_6diaw")
+HP = 12
+face = ExtResource("1_1dvtp")
+name = &"Faceless"
+die = "res://scenes/components/dice_box/die.tscn"

@@ -129,3 +129,8 @@ func delete_current_scene(current_node):
 	if current_node != null:
 		current_node.queue_free()
 
+
+
+func _on_main_menu_continue_signal() -> void:
+	var enemy = load("res://assets/horror.tres")
+	CombatManager.start_combat(enemy)
