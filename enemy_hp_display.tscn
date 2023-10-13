@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://ddi2jtj7gbdcw"]
+
+[ext_resource type="Script" path="res://enemy_hp_display.gd" id="2_7w7jd"]
+[ext_resource type="Texture2D" uid="uid://ctjjs1gc01w42" path="res://assets/textures/icons/bomb_side.png" id="2_fstif"]
+
+[node name="EnemyHPContainer" type="PanelContainer"]
+custom_minimum_size = Vector2(0, 33)
+script = ExtResource("2_7w7jd")
+
+[node name="EnemyHP" type="GridContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+columns = 5
+
+[node name="TextureRect" type="TextureRect" parent="EnemyHP"]
+layout_mode = 2
+texture = ExtResource("2_fstif")

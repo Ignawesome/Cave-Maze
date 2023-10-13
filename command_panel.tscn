@@ -1,0 +1,66 @@
+[gd_scene load_steps=2 format=3 uid="uid://c1qqkp5370awp"]
+
+[ext_resource type="Script" path="res://command_panel.gd" id="1_1f20e"]
+
+[node name="CommandPanel" type="PanelContainer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -55.0
+offset_top = -25.0
+offset_right = 55.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1f20e")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 3
+theme_override_constants/margin_top = 3
+theme_override_constants/margin_right = 3
+theme_override_constants/margin_bottom = 3
+
+[node name="PanelContainer" type="GridContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+columns = 2
+
+[node name="AttackButton" type="Button" parent="MarginContainer/PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 5
+theme_override_font_sizes/font_size = 8
+text = " Attack "
+
+[node name="ItemButton" type="Button" parent="MarginContainer/PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 5
+theme_override_constants/outline_size = -310
+theme_override_font_sizes/font_size = 8
+text = "  Item  "
+
+[node name="RestButton" type="Button" parent="MarginContainer/PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 5
+theme_override_constants/outline_size = -310
+theme_override_font_sizes/font_size = 8
+text = " Rest "
+
+[node name="SpellButton" type="Button" parent="MarginContainer/PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 5
+theme_override_constants/outline_size = -310
+theme_override_font_sizes/font_size = 8
+disabled = true
+text = " Spell "
+
+[connection signal="pressed" from="MarginContainer/PanelContainer/AttackButton" to="." method="_on_attack_button_pressed"]
+[connection signal="pressed" from="MarginContainer/PanelContainer/ItemButton" to="." method="_on_item_button_pressed"]
+[connection signal="pressed" from="MarginContainer/PanelContainer/RestButton" to="." method="_on_rest_button_pressed"]
+[connection signal="pressed" from="MarginContainer/PanelContainer/SpellButton" to="." method="_on_spell_button_pressed"]

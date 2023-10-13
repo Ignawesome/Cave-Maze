@@ -1,0 +1,39 @@
+[gd_scene load_steps=7 format=3 uid="uid://c8herly8iihb6"]
+
+[ext_resource type="Texture2D" uid="uid://bjl2nkvyjkiwq" path="res://assets/textures/icons/skull_side.png" id="4_rfvod"]
+[ext_resource type="Resource" uid="uid://duspstjyh5x2p" path="res://faceless.tres" id="4_y5hpx"]
+[ext_resource type="Script" path="res://player_resource.gd" id="5_m741f"]
+[ext_resource type="Script" path="res://status_panel.gd" id="5_t62if"]
+[ext_resource type="PackedScene" uid="uid://ct4wbvh6l4hnp" path="res://character_status.tscn" id="6_ic1xs"]
+
+[sub_resource type="Resource" id="Resource_phe05"]
+script = ExtResource("5_m741f")
+HP = 12
+face = ExtResource("4_rfvod")
+name = &"Skinless"
+die = "res://scenes/components/dice_box/die.tscn"
+
+[node name="StatusPanel" type="PanelContainer"]
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 92.0
+grow_vertical = 2
+script = ExtResource("5_t62if")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 3
+theme_override_constants/margin_top = 3
+theme_override_constants/margin_right = 3
+theme_override_constants/margin_bottom = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="CharacterStatus" parent="MarginContainer/VBoxContainer" instance=ExtResource("6_ic1xs")]
+layout_mode = 2
+player = ExtResource("4_y5hpx")
+
+[node name="CharacterStatus2" parent="MarginContainer/VBoxContainer" instance=ExtResource("6_ic1xs")]
+layout_mode = 2
+player = SubResource("Resource_phe05")

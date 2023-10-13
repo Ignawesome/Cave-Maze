@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Enemy" load_steps=3 format=3 uid="uid://ddw1rjr0jhjec"]
+
+[ext_resource type="Script" path="res://enemy.gd" id="1_avvct"]
+[ext_resource type="Texture2D" uid="uid://cpyiu4icrs5k6" path="res://assets/other/monster.png" id="2_h7eco"]
+
+[resource]
+script = ExtResource("1_avvct")
+HP = 4
+texture = ExtResource("2_h7eco")

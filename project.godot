@@ -27,11 +27,12 @@ maze="*res://global/managers/maze.gd"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 SaveSystem="*res://addons/save_system/SaveSystem.gd"
 StateManager="*res://global/managers/state_manager.gd"
-MouseManager="*res://global/mouse_cursor_manager.gd"
+MouseManager="res://global/mouse_cursor_manager.gd"
 InteractionMng="*res://InteractionManager.gd"
 GlobalEvents="*res://global/databases/global_events.gd"
 OrchestratorNodeFactory="*res://addons/orchestrator/orchestrator_node_factory.gd"
 Orchestrator="*res://addons/orchestrator/orchestrator.gd"
+CombatManager="*res://scenes/menu/combat_manager.gd"
 
 [display]
 
@@ -54,7 +55,7 @@ look_sensitivity=0.0
 [gui]
 
 fonts/dynamic_fonts/use_oversampling=false
-theme/custom_font="res://assets/other/alagard_by_Hewett_Tsoi.ttf"
+theme/custom_font="res://assets/other/Kenney Mini.ttf"
 theme/default_font_subpixel_positioning=0
 
 [input]

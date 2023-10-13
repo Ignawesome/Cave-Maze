@@ -1,0 +1,109 @@
+[gd_scene load_steps=17 format=3 uid="uid://duug8t1v4qmxw"]
+
+[ext_resource type="PackedScene" uid="uid://do32hkbmn4pjd" path="res://combat_scene.tscn" id="1_75lqb"]
+[ext_resource type="PackedScene" uid="uid://babuf0fbdot0b" path="res://scenes/components/inventory/inventory_UI.tscn" id="1_oso0u"]
+[ext_resource type="Resource" uid="uid://b5q1fcldpj2kd" path="res://scenes/components/inventory/items/Key.tres" id="2_1es73"]
+[ext_resource type="Script" path="res://scenes/menu/HUD.gd" id="2_43x8x"]
+[ext_resource type="Resource" uid="uid://d0bjbe0a2x2np" path="res://assets/horror.tres" id="3_h4s3j"]
+[ext_resource type="Resource" uid="uid://ucpph8nbmgw3" path="res://scenes/components/inventory/items/Dagaz.tres" id="3_opdmc"]
+[ext_resource type="Resource" uid="uid://dje5841on36ba" path="res://scenes/components/inventory/items/Berkano.tres" id="4_tey61"]
+[ext_resource type="Resource" uid="uid://des1uhf3d07kp" path="res://scenes/components/inventory/items/Jera.tres" id="5_fog1a"]
+[ext_resource type="Resource" uid="uid://d0ejeo3guhtlx" path="res://scenes/components/inventory/items/Phone.tres" id="6_k1c3q"]
+[ext_resource type="Script" path="res://scenes/components/inventory/inventory_reference.gd" id="7_ab0q0"]
+[ext_resource type="PackedScene" uid="uid://c8herly8iihb6" path="res://status_panel.tscn" id="9_hgile"]
+[ext_resource type="PackedScene" uid="uid://ddi2jtj7gbdcw" path="res://enemy_hp_display.tscn" id="12_f3r2g"]
+[ext_resource type="PackedScene" uid="uid://bwxsmx0r3ywho" path="res://diebox_panel.tscn" id="13_5ehmp"]
+[ext_resource type="PackedScene" uid="uid://c1qqkp5370awp" path="res://command_panel.tscn" id="16_dr7a2"]
+
+[sub_resource type="Resource" id="Resource_0esmw"]
+resource_local_to_scene = true
+script = ExtResource("7_ab0q0")
+items_in_inventory = Array[Resource("res://scenes/components/inventory/item_class.gd")]([ExtResource("2_1es73"), ExtResource("3_opdmc"), ExtResource("4_tey61"), ExtResource("5_fog1a"), ExtResource("6_k1c3q")])
+
+[sub_resource type="Theme" id="Theme_qrip0"]
+
+[node name="HUD" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_right = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_43x8x")
+enemy = ExtResource("3_h4s3j")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+
+[node name="Control" type="Control" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="StatusPanel" parent="VBoxContainer/HBoxContainer/Control" instance=ExtResource("9_hgile")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Inventory" parent="VBoxContainer/HBoxContainer/Control" instance=ExtResource("1_oso0u")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+size_flags_horizontal = 3
+player_inventory = SubResource("Resource_0esmw")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="EnemyPortrait" parent="VBoxContainer/HBoxContainer/VBoxContainer" instance=ExtResource("1_75lqb")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 1
+
+[node name="EnemyHPContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer" instance=ExtResource("12_f3r2g")]
+layout_mode = 2
+
+[node name="DieboxPanel" parent="VBoxContainer/HBoxContainer" instance=ExtResource("13_5ehmp")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="CommandPanel" parent="VBoxContainer/PanelContainer/HBoxContainer" instance=ExtResource("16_dr7a2")]
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/PanelContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="BattleLog" type="VBoxContainer" parent="VBoxContainer/PanelContainer/HBoxContainer/ScrollContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = SubResource("Theme_qrip0")
+
+[connection signal="attack" from="VBoxContainer/HBoxContainer/VBoxContainer/EnemyPortrait" to="." method="_on_combat_ui_attack"]
+[connection signal="item" from="VBoxContainer/HBoxContainer/VBoxContainer/EnemyPortrait" to="." method="_on_combat_ui_item"]
+[connection signal="rest" from="VBoxContainer/HBoxContainer/VBoxContainer/EnemyPortrait" to="." method="_on_combat_ui_rest"]
+[connection signal="spell" from="VBoxContainer/HBoxContainer/VBoxContainer/EnemyPortrait" to="." method="_on_combat_ui_spell"]

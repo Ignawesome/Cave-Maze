@@ -1,6 +1,5 @@
-[gd_resource type="Theme" load_steps=19 format=3 uid="uid://bvke1eripwx1b"]
+[gd_resource type="Theme" load_steps=18 format=3 uid="uid://bvke1eripwx1b"]
 
-[ext_resource type="Texture2D" uid="uid://c8yr2cyf6okdv" path="res://scenes/components/inventory/items/borderUI2.png" id="1_nepea"]
 [ext_resource type="FontFile" uid="uid://dps85q238gydx" path="res://assets/other/Kenney Mini.ttf" id="2_0km3x"]
 [ext_resource type="StyleBox" uid="uid://4eww5dc6esqg" path="res://assets/themes/white_black_border.tres" id="2_2tk1m"]
 [ext_resource type="FontFile" uid="uid://cjbgwkf7x3oa5" path="res://assets/other/alagard_by_Hewett_Tsoi.ttf" id="3_jvker"]
@@ -57,7 +56,13 @@ corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5rf8f"]
+<<<<<<< Updated upstream
 texture = ExtResource("1_nepea")
+=======
+content_margin_top = 12.0
+content_margin_right = 12.0
+content_margin_bottom = 12.0
+>>>>>>> Stashed changes
 texture_margin_left = 36.0
 texture_margin_top = 36.0
 texture_margin_right = 11.0

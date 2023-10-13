@@ -1,0 +1,41 @@
+[gd_scene load_steps=4 format=3 uid="uid://do32hkbmn4pjd"]
+
+[ext_resource type="Script" path="res://enemy_portrait.gd" id="1_bp7wf"]
+[ext_resource type="Resource" uid="uid://d0bjbe0a2x2np" path="res://assets/horror.tres" id="2_l44e3"]
+[ext_resource type="Texture2D" uid="uid://cpyiu4icrs5k6" path="res://assets/other/monster.png" id="3_qhum6"]
+
+[node name="EnemyPortrait" type="PanelContainer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -138.651
+offset_top = -53.0
+offset_right = 138.651
+offset_bottom = 53.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_bp7wf")
+enemy = ExtResource("2_l44e3")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 3
+theme_override_constants/margin_top = 3
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 3
+
+[node name="Background" type="ColorRect" parent="MarginContainer"]
+layout_mode = 2
+color = Color(0, 0, 0, 1)
+
+[node name="EnemyTexture" type="TextureRect" parent="MarginContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture = ExtResource("3_qhum6")
+expand_mode = 5
+stretch_mode = 5

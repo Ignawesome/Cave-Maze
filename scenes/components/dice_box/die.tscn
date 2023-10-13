@@ -93,5 +93,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0167084, -1.01265)
 [node name="Sword" type="Node3D" parent="CollisionShape3D/Sides"]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0167084, 0.991907)
+<<<<<<< Updated upstream
+=======
+script = ExtResource("3_pjena")
+side = ExtResource("9_hd83j")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+autostart = true
+>>>>>>> Stashed changes
 
 [connection signal="sleeping_state_changed" from="." to="." method="_on_sleeping_state_changed"]

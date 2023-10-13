@@ -11,9 +11,18 @@ var dice_array = []
 var result_count : Dictionary = {}
 
 
+<<<<<<< Updated upstream
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	spawn_die(die_scene)
+=======
+func clear():
+	for die in dice_array:
+		die.queue_free()
+	dice_array.clear()
+	result_count.clear()
+	results.clear()
+>>>>>>> Stashed changes
 
 
 func _input(event):
@@ -24,11 +33,24 @@ func _input(event):
 
 func result_tally(side : StringName):
 	results.append(side)
+<<<<<<< Updated upstream
 	if result_count.has(side):
 		result_count[side] += 1
 	else:
 		result_count[side] = 1
 	print(result_count)
+=======
+	side_hit.emit(side)
+>>>>>>> Stashed changes
+
+
+#	if result_count.has(side):
+#		result_count[side] += 1
+#	else:
+#		result_count[side] = 1
+#	print(result_count)
+#	result.emit(result_count)
+
 
 func spawn_die(die_path : String) -> void:
 	var new_die = load(die_path).instantiate()
